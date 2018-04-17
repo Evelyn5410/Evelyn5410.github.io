@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+<html>
+<head >
+  <meta charset="utf-8">
+  
+  <title>DFS 从入门到放弃I | Evelynone</title>
+
+  
+  <meta name="author" content="Evelyn">
+  
+
+  
+  <meta name="description" content="Depth First Search 是一种基于树状(Tree) 或者图状(graph)的搜索算法, 本质是从一个节点(root)出发, 向每一个分支进行搜索, 而对于每一个分支来说, 它本身就是一个节点, 从这个节点继续向它可能产生的分支进行搜索, 最终在搜索所有的可能性的过程中找到结果. 也就是所谓的普遍撒网吧.">
+  
+
+  
+  
+  <meta name="keywords" content="Data Structure,Algorithm">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="DFS 从入门到放弃I"/>
+
+  <meta property="og:site_name" content="Evelynone"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+  <link rel="manifest" href="/manifest.json">
+  <link href="/favicon.ico" rel="icon">
+
+  <link rel="alternate" href="/atom.xml" title="Evelynone" type="application/atom+xml">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    
+
+    <header class="header-container" style="background-image: url('/images/blog-bg.jpg');">
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+          <button type="button" id="tglBtn" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Evelyn</a>
+        </div>
+        <div id="bosenyblog-navbar">
+          <div class="navbar-collapse" id="bs-example-navbar-collapse-6">
+            <ul class="nav navbar-nav navbar-right">
+            
+              <li><a href="/">Home</a></li>
+            
+              <li><a href="/archives">Archives</a></li>
+            
+              <li><a href="/about">About</a></li>
+            
+              <li><a href="/tags">Tags</a></li>
+            
+              <li><a href="/categories">Categories</a></li>
+            
+            </ul>
+          </div>
+        </div>
+
+    </div>
+ </nav>
+ <div class="gotop-btn">
+
+ </div>
+</header>
+
+        
+
+          <div class="container ">
+          <div class="row">
+            <main class="site-main posts-loop col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container" style="position: inherit;">
+            <article class="article-container ">
+
+  
+    
+    <h3 class="article-title"><span>DFS 从入门到放弃I</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/04/06/DFS 从入门到放弃 I/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-04-07T05:36:00.452Z">
+          04-06-2018
+        </time>
+      </a>
+    </span>
+    <br />
+    
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+    
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+          <p>Depth First Search 是一种基于树状(Tree) 或者图状(graph)的搜索算法, 本质是从一个节点(root)出发, 向每一个分支进行搜索, 而对于每一个分支来说, 它本身就是一个节点, 从这个节点继续向它可能产生的分支进行搜索, 最终在搜索所有的可能性的过程中找到结果. 也就是所谓的普遍撒网吧.</p>
+<a id="more"></a>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> SubsetI</li>
+<li style="list-style: none"><input type="checkbox" checked> SubsetII</li>
+<li style="list-style: none"><input type="checkbox" checked> Partition an Array into K Equal sum subsets</li>
+<li style="list-style: none"><input type="checkbox"> Combination of K I</li>
+<li style="list-style: none"><input type="checkbox"> Combination of K II</li>
+<li style="list-style: none"><input type="checkbox"> Combination of Coins</li>
+<li style="list-style: none"><input type="checkbox"> Combination of Factors</li>
+<li style="list-style: none"><input type="checkbox"> PermutationI</li>
+<li style="list-style: none"><input type="checkbox"> PermutationII</li>
+<li style="list-style: none"><input type="checkbox"> Valid ParenthesesI</li>
+<li style="list-style: none"><input type="checkbox"> Valid ParenthesesII</li>
+<li style="list-style: none"><input type="checkbox"> N-QueenI</li>
+<li style="list-style: none"><input type="checkbox"> N-QueenII</li>
+</ul>
+<h3 id="Subset-I"><a href="#Subset-I" class="headerlink" title="Subset I"></a>Subset I</h3><p><code>input:</code> A linear data structure, such as an array or a string.<br><code>output:</code> A list of lists of all unique subsets.</p>
+<blockquote>
+<p>DFS 的核心就是回溯( backtracking), 也就是说, 这些分支<strong>从哪里来</strong>的, 最后清除了沿途附加的状态再<strong>回到哪里去</strong>.</p>
+</blockquote>
+<ul>
+<li>dfs 可以使用 for 循环来控制 recursion 的层数. </li>
+<li>在这里, for 循环的终止条件就是 dfs 的终止条件. </li>
+<li>局部变量 i 作为参数 index 传入函数 dfs, 当 i 等于 input 的长度的时候, 函数返回.</li>
+<li><strong>其实和普通的 for loop 是一样的, 只要明白 index 和 i 分别表示的是什么. 这里在最外层的for loop 执行了 n 次, n 是 input 的长度, 而每一次调用的时候 i 进行了一次 + 1的操作, i 次调用的dfs 中的 for loop 会执行 (n - i) - i 次, 同样的, 当 i 的长度等于 input 的长度的时候函数返回, 一次退回上一层调用它的那个循环中, 再继续</strong>.</li>
+</ul>
+<p><img src="/images/subset.png" alt=""><br>For a position i in the input, it has (n - i) - i (where n - i is the size of sub-problem, f(n - 1))choices to run, where n is the length of the input. Every time when the dfs is being called, the size of the problem reduces to n - i, therefore T(n) = 2T(n - 1), O(2^n).<br>Since it’s recursion, the call stack would be the length of the input, which is O(n).</p>
+<p>代码如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Subsets</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; findSubsets(<span class="keyword">int</span>[] input) &#123;</span><br><span class="line">  	<span class="keyword">if</span> (input == <span class="keyword">null</span>) &#123;</span><br><span class="line">  		<span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">	  &#125;</span><br><span class="line"></span><br><span class="line">	  <span class="keyword">if</span> (nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">	  	results.add(<span class="keyword">new</span> ArrayList&lt;Integer&gt;());</span><br><span class="line">	  	<span class="keyword">return</span> results;</span><br><span class="line">	  &#125;</span><br><span class="line"></span><br><span class="line">	  List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">	  dfs(input, <span class="number">0</span>, <span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">	  <span class="keyword">return</span> res;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] input, </span></span></span><br><span class="line"><span class="function"><span class="params">  		<span class="keyword">int</span> index,</span></span></span><br><span class="line"><span class="function"><span class="params">  		ist&lt;Integer&gt; subSolution,</span></span></span><br><span class="line"><span class="function"><span class="params">  		List&lt;List&lt;Integer&gt;&gt; result)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  	result.add(<span class="keyword">new</span> ArrayList&lt;Integer&gt;(subSolution));</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; input.length; i++) &#123;</span><br><span class="line">	  	subSolution.add(input[i]);</span><br><span class="line">	  	dfs(input, i + <span class="number">1</span>, result);</span><br><span class="line">	  	subSolution.remove(sobSolution.size() - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<ul>
+<li>首先如果不是用 for 循环来控制 recursion 的层数, 那么 recursion 就一定需要一个退出条件.</li>
+<li>也可以使用 for loop 来每一层的状态, 或者说每一个位置上的可能性, 或者每一个元素可能产生的分支个数等等. 那么 dfs 的终止条件就不再是 for 循环的终止条件了, 而需要明确的写出来. 通常是当下标指向了input 长度 + 1的位置的时候.</li>
+<li>那么局部变量 i 表示的就是对于当前下标来说, 它有几种选择, 只是 i 不再代表可选择元素的下标了. 所以<strong>参数需要使用 index</strong>. </li>
+<li>for loop 的意义是在以当前 index 为节点调用2次 dfs, 如果 i 是0的话, 加上 index 对应的元素, i = 1时返回上一层的状态, 并且进行下一次的递归调用 (也就是不加的情况).</li>
+</ul>
+<p><img src="/images/subsetpic.png" alt=""></p>
+<p>For element in a position i, it has two states, eighter added or removed. The it has n positions, where n is the length of the input. Thus, time complexity is 2^n.<br>Space complexity is the call stack layers, which is O(n).</p>
+<p>代码如下,</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] input, </span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">int</span> index, </span></span></span><br><span class="line"><span class="function"><span class="params">	List&lt;Integer&gt; subSolution, </span></span></span><br><span class="line"><span class="function"><span class="params">	List&lt;List&lt;Integer&gt;&gt; result)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (index == input.length) &#123;</span><br><span class="line">      result.add(<span class="keyword">new</span> ArrayList&lt;&gt;(subSolution);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">1</span>; i++) &#123;</span><br><span class="line">	 <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">	   subSolution.add(input[index]);</span><br><span class="line">	 &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	 	subSolution.remove(subSolution.size() - <span class="number">1</span>);</span><br><span class="line">	 &#125;</span><br><span class="line">	 dfs(input, index + <span class="number">1</span>  , result);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<ul>
+<li>因为只有2种状态, 所以其实不需要一个 for 循环.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] input, </span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">int</span> index, </span></span></span><br><span class="line"><span class="function"><span class="params">	List&lt;Integer&gt; subSolution, </span></span></span><br><span class="line"><span class="function"><span class="params">	List&lt;List&lt;Integer&gt;&gt; result)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">if</span> (index == input.length) &#123;</span><br><span class="line">		result.add(<span class="keyword">new</span> ArrayList&lt;&gt;(sobSolution))</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	subSolution.add(input[index]);</span><br><span class="line">	dfs(input, index + <span class="number">1</span>, subSolution, result);</span><br><span class="line"></span><br><span class="line">	subSolution.remove(sobSolution.size() - <span class="number">1</span>);</span><br><span class="line">	dfs(input, index + <span class="number">1</span>, subSolution, result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Subset-II"><a href="#Subset-II" class="headerlink" title="Subset II"></a>Subset II</h3><p>有重复元素怎么办?通常有两种解决方案, </p>
+<ul>
+<li>排序</li>
+<li>HashSet/HashMap(根据具体要求)</li>
+</ul>
+<p>因为 dfs 的时间复杂度一定是高于排序的, 所以在时间复杂度上面没有区别. 空间复杂度来说, 如果是一个 array, 那么排序的空间复杂度就是 call stack 的层数, 如果是一个 String, 那么排序就一定要把 String 转换成 array 之后再排序. 所以就具体情况具体分析吧.</p>
+<h4 id="排序的方法"><a href="#排序的方法" class="headerlink" title="排序的方法"></a>排序的方法</h4><ul>
+<li>这里就用到了 Subset I 里面对于 index 和 i 的物理意义的分析, 当 i == index 的时候是在当前层第一次进入 for loop 的情况, 之后在调用dfs 的时候, 把 i 所在元素的后一个元素当做 index 参数传给 dfs. 所以当函数返回之后, local 变量被 GC, i 依然是作为 for loop 的自增变量存在. </li>
+<li>所以对于一个排序的数组来说, 只有在当前层 for loop 第一次循环的时候 i 和 index 指向的是同一个元素. </li>
+<li><p>那么当 index 和 i 不是指向同一个元素的时候( i 自增循环), 如果 index 和 i 下标指向的元素依然相同, 就说明是重复元素, 那么久可以直接跳过(不选的情况).</p>
+</li>
+<li><p>简而言之, 只有满足某种条件才从当前节点出发, 调用 dfs.</p>
+</li>
+</ul>
+<p>代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] input,</span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">int</span> index,</span></span></span><br><span class="line"><span class="function"><span class="params">	List&lt;Integer&gt; subSolution,</span></span></span><br><span class="line"><span class="function"><span class="params">	List&lt;List&lt;Integer&gt;&gt; result)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	result.add(<span class="keyword">new</span> ArrayList&lt;&gt;(subSolution));</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; input.length; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (i != index &amp;&amp; input[i] != input[i - <span class="number">1</span>]) &#123; </span><br><span class="line">		<span class="comment">///i != index 保证了不会越界, 即使 index == 0 的情况. </span></span><br><span class="line">			subSolution.add(input[i]);</span><br><span class="line">			dfs(input, i + <span class="number">1</span>, subSolution, result);</span><br><span class="line">			subSolution.remove(subSolution.size() - <span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果不使用 for 循环作为递归调用的终止条件判断, 基于对每一层传入参数 index 的选取, 它的树状结构应该是这样的.</li>
+<li>可以看到, 以一个重复元素为节点展开的递归调用所产生的 subset 是和它第一次出现的节点的 subset 完全一致. 那么在当前层判断 index 是否第一次出现, 如果是, 那么就跳过.</li>
+</ul>
+<p><img src="/images/subsetIIpic.png" alt=""></p>
+<p>代码如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] input,</span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">int</span> index,</span></span></span><br><span class="line"><span class="function"><span class="params">	List&lt;Integer&gt; sub,</span></span></span><br><span class="line"><span class="function"><span class="params">	List&lt;List&lt;Integer&gt;&gt; result)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (index == input.length()) &#123;</span><br><span class="line">		result.add(<span class="keyword">new</span> ArrayList&lt;&gt;(sub));</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	sub.add(input[index]);</span><br><span class="line">	dfs(input, index + <span class="number">1</span>, sub, result);</span><br><span class="line"></span><br><span class="line">	sub.remove(sub.size() - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">while</span> (index + <span class="number">1</span> &lt; input.length &amp;&amp; input[index] == input[index + <span class="number">1</span>]) &#123;</span><br><span class="line">		index++;</span><br><span class="line">	&#125;</span><br><span class="line">	dfs(input, index + <span class="number">1</span>, sub, result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<ul>
+<li><h4 id="HashSet-的方法"><a href="#HashSet-的方法" class="headerlink" title="HashSet 的方法"></a>HashSet 的方法</h4></li>
+<li>假设重复元素只保留一个, 那么自然的想到可以把使用过的元素放到 HashSet 里面.</li>
+<li>需要注意的是, 当我们返回上一层的时候, 有可能还会用到之前取过的元素, 那么这个 HashSet 就只能作用在当前层.</li>
+<li>也就是说, 当index 作为 node 传入的时候, 没进入一次 for loop 就会形成一个新的 HashSet, 当函数返回的时候, 所有当前层存在 set 里面的元素都不会被执行.<br><img src="/images/subSetII.png" alt=""></li>
+</ul>
+<p>At each level, it runs n - i times looking for candidates, so the time comlexity would be as same as the regular subset.<br>However, if use a Hashset at each level to save visited elements, it would cost O(n^2) space.<br>代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] input,</span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">int</span> index,</span></span></span><br><span class="line"><span class="function"><span class="params">	List&lt;Integer&gt; subSolution,</span></span></span><br><span class="line"><span class="function"><span class="params">	List&lt;List&lt;Integer&gt;&gt; result)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	result.add(<span class="keyword">new</span> ArrayList&lt;&gt;(subSolution));</span><br><span class="line"></span><br><span class="line">	HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = index; i &lt; input.length; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (set.add(input[i])) &#123;</span><br><span class="line">			subSolution.add(input[i]);</span><br><span class="line">			dfs(input, i + <span class="number">1</span>, subSolution, result);</span><br><span class="line">			subSolution.remove(subSolution.size() - <span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>Subsets 的解法有很多种, 最直观的是深度优先搜索(DFS), 另外也可以使用宽度优先搜索(BFS), 根据其特性,</p>
+<blockquote>
+<p>对于每一个元素 e 来说都有0 或者1两个状态<br>还可以使用bit operation, 或者直接使用多层 for 循环, 每一层控制2个选择, 加元素与不加元素.<br>针对每一种dfs 还可以有一些小小的 optimization. 暂且不表.</p>
+</blockquote>
+<p>专注是优良品质, 这里就只写 dfs 了. 笔芯~❤</p>
+
+      
+    </div>
+    
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Data-Structure/">Data Structure</a><a href="/tags/Algorithm/">Algorithm</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+  
+    
+    
+  
+</article>
+   
+    <div id="toc" class="toc-article ">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Subset-I"><span class="toc-number">1.</span> <span class="toc-text">Subset I</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Subset-II"><span class="toc-number">2.</span> <span class="toc-text">Subset II</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#排序的方法"><span class="toc-number">2.1.</span> <span class="toc-text">排序的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HashSet-的方法"><span class="toc-number">2.2.</span> <span class="toc-text">HashSet 的方法</span></a></li></ol></li></ol>
+</div>
+
+
+  
+
+	<section id="comments" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript" defer>
+	var disqus_shortname = 'evelynone';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+	<!-- async load  -->
+	<script>
+			function async(u, c) {
+				var d = document, t = 'script',
+						o = d.createElement(t),
+						s = d.getElementsByTagName(t)[0];
+				o.src = u;
+				if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+				s.parentNode.insertBefore(o, s);
+			}
+	</script>
+	<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+	<script>
+			async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+					anchors.options = {
+						visible: 'hover',
+						placement: 'left',
+						// icon: '#'
+					};
+					anchors.add().remove('.article-title').remove('.subheading').remove('.sidebar-container h5');
+			})
+	</script>
+	<style>
+			/* place left on bigger screen */
+			@media all and (min-width: 800px) {
+					.anchorjs-link{
+							position: absolute;
+							left: -0.75em;
+							font-size: 1.1em;
+							margin-top : -0.1em;
+					}
+			}
+	</style>
+
+
+
+
+<!-- UY BEGIN -->
+	<div id="gitment-container"></div>
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script src="/js/web-pinyin.js"></script>
+	<script>
+		function toUnicode(s){ 
+			return s.replace(/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])/g,function(){
+			return "\\u" + RegExp["$1"].charCodeAt(0).toString(16);
+			});
+		}
+		var title = 'DFS 从入门到放弃I'
+		var GitHub_id = 'Evelyn3333'
+		var client_id = 'a8d81cb40f4b02a4def9'
+		var client_secret = 'c552e7bafbcb85ec6542468a14dc39fe9966bbdc'
+		var repo = 'https://github.com/Evelyn3333/git_comment.git'
+		var gitment = new Gitment({
+		// id: '页面 ID', // 可选。默认为 location.href
+		// id:"11" ,
+		id: title,
+		title: title,
+		owner: GitHub_id,//'你的 GitHub ID',
+		repo: repo,//'存储评论的 repo',
+		oauth: {
+			client_id: client_id,//'你的 client ID',
+			client_secret: client_secret,//'你的 client secret',
+		},
+		})
+		gitment.render('gitment-container')
+	</script>
+<!-- UY END -->
+
+
+
+
+            </main>
+          </div>
+        </div>
+       
+
+
+
+
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/BosenY/Lap" target="_blank">Lap</a>
+    <br/><span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+    </br>
+    
+      
+        &copy; 2018 Evelyn
+      
+    
+  </p>
+</footer>
+    
+  </div>
+
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/js/index.js"></script>
+<script src="/js/search.js"></script>
+
+</body>
+</html>

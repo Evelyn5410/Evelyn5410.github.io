@@ -1,0 +1,366 @@
+<!DOCTYPE HTML>
+<html>
+<head >
+  <meta charset="utf-8">
+  
+  <title>Web Application背后的那些事儿 | Evelynone</title>
+
+  
+  <meta name="author" content="Evelyn">
+  
+
+  
+  <meta name="description" content="当你在地址栏中输入” www.google.com&amp;quot; 之后发生了什么?">
+  
+
+  
+  
+  <meta name="keywords" content="Web Application,Http">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Web Application背后的那些事儿"/>
+
+  <meta property="og:site_name" content="Evelynone"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+  <link rel="manifest" href="/manifest.json">
+  <link href="/favicon.ico" rel="icon">
+
+  <link rel="alternate" href="/atom.xml" title="Evelynone" type="application/atom+xml">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    
+
+    <header class="header-container" style="background-image: url('/images/blog-bg.jpg');">
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+          <button type="button" id="tglBtn" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Evelyn</a>
+        </div>
+        <div id="bosenyblog-navbar">
+          <div class="navbar-collapse" id="bs-example-navbar-collapse-6">
+            <ul class="nav navbar-nav navbar-right">
+            
+              <li><a href="/">Home</a></li>
+            
+              <li><a href="/archives">Archives</a></li>
+            
+              <li><a href="/about">About</a></li>
+            
+              <li><a href="/tags">Tags</a></li>
+            
+              <li><a href="/categories">Categories</a></li>
+            
+            </ul>
+          </div>
+        </div>
+
+    </div>
+ </nav>
+ <div class="gotop-btn">
+
+ </div>
+</header>
+
+        
+
+          <div class="container ">
+          <div class="row">
+            <main class="site-main posts-loop col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container" style="position: inherit;">
+            <article class="article-container ">
+
+  
+    
+    <h3 class="article-title"><span>Web Application背后的那些事儿</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/04/04/Web-Application背后的那些事儿/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-04-04T16:44:05.000Z">
+          04-04-2018
+        </time>
+      </a>
+    </span>
+    <br />
+    
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+    
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+          <p>当你在地址栏中输入” <a href="http://www.google.com&quot;" target="_blank" rel="noopener">www.google.com&quot;</a> 之后发生了什么?</p>
+<a id="more"></a>
+<ul>
+<li>首先浏览器会识别 URL 地址: 包括协议( http/https/ftp), 域名google.com, 以及它对应的端口号. http 默认端口号为80, https 端口号为443, ftp 端口号为21.</li>
+<li>浏览器会现在各种 cache ( browser cache, OS cache, DNS cache, etc)中查找, 如果都找不到就把任务丢给 ISP’s DNS (Internet Service Provider).</li>
+<li>ISP 作为服务供应商, 积极本着积极响应客户需求的原则从高到低, 从远到近的进行递归搜索. 直到找到这个地址所在的所有服务器, 返回最近的, 效果最好的那个地址给浏览器.</li>
+<li>浏览器就就可以骚骚的拿着这个地址向服务器发送请求( get, post, etc).</li>
+<li>服务器会返回给浏览器一个确切的地址.</li>
+<li>现在浏览器确认这个地址是有效的了, 然后不要脸的又发送了一次一模一样的请求.</li>
+<li>这一次 server 会派 handler 来处理这个请求, 读取它的参数, (以及更新服务器端的内容).</li>
+<li>handler 结束工作之后会生成一个 HTML 的回复, 然后服务器会把这个回复交给浏览器. (HTTP/1.1 200 OK)</li>
+<li>浏览器收到这个回复之后就会可视化这个 HTML 的内容, 并且向服务器发送读取内容的请求并接收这些文件. (Images, CSS, JS files, etc)</li>
+</ul>
+<p>所谓协议是为了让双方通讯可以理解, 这里通常我们会使用 HTTP 协议. 为了确保和目标进程链接正确, 使用 TCP 协议. IP 地址是为了保证请求能发送到正确的机器上.</p>
+<p><img src="/images/web.png" alt=""><br>对一个 Web Application 来说, 它的职能范围就是在客户端和服务器端收到请求之后,能够正确处理.</p>
+<p>关于 Tomcat<br>就是一个用来处理各种 Web Application 基本操作的框架. 例如如何接受 HTTP 的请求, 如何发送 HTTP 的结果, 如何调用与 HTTP 请求相关的进程, 如何建立 TCP 的链接, 以及建立连接后如何把 HTTP 请求的处理结果返回给客户端. 它可以运行在本地或者远程服务器上.<br>作为开发人员只需要处理接收到请求之后和返回结果这件的这一段时间内的需要做的操作. 大大简化了开发人员的操作复杂度. </p>
+<p>一个简单的 Web Application 会遵循一个简单的3层逻辑: PLD</p>
+<ul>
+<li>Presentation Tier:  如何展示给客户<br>  Frontend  HTML, CSS, Javascript, etc.</li>
+<li>Data Tier: 如何存储数据<br>  SQL MongoDB, MySQL, etc.</li>
+<li>Logic Tier: 如何处理数据<br>  Backend Java, Go, Python, etc.</li>
+</ul>
+<p>简述 HTTP 请求:</p>
+<ul>
+<li>Request Line ( 请求类型( get, post, etc) ,  访问的资源( host 地址的相对路径,访问之后触发的路径), HTTP/1.1(协议版本))</li>
+<li>Request Header (额外信息, 支持语言, 浏览器类型等)</li>
+<li>Request Message Body (对内容进行更改)</li>
+</ul>
+<p>HTTP RESPONSE:</p>
+<ul>
+<li>Status Line ( 协议版本, 状态码 200, 404, 500, etc., 状态信息)</li>
+<li>Response Headers (Server 版本, 返回类型, etc)</li>
+<li>Response Message Body</li>
+</ul>
+<p>对于 Message Body 通常使用 Json (Javascript Object Notation)格式, 比起 XML 更加简洁, 而却 key, value pair 的搜索效率更高.<br>RPC (Remote Procedure Call): 对于 HTTP 请求进行处理然后返回相对应的结果这个过程.<br>对于 Java 来说, Java Servlet 是专门用来处理客户端发到服务器端的请求的(rpc).</p>
+<p>通常使用 HTTP 的请求类型是 Get 和 Post.  那么为什么偏向于用 Post 而不是用 Put 呢?<br>因为 Put 是幂等( idempotent) 的操作, 而 Post 不是. 什么是幂等呢?<br>对于一个操作和多个操作产生的结果是相同的, 这种操作叫做幂等. 而每一个操作产生的结果都不相同的操作成为非幂等操作.<br>如果对某个文件进行一个更新操作, 我们希望保持结果的一致性.所以使用 Post. </p>
+<p>简述 URL:</p>
+<blockquote>
+<p>protocal://hostname:port/endpoint?query<br>通常 port 是不写的, 因为 每一个 protocal 有默认的端口号码. 除非我们希望监听特定的某个进程.<br>endpoint 对应的是我们希望触发的的进程.</p>
+</blockquote>
+<p>使用 REST 设计Web Service:<br>使用 HTTP method 对应请求, 减少服务器端的操作, 直接通过HTTP request 判断用户需求.<br>server 可以通过URL来判断请求对应的是哪一个文件/进程( service).<br>请求和请求之间相互独立的, server 就不需要记录一个请求的状态以便于处理下一个请求(处于 stateless 状态).每个请求对应一个操作.<br>提升数据处理量, 因为每一个请求都是相对独立的, 所以 server 不需要记录任何一个请求来处理下一个请求,因此 server 是无状态的, 所以当进行扩展的时候不需要考虑 server 的状态, 可以简单的使 server 运行在多个不同的机器上(平行扩展). 扩展性能高( scalibility). </p>
+<p>DataBase:<br>ER (Entity Relationship) model: 只包含两种数据类型( Entity( 可以实例化), Entity 之间的关系(不能实例化))<br>MySQL: Widely used open source relational database manaegement system.</p>
+<ul>
+<li>Table: 拥有相同属性的数据集合. 每一列对应一个属性.</li>
+<li>Row: 包含完整信息的一个 item.</li>
+<li>Column :属性.</li>
+<li>Schema: table 创建时候的结构(都有什么属性, 每一种属性有什么类型,  其他限制条件等).</li>
+<li>Consistency: 保持一致性, 但是慢. 数据耦合度高.</li>
+</ul>
+<p>NoSQL: Json-like distributed system using horizontal scaling. No schema. More flexible.</p>
+<ul>
+<li>Collection: 数据集合.不要求每一条数据拥有相同的属性.</li>
+<li>Document: 包含完整信息的一个 item.</li>
+<li>Field: 属性. (may vary from document to document)</li>
+<li>Avalibility: 及时同步, 速度快. 但是数据有可能不太一致.数据之间的耦合度低.</li>
+</ul>
+<p>CAP:</p>
+<ul>
+<li>Consistency: Every request will receive the most recent data.</li>
+<li>Availability: Every request will receive a response, which may not be up to the minute, without delay.</li>
+<li>Partition tolerance: Trade off consistency and availability for distributed system. </li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Web/">Web</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Web-Application/">Web Application</a><a href="/tags/Http/">Http</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+  
+    
+    
+  
+</article>
+   
+    <div id="toc" class="toc-article ">
+    <div class="toc-title">目录</div>
+    
+</div>
+
+
+  
+
+	<section id="comments" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript" defer>
+	var disqus_shortname = 'evelynone';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+	<!-- async load  -->
+	<script>
+			function async(u, c) {
+				var d = document, t = 'script',
+						o = d.createElement(t),
+						s = d.getElementsByTagName(t)[0];
+				o.src = u;
+				if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+				s.parentNode.insertBefore(o, s);
+			}
+	</script>
+	<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+	<script>
+			async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+					anchors.options = {
+						visible: 'hover',
+						placement: 'left',
+						// icon: '#'
+					};
+					anchors.add().remove('.article-title').remove('.subheading').remove('.sidebar-container h5');
+			})
+	</script>
+	<style>
+			/* place left on bigger screen */
+			@media all and (min-width: 800px) {
+					.anchorjs-link{
+							position: absolute;
+							left: -0.75em;
+							font-size: 1.1em;
+							margin-top : -0.1em;
+					}
+			}
+	</style>
+
+
+
+
+<!-- UY BEGIN -->
+	<div id="gitment-container"></div>
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script src="/js/web-pinyin.js"></script>
+	<script>
+		function toUnicode(s){ 
+			return s.replace(/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])/g,function(){
+			return "\\u" + RegExp["$1"].charCodeAt(0).toString(16);
+			});
+		}
+		var title = 'Web Application背后的那些事儿'
+		var GitHub_id = 'Evelyn3333'
+		var client_id = 'a8d81cb40f4b02a4def9'
+		var client_secret = 'c552e7bafbcb85ec6542468a14dc39fe9966bbdc'
+		var repo = 'https://github.com/Evelyn3333/git_comment.git'
+		var gitment = new Gitment({
+		// id: '页面 ID', // 可选。默认为 location.href
+		// id:"11" ,
+		id: title,
+		title: title,
+		owner: GitHub_id,//'你的 GitHub ID',
+		repo: repo,//'存储评论的 repo',
+		oauth: {
+			client_id: client_id,//'你的 client ID',
+			client_secret: client_secret,//'你的 client secret',
+		},
+		})
+		gitment.render('gitment-container')
+	</script>
+<!-- UY END -->
+
+
+
+
+            </main>
+          </div>
+        </div>
+       
+
+
+
+
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/BosenY/Lap" target="_blank">Lap</a>
+    <br/><span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+    </br>
+    
+      
+        &copy; 2018 Evelyn
+      
+    
+  </p>
+</footer>
+    
+  </div>
+
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/js/index.js"></script>
+<script src="/js/search.js"></script>
+
+</body>
+</html>

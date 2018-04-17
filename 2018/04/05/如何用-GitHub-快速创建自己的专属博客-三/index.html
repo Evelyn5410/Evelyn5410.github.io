@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html>
+<head >
+  <meta charset="utf-8">
+  
+  <title>如何用-GitHub-快速创建自己的专属博客(三) | Evelynone</title>
+
+  
+  <meta name="author" content="Evelyn">
+  
+
+  
+  <meta name="description" content="阅读本文可能需要10分钟…  hexo 的安装指北">
+  
+
+  
+  
+  <meta name="keywords" content="github,hexo">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="如何用-GitHub-快速创建自己的专属博客(三)"/>
+
+  <meta property="og:site_name" content="Evelynone"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+  <link rel="manifest" href="/manifest.json">
+  <link href="/favicon.ico" rel="icon">
+
+  <link rel="alternate" href="/atom.xml" title="Evelynone" type="application/atom+xml">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    
+
+    <header class="header-container" style="background-image: url('/images/blog-bg.jpg');">
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+          <button type="button" id="tglBtn" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Evelyn</a>
+        </div>
+        <div id="bosenyblog-navbar">
+          <div class="navbar-collapse" id="bs-example-navbar-collapse-6">
+            <ul class="nav navbar-nav navbar-right">
+            
+              <li><a href="/">Home</a></li>
+            
+              <li><a href="/archives">Archives</a></li>
+            
+              <li><a href="/about">About</a></li>
+            
+              <li><a href="/tags">Tags</a></li>
+            
+              <li><a href="/categories">Categories</a></li>
+            
+            </ul>
+          </div>
+        </div>
+
+    </div>
+ </nav>
+ <div class="gotop-btn">
+
+ </div>
+</header>
+
+        
+
+          <div class="container ">
+          <div class="row">
+            <main class="site-main posts-loop col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container" style="position: inherit;">
+            <article class="article-container ">
+
+  
+    
+    <h3 class="article-title"><span>如何用-GitHub-快速创建自己的专属博客(三)</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/04/05/如何用-GitHub-快速创建自己的专属博客-三/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-04-05T18:02:22.000Z">
+          04-05-2018
+        </time>
+      </a>
+    </span>
+    <br />
+    
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+    
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+          <p><strong>阅读本文可能需要10分钟…<br>  hexo 的安装指北</strong></p>
+<a id="more"></a>
+<p>首先确保你的电脑上已经安装了 git 和 node.js. 在 terminal(终端)输入,</p>
+<pre><code>git version
+</code></pre><p> 如果你看到了如下结果, 那么说明安装成功, 否则左转传送门<a href="https://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" target="_blank" rel="noopener">Git 安装</a></p>
+<p>查看是否已经安装了 node.js. 在 terminal 输入,</p>
+<pre><code>npm -v
+</code></pre><p> 如果你看到了版本号码, 说明安装成功, 否则继续左转传送门<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js 下载</a><br>注: windows 和 mac 的指令可能有所不同, 对于版本验证的指令可以尝试(-v, -version, 和version)</p>
+<p>以上步骤完成之后就可以开始安装 hexo 了!~!~</p>
+<p>继续留在终端, 指定一个你想要保存 hexo 文件的路径, 创建一个文件夹, 使用如下指令</p>
+<pre><code>mkdir ~/你自定义的路径/文件夹的名字
+</code></pre><p> 到你刚刚创建好的路径下面,</p>
+<pre><code>cd ~/你自定义的路径/文件夹的名字 
+</code></pre><p> 输入指令,</p>
+<pre><code>npm -install hexo --save
+</code></pre><p> 耐心等待安装完成, 输入,</p>
+<pre><code>hexo -v
+</code></pre><p> 如果出现了类似的信息说明安装成功,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">hexo-cli: 1.1.0</span><br><span class="line">os: Darwin 17.4.0 darwin x64</span><br><span class="line">http_parser: 2.7.0</span><br><span class="line">node: 8.10.0</span><br><span class="line">v8: 6.2.414.50</span><br><span class="line">uv: 1.19.1</span><br><span class="line">zlib: 1.2.11</span><br><span class="line">ares: 1.10.1-DEV</span><br><span class="line">modules: 57</span><br><span class="line">nghttp2: 1.25.0</span><br><span class="line">openssl: 1.0.2n</span><br><span class="line">icu: 60.1</span><br><span class="line">unicode: 10.0</span><br><span class="line">cldr: 32.0</span><br><span class="line">tz: 2017c</span><br></pre></td></tr></table></figure></p>
+<p>接下来初始化 hexo, 继续在终端输入,</p>
+<pre><code>hexo init
+</code></pre><p>接下来安装组件, 输入</p>
+<pre><code>npm install
+</code></pre><p> 耐心等待安装完成, 现在你可以尝试 generate 你的本地页面了, 输入,</p>
+<pre><code>hexo g
+</code></pre><p>然后启用本地服务器, </p>
+<pre><code>hexo s
+</code></pre><p>不要关闭这个 terminal 创空, 在你的浏览器中输入<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a><br>或者可以直接复制终端提示的地址, 你就可以看到本地生成的一个基础的 blog 页面啦~</p>
+<p>你已经成功的安装了 hexo 在本地. </p>
+<p>接下来只需要简单的设置就可以把本地生成的 blog 和你的远程服务器关联起来了.<br> Ctrl + c 终止本地 server,这样你就可以直接跳回 hexo 的文件夹, 或者另外开启一个 terminal,  使用 cd 命令重新进入到 hexo 的目录下.</p>
+<p> 首先配置你的用户信息,</p>
+<p>在终端输入,</p>
+<pre><code>git config --global user.name &quot;yourUserName&quot;
+git config --global user.email &quot;yourEmail&quot;
+</code></pre><p>–global 表示设置为全局变量.</p>
+<p>确保当前位置是你的 hexo 目录, 输入, </p>
+<pre><code>vim _config.yml
+</code></pre><p> 注意下划线, 如果你打开的是一个空白文档, 说明你的目录不正确, 使用Esc + :q 的命令退出界面, 重新确认当前路径是否为 hexo 的安装目录.<br>在文件中找到 deploy, 更改为如下内容, example 改为你自己的用户名.<br> 使用i 切换到编辑模式, 更改之后使用 Esc + :wq 退出并保存.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:example/example.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>退出 vim 界面之后, 继续输入, </p>
+<pre><code>hexo d
+</code></pre><p> terminal 会提示你输入用户名和密码(github 的用户名和密码), 按照提示输入就可以了, 这里面输入密码的时候不会有显示, 自己确保输入正确就可以了.</p>
+<p>这样你在本地生成的静态页面就成功部署到 github 上面了, 现在你可以使用定义好的域名来访问你的博客啦~~</p>
+
+      
+    </div>
+    
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/blog/">blog</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/github/">github</a><a href="/tags/hexo/">hexo</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+  
+    
+    
+  
+</article>
+   
+    <div id="toc" class="toc-article ">
+    <div class="toc-title">目录</div>
+    
+</div>
+
+
+  
+
+	<section id="comments" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript" defer>
+	var disqus_shortname = 'evelynone';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+	<!-- async load  -->
+	<script>
+			function async(u, c) {
+				var d = document, t = 'script',
+						o = d.createElement(t),
+						s = d.getElementsByTagName(t)[0];
+				o.src = u;
+				if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+				s.parentNode.insertBefore(o, s);
+			}
+	</script>
+	<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+	<script>
+			async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+					anchors.options = {
+						visible: 'hover',
+						placement: 'left',
+						// icon: '#'
+					};
+					anchors.add().remove('.article-title').remove('.subheading').remove('.sidebar-container h5');
+			})
+	</script>
+	<style>
+			/* place left on bigger screen */
+			@media all and (min-width: 800px) {
+					.anchorjs-link{
+							position: absolute;
+							left: -0.75em;
+							font-size: 1.1em;
+							margin-top : -0.1em;
+					}
+			}
+	</style>
+
+
+
+
+<!-- UY BEGIN -->
+	<div id="gitment-container"></div>
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script src="/js/web-pinyin.js"></script>
+	<script>
+		function toUnicode(s){ 
+			return s.replace(/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])/g,function(){
+			return "\\u" + RegExp["$1"].charCodeAt(0).toString(16);
+			});
+		}
+		var title = '如何用-GitHub-快速创建自己的专属博客(三)'
+		var GitHub_id = 'Evelyn3333'
+		var client_id = 'a8d81cb40f4b02a4def9'
+		var client_secret = 'c552e7bafbcb85ec6542468a14dc39fe9966bbdc'
+		var repo = 'https://github.com/Evelyn3333/git_comment.git'
+		var gitment = new Gitment({
+		// id: '页面 ID', // 可选。默认为 location.href
+		// id:"11" ,
+		id: title,
+		title: title,
+		owner: GitHub_id,//'你的 GitHub ID',
+		repo: repo,//'存储评论的 repo',
+		oauth: {
+			client_id: client_id,//'你的 client ID',
+			client_secret: client_secret,//'你的 client secret',
+		},
+		})
+		gitment.render('gitment-container')
+	</script>
+<!-- UY END -->
+
+
+
+
+            </main>
+          </div>
+        </div>
+       
+
+
+
+
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/BosenY/Lap" target="_blank">Lap</a>
+    <br/><span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+    </br>
+    
+      
+        &copy; 2018 Evelyn
+      
+    
+  </p>
+</footer>
+    
+  </div>
+
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/js/index.js"></script>
+<script src="/js/search.js"></script>
+
+</body>
+</html>

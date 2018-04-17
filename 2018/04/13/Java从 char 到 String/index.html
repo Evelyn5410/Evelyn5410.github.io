@@ -1,0 +1,448 @@
+<!DOCTYPE HTML>
+<html>
+<head >
+  <meta charset="utf-8">
+  
+  <title>Java 从 char 到 String | Evelynone</title>
+
+  
+  <meta name="author" content="Evelyn">
+  
+
+  
+  <meta name="description" content="Java 中的基本数据类型都有一个对应的wrapper class, 所有的 wrapper class 都是 IMMUTABLE 的. wrapper class 的作用是什么呢? 
+
+可以被应用到 Java generic 中, 例如 List中的 object 只能是 wrapper class.
+可以定义/增加成员函数.
+可以表示 null. 
+
+char也有它对应的 wrapper class –&amp;gt; Character">
+  
+
+  
+  
+  <meta name="keywords" content="Data Structure,Algorithm">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Java 从 char 到 String"/>
+
+  <meta property="og:site_name" content="Evelynone"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+  <link rel="manifest" href="/manifest.json">
+  <link href="/favicon.ico" rel="icon">
+
+  <link rel="alternate" href="/atom.xml" title="Evelynone" type="application/atom+xml">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    
+
+    <header class="header-container" style="background-image: url('/images/blog-bg.jpg');">
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+          <button type="button" id="tglBtn" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Evelyn</a>
+        </div>
+        <div id="bosenyblog-navbar">
+          <div class="navbar-collapse" id="bs-example-navbar-collapse-6">
+            <ul class="nav navbar-nav navbar-right">
+            
+              <li><a href="/">Home</a></li>
+            
+              <li><a href="/archives">Archives</a></li>
+            
+              <li><a href="/about">About</a></li>
+            
+              <li><a href="/tags">Tags</a></li>
+            
+              <li><a href="/categories">Categories</a></li>
+            
+            </ul>
+          </div>
+        </div>
+
+    </div>
+ </nav>
+ <div class="gotop-btn">
+
+ </div>
+</header>
+
+        
+
+          <div class="container ">
+          <div class="row">
+            <main class="site-main posts-loop col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container" style="position: inherit;">
+            <article class="article-container ">
+
+  
+    
+    <h3 class="article-title"><span>Java 从 char 到 String</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/04/13/Java从 char 到 String/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-04-13T20:47:34.481Z">
+          04-13-2018
+        </time>
+      </a>
+    </span>
+    <br />
+    
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+    
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+          <p>Java 中的基本数据类型都有一个对应的wrapper class, <strong>所有的 wrapper class 都是 IMMUTABLE 的</strong>. wrapper class 的作用是什么呢? </p>
+<ul>
+<li><strong>可以被应用到 Java generic 中, 例如 List<object>中的 object 只能是 wrapper class.</object></strong></li>
+<li>可以定义/增加成员函数.</li>
+<li>可以表示 null. </li>
+</ul>
+<p>char也有它对应的 wrapper class –&gt; Character</p>
+<a id="more"></a>
+<h2 id="Char"><a href="#Char" class="headerlink" title="Char"></a>Char</h2><p>在 Java 中, char 是 primitive 类型, String 则是一个类.<br>Java 中, 一个 char (primitive type) 使用的是 Unicode, 所以是16位的(2bytes). </p>
+<ul>
+<li>前 128(0~127) 个 和 ascii 码是重复的.</li>
+<li>前 3 个和第 128 个是不可打印的( debug 时候要注意, 可以打印 int.)</li>
+<li>‘0’ ~ ‘9’, ‘a’ ~ ‘z’, ‘A’ ~ ‘Z’是连续排列的. 所以可以通过+/-操作来得到他们的值, 或者在位置.</li>
+</ul>
+<p>char 常用的操作:</p>
+<blockquote>
+<ul>
+<li>char - ‘0’            char          –&gt; int </li>
+<li>char - ‘a’            char          –&gt; int(position after’a’ in the unicode chart)</li>
+<li>char - ‘A’            char          –&gt; int(position after’A’ in the unicode chart)</li>
+<li>cahr - ‘a’ + ‘A’       lower          –&gt; upper</li>
+<li>cahr - ‘A’ + ‘a’    upper          –&gt; lower</li>
+<li>(int)char             char          –&gt; unicode</li>
+<li>(char)int             int(unicode) –&gt; char</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>每一个 string 的类里面都有一个 final char[] value, int offset, 和 int count.<br>offset 作为一个优化的存在, 多数应用于得到一个String的 substring (从下标为 index 的元素出发, 数 count 个元素).</p>
+<p>String 的构造函数:</p>
+<blockquote>
+<ul>
+<li>String()</li>
+<li>String(“value”)</li>
+<li>String(char[] array)</li>
+<li>String(char[] array, int offset, int count)</li>
+<li>String(StringBuilder)</li>
+</ul>
+</blockquote>
+<p><em>当涉及到一个 string 的长度变化的时候多数建议用 StringBuilder 而不是用 Concatenation(直接加). 对于 n 个长度为 m 的数组来说, concatenate 的时间复杂度是 O(n^2 </em> m). 因为m + m –&gt; 2m + m –&gt; 3m + m ….–&gt; nm + m  = (1 + 2 + 3….+ n) <em> m = n^2 </em> m (每一次相加的时候都会新建一个对象).<br>而 StringBuilder 内部实现是一个长度动态变化的 char[]. Amortized time complexity 是 O(1)的, 所以 n 个 长度为 m 的数组相加就是 O(nm).*</p>
+<p><strong>substring 的 api:</strong></p>
+<blockquote>
+<ul>
+<li><code>str.substring(start, end)</code>                  //包含 start 不包含 end</li>
+<li><code>str.substring(start)</code>                        //从 start 到最后</li>
+</ul>
+</blockquote>
+<p><em>相较于 Java 7u6 来说, 新的版本直接创建了一个新的substring 的对象, 不重复使用原来的 string, 时间上更快一些. 而7u6之前的版本创建空间上重复使用了原来的 string, 创建时间更快一些, 但是使用起来的时间复杂度是 O(n). 因为 reference 指向的是原来 string 地址的起始位置.</em></p>
+<p><strong>常用的转换成 String 的方法:</strong></p>
+<blockquote>
+<ul>
+<li>primitive type: <code>value + &quot;&quot;</code></li>
+<li>wrapper class: <code>String.valueOf(value)</code>   //避免 NPE</li>
+</ul>
+</blockquote>
+<p><strong>String 转换成其他类型(例如 Integer):</strong></p>
+<blockquote>
+<ul>
+<li><code>Integer.valueOf(value)</code></li>
+<li><code>Integer.parseInt(value)</code></li>
+</ul>
+</blockquote>
+<p><strong>String 常用的一些的比较和判断的 api:</strong></p>
+<blockquote>
+<ul>
+<li>boolean <code>endsWith(&quot;suffix&quot;)</code></li>
+<li>boolean <code>startsWith(&quot;prefix&quot;)</code></li>
+<li>int <code>compareTo(&quot;anotherString&quot;)</code>  //lexicographical order</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>int <code>compareToIgnoreCase(&quot;string&quot;)</code></li>
+<li>boolean <code>equals(Object)</code></li>
+<li>boolean <code>equalsIgnoreCase(&quot;string&quot;)</code></li>
+</ul>
+</blockquote>
+<p><strong>一些其他的常用 api:</strong></p>
+<blockquote>
+<ul>
+<li>boolean contains(“char sequence”)</li>
+<li>String[] split(“regex”)</li>
+<li>String[] split(“regex”, limitNumber)</li>
+<li>String trim()</li>
+<li>String toLowerCase()</li>
+<li>String toUpperCase()</li>
+<li>int indexOf(unicode#)             //param 类型是 int, 这里面通常直接使用一个 char, 只是自动进行了一个类型转换.</li>
+<li>int lastIndexOf(‘char’)<br>etc.</li>
+</ul>
+</blockquote>
+<p><strong>StringBuilder 的常用 api:</strong></p>
+<blockquote>
+<ul>
+<li>append(‘char’)   //O(1)</li>
+<li>append(“String”) //O(n)</li>
+</ul>
+</blockquote>
+<p>这里面, 返回类型是 String 的方法都不是 inplace 的操作, 因为 String 是 immutable 的类型. 所以时间复杂度都是 O(n)的, 因为要重新创建一个对象. </p>
+<h3 id="Parse-a-String-into-Integer-乞丐版-atoi"><a href="#Parse-a-String-into-Integer-乞丐版-atoi" class="headerlink" title="Parse a String into Integer (乞丐版 atoi)"></a>Parse a String into Integer (乞丐版 atoi)</h3><p><code>input:</code> A String with only positive numbers.<br><code>output:</code> The position integer, which the string represents.</p>
+<p>最基本的 char –&gt; int 的应用. 代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">parsInt</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Invalid input."</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">char</span> ch : str.toCharArray()) &#123;</span><br><span class="line">		result = result * <span class="number">10</span> + (ch - <span class="string">'0'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Atoi"><a href="#Atoi" class="headerlink" title="Atoi"></a>Atoi</h3><p><code>input:</code> A String with all characters that can make a valid integer.<br><code>output:</code> The integer.</p>
+<p>Corner cases:</p>
+<ul>
+<li>Null/Empty input</li>
+<li>Leading space</li>
+<li>Signs(+ / -)</li>
+<li>Overflow</li>
+</ul>
+<p>其实和就是多了一些 corner case. 可以先把基础代码写进去, 然后逐渐添加解决方案. 代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">parsInt</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Invalid input."</span>);		<span class="comment">//null/empty input</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	str = str.trim();												<span class="comment">//leading/trailing space</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">boolean</span> positive = <span class="keyword">true</span>;										<span class="comment">//sign. </span></span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>; </span><br><span class="line">	<span class="keyword">while</span> (i &lt; str.length()) &#123;</span><br><span class="line">		<span class="keyword">if</span> (str.charAt(i) == <span class="string">'-'</span> || str.charAt(i) == <span class="string">'+'</span>) &#123;</span><br><span class="line">			positive = str.charAt(i) == <span class="string">'+'</span>;</span><br><span class="line">			i++;											<span class="comment">//If it has a sign, whether it's '-' or '+', index needs to move rightward.</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">//int result = 0;</span></span><br><span class="line">	<span class="keyword">long</span> result = <span class="number">0</span>;												<span class="comment">//overflow</span></span><br><span class="line">	<span class="keyword">for</span> (; i &lt; input.length; i++) &#123;</span><br><span class="line">		result = result * <span class="number">10</span> + (ch - <span class="string">'0'</span>);</span><br><span class="line">		<span class="keyword">if</span> (result &gt; (<span class="keyword">long</span>)Integer.MAX_VALUE + <span class="number">1</span>) &#123;					<span class="comment">//MAX_VALUE + 1 = abs(MIN_VALUE);</span></span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	result = positive ? result : result * -<span class="number">1</span>;						<span class="comment">//adding sign</span></span><br><span class="line">	<span class="keyword">if</span> (result &gt; (<span class="keyword">long</span>)Integer.MAX_VALUE) <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">	<span class="keyword">if</span> (result &lt; (<span class="keyword">long</span>)Integer.MIN_VALUE) <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">	<span class="keyword">return</span> (<span class="keyword">int</span>) result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Valid-Numeric"><a href="#Valid-Numeric" class="headerlink" title="Valid Numeric"></a>Valid Numeric</h3><p><code>input:</code> A string.<br><code>output:</code> Whether the string is a valid numeric.</p>
+<p>Corner cases:</p>
+<ul>
+<li>Null/empty input</li>
+<li>Leading/trailing space</li>
+<li>Leading 0s</li>
+<li>Decimal point</li>
+<li>Sign -/+</li>
+<li>Scientific notation (e/E)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	String pattern = <span class="string">"[-+]?(([0-9]+(\.[0-9]*)?)|\.[0-9]+)([eE][-+]?[0-9]+)?"</span> ;</span><br><span class="line">	Pattern re = Pattern.compile(pattern);</span><br><span class="line"></span><br><span class="line">	Matcher m = r.matcher(str);</span><br><span class="line">	<span class="keyword">if</span> (m.find())&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Char-Removal"><a href="#Char-Removal" class="headerlink" title="Char Removal"></a>Char Removal</h3><p><code>input:</code> A string and target(s) that needs to be removed.<br><code>output:</code> A stirng after remove certain characters.</p>
+<ul>
+<li>可以使用 char array, 两个指针i, j从左往右扫描, i的左边不包括 i 都是要保留的, 最后返回 new String(input, 0, i).</li>
+<li>或者使用一个 StringBuilder, 一个指针, 如果是需要保留的元素就加到 StringBuilder 里面, 否则跳过.</li>
+<li>需要一个额外的数据结构 HashSet 为了可以快速的确认是否是需要被删除的 target.</li>
+</ul>
+<p>代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">removeChar</span><span class="params">(String str, List&lt;Character&gt; tagert)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length == <span class="number">0</span> || target.size() == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> str;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	Set&lt;Character&gt; candidates = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">	<span class="keyword">for</span> (Character s : target) &#123;</span><br><span class="line">		candidates.add(s);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">char</span>[] set = str.toCharArray();</span><br><span class="line">	<span class="keyword">int</span> i = j = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (j &lt; set.length) &#123;</span><br><span class="line">		<span class="keyword">if</span> (!candidates.congtains(set[j])) &#123;</span><br><span class="line">			set[i++] = set[j++];</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> String(set, <span class="number">0</span>, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Space-Removal"><a href="#Space-Removal" class="headerlink" title="Space Removal"></a>Space Removal</h3><p><code>input:</code> A string.<br><code>output:</code> A string with no leading nor trailing spaces, and leave one space between words.</p>
+<ul>
+<li>和 char removal 是一样的, 只是 target 变成了 space. </li>
+<li>删除所有的 space 之后, 在不同的单词中间加上一个空格.</li>
+<li>这里只需要关注指针 j 的3种状态, j == “ “, j != “ “ (j 指向的是单词的首字母, j 指向的是单词的非首字母).</li>
+</ul>
+<p>Cases:</p>
+<ul>
+<li>String with only spaces</li>
+<li>Leading spaces and trailing spaces</li>
+</ul>
+<p>代码如下:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">removeSpace</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> str;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">char</span>[] set = str.toCharArray();</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (j &lt; set.length) &#123;</span><br><span class="line">		<span class="keyword">if</span> (j == <span class="string">" "</span>) &#123;</span><br><span class="line">			j++</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">- </span><br><span class="line">### Encode Space</span><br><span class="line">### Reverse String</span><br><span class="line">### Right Shift By N Characters</span><br><span class="line">### All Anagrams</span><br><span class="line">### Compress String</span><br><span class="line">### Decompress String I</span><br><span class="line">### Decompress String II</span><br><span class="line">### Isomorphic String I</span><br><span class="line">### Missing Number I</span><br><span class="line">### All Unique Characters II</span><br><span class="line">### ReOrder Array</span><br><span class="line">### Reverse Words In A Sentence I</span><br><span class="line">### Reverse Words In A Sentence II</span><br><span class="line">### String Replace</span><br><span class="line">### Common Numbers Of Two Sorted Arrays</span><br><span class="line">### Remove Adjacent Repeated Characters I</span><br><span class="line">### Remove Adjacent Repeated Characters IV</span><br><span class="line">### Determine If One String Is Another's Substring</span><br><span class="line">### Remove Spaces</span><br><span class="line">### Remove Certain Characters</span><br><span class="line">### String Abbreviation Matching</span><br><span class="line">### Longest Common Substring</span><br><span class="line">### Longest Common Subsequence</span><br><span class="line">### Longest Substring Without Repeating Characters</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Java 有一些 cache/pooling 上的优化(尽量减少在 heap 上创建对象), 例如 Integer object -128 ~ 127,  两个相同的 String 等等1. 所以在比较两个 Object 的值<strong>是否相等</strong>的时候, 尽量不要用 ==, 而用 .equals<br>== 如果两边都是 reference, 那么(没有优化的情况下)会比较地址. 如果有一边是 primitive type, 那么就会进行 unboxing/autoboxing.<br>而+ - * / &lt; &gt; &lt;= &gt;= 则不需要担心, 因为在 Java 中它们只能够被应用在 primitive type 上面, 所以会被自动的 unboxing/autoboxing.</p>
+</blockquote>
+<p>1 对于 String 来说, 因为它是 immutable 的, 即使做了一个在 cache 上的优化(两个值相同的 varibale 指向了同一个地址), 也不会影响结果. 因为 String 是 immutable 的, 如果对其中一个 varibale 进行了更改(增删操作), 那么系统会重新创建一个对象并且使变量指向这个新的对象的地址.<br>2 StringBuilder 和 StringBuffer 最主要的区别就是线程安全, 单线程中不需要 StringBuffer. </p>
+
+      
+    </div>
+    
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Data-Structure/">Data Structure</a><a href="/tags/Algorithm/">Algorithm</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+  
+    
+    
+  
+</article>
+   
+    <div id="toc" class="toc-article ">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Char"><span class="toc-number">1.</span> <span class="toc-text">Char</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String"><span class="toc-number">2.</span> <span class="toc-text">String</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Parse-a-String-into-Integer-乞丐版-atoi"><span class="toc-number">2.1.</span> <span class="toc-text">Parse a String into Integer (乞丐版 atoi)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Atoi"><span class="toc-number">2.2.</span> <span class="toc-text">Atoi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Valid-Numeric"><span class="toc-number">2.3.</span> <span class="toc-text">Valid Numeric</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Char-Removal"><span class="toc-number">2.4.</span> <span class="toc-text">Char Removal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Space-Removal"><span class="toc-number">2.5.</span> <span class="toc-text">Space Removal</span></a></li></ol></li></ol>
+</div>
+
+
+  
+
+	<section id="comments" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript" defer>
+	var disqus_shortname = 'evelynone';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+	<!-- async load  -->
+	<script>
+			function async(u, c) {
+				var d = document, t = 'script',
+						o = d.createElement(t),
+						s = d.getElementsByTagName(t)[0];
+				o.src = u;
+				if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+				s.parentNode.insertBefore(o, s);
+			}
+	</script>
+	<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+	<script>
+			async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+					anchors.options = {
+						visible: 'hover',
+						placement: 'left',
+						// icon: '#'
+					};
+					anchors.add().remove('.article-title').remove('.subheading').remove('.sidebar-container h5');
+			})
+	</script>
+	<style>
+			/* place left on bigger screen */
+			@media all and (min-width: 800px) {
+					.anchorjs-link{
+							position: absolute;
+							left: -0.75em;
+							font-size: 1.1em;
+							margin-top : -0.1em;
+					}
+			}
+	</style>
+
+
+
+
+<!-- UY BEGIN -->
+	<div id="gitment-container"></div>
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script src="/js/web-pinyin.js"></script>
+	<script>
+		function toUnicode(s){ 
+			return s.replace(/([\u4E00-\u9FA5]|[\uFE30-\uFFA0])/g,function(){
+			return "\\u" + RegExp["$1"].charCodeAt(0).toString(16);
+			});
+		}
+		var title = 'Java 从 char 到 String'
+		var GitHub_id = 'Evelyn3333'
+		var client_id = 'a8d81cb40f4b02a4def9'
+		var client_secret = 'c552e7bafbcb85ec6542468a14dc39fe9966bbdc'
+		var repo = 'https://github.com/Evelyn3333/git_comment.git'
+		var gitment = new Gitment({
+		// id: '页面 ID', // 可选。默认为 location.href
+		// id:"11" ,
+		id: title,
+		title: title,
+		owner: GitHub_id,//'你的 GitHub ID',
+		repo: repo,//'存储评论的 repo',
+		oauth: {
+			client_id: client_id,//'你的 client ID',
+			client_secret: client_secret,//'你的 client secret',
+		},
+		})
+		gitment.render('gitment-container')
+	</script>
+<!-- UY END -->
+
+
+
+
+            </main>
+          </div>
+        </div>
+       
+
+
+
+
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/BosenY/Lap" target="_blank">Lap</a>
+    <br/><span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+    </br>
+    
+      
+        &copy; 2018 Evelyn
+      
+    
+  </p>
+</footer>
+    
+  </div>
+
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/js/index.js"></script>
+<script src="/js/search.js"></script>
+
+</body>
+</html>
