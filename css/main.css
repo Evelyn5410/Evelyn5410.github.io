@@ -1965,7 +1965,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b0ffd0;
+  background: #16ffc4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3262,4 +3262,24 @@ ul.breadcrumb li+li:last-child {
 }
 .container .main-inner {
   width: 85%;
+}
+body {
+  position: relative;
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+  line-height: 2;
+  color: #555;
+  background: #f9f2e3;
+  background-image: url("/images/bg.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+element.style {
+  fill: #ff807f;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  border: 0;
+  right: 0;
 }

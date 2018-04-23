@@ -3,6 +3,63 @@
 
 
     
+  <url>
+    <loc>http://yoursite.com/2018/04/22/React-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-04-23T06:00:16.217Z</lastmod>
+    <data>
+        <display>
+        <title>React 学习笔记</title>
+        <pubTime>2018-04-22T22:45:53.000Z</pubTime>
+        
+        <tag>React</tag>
+         
+         
+           
+             
+              <breadCrumb title="notes" url="http://yoursite.com/categories/notes/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/04/22/Android-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-04-22T23:30:49.886Z</lastmod>
+    <data>
+        <display>
+        <title>Android  学习笔记</title>
+        <pubTime>2018-04-22T23:30:49.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/04/04/Data%20Structure%20V%20Tree%20ii/</loc>
+    <lastmod>2018-04-22T20:59:50.804Z</lastmod>
+    <data>
+        <display>
+        <title>Data Structure V Tree II</title>
+        <pubTime>2018-04-05T05:08:09.000Z</pubTime>
+        
+        <tag>Data Structure</tag>
+         
+        <tag>Algorithms</tag>
+         
+         
+           
+             
+              <breadCrumb title="Data Structure" url="http://yoursite.com/categories/Data-Structure/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://yoursite.com/2018/04/06/Web-Application%E8%83%8C%E5%90%8E%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/</loc>
@@ -33,28 +90,6 @@
         <display>
         <title>Data Structure V Tree III</title>
         <pubTime>2018-04-06T05:08:09.000Z</pubTime>
-        
-        <tag>Data Structure</tag>
-         
-        <tag>Algorithms</tag>
-         
-         
-           
-             
-              <breadCrumb title="Data Structure" url="http://yoursite.com/categories/Data-Structure/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/04/04/Data%20Structure%20V%20Tree%20ii/</loc>
-    <lastmod>2018-04-21T19:37:51.615Z</lastmod>
-    <data>
-        <display>
-        <title>Data Structure V Tree II</title>
-        <pubTime>2018-04-05T05:08:09.000Z</pubTime>
         
         <tag>Data Structure</tag>
          

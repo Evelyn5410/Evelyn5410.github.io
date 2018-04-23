@@ -112,10 +112,12 @@
 <meta property="og:site_name" content="Evelynone">
 <meta property="og:description" content="─=≡Σ((( つ•̀ω•́)つ     Traverse 🌲">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-21T19:37:51.615Z">
+<meta property="og:image" content="http://yoursite.com/images/bt21.png">
+<meta property="og:updated_time" content="2018-04-22T20:59:50.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Structure V Tree II">
 <meta name="twitter:description" content="─=≡Σ((( つ•̀ω•́)つ     Traverse 🌲">
+<meta name="twitter:image" content="http://yoursite.com/images/bt21.png">
 
 
 
@@ -246,7 +248,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">2</span></a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">3</span></a>
   </li>
         
         
@@ -254,7 +256,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">12</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">14</span></a>
   </li>
 
       
@@ -375,7 +377,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 04-21-2018 12:37:51" itemprop="dateModified" datetime="2018-04-21T12:37:51-07:00">04-21-2018</time>
+                <time title="Modified: 04-22-2018 13:59:50" itemprop="dateModified" datetime="2018-04-22T13:59:50-07:00">04-22-2018</time>
               
             
           </span>
@@ -447,7 +449,44 @@
       
         <p> ─=≡Σ((( つ•̀ω•́)つ     Traverse 🌲</p>
  <a id="more"></a>
-<h3 id="Pre-order-Traverse-Binary-Tree"><a href="#Pre-order-Traverse-Binary-Tree" class="headerlink" title="Pre-order Traverse Binary Tree"></a>Pre-order Traverse Binary Tree</h3><h3 id="In-order-Traverse-Binary-Tree"><a href="#In-order-Traverse-Binary-Tree" class="headerlink" title="In-order Traverse Binary Tree"></a>In-order Traverse Binary Tree</h3><h3 id="Post-order-Traverse-Binary-Tree"><a href="#Post-order-Traverse-Binary-Tree" class="headerlink" title="Post-order Traverse Binary Tree"></a>Post-order Traverse Binary Tree</h3><h3 id="Level-Order-Traverse-Binary-Tree"><a href="#Level-Order-Traverse-Binary-Tree" class="headerlink" title="Level Order Traverse Binary Tree"></a>Level Order Traverse Binary Tree</h3>
+<h3 id="Pre-order-Traverse-Binary-Tree"><a href="#Pre-order-Traverse-Binary-Tree" class="headerlink" title="Pre-order Traverse Binary Tree"></a>Pre-order Traverse Binary Tree</h3><p><code>input:</code> The root of a tree.<br><code>output:</code> The list of elements of the tree in pre-order.</p>
+<p>The main concept of traversal is to visit each element once and only once. Therefore, the time comlexity should be O(n), where n is the number of node in the tree.<br>Space complexity If using recursion, the space is stack frame, which is at most O(height). Iteration would require a extra data structure to simulate the call stack, and thus it’s O(height) as well.</p>
+<p><strong>Recutsion</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">traversePre</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> result;</span><br><span class="line">	<span class="keyword">return</span> helper(root, result);;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">helper</span><span class="params">(TreeNode root, List&lt;Integer&gt; result)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> result;</span><br><span class="line">	result.add(root.val);</span><br><span class="line">	helper(root.left, result);</span><br><span class="line">	helper(root.right, result);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Iteration</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">helper</span><span class="params">(TreeNode root, List&lt;Integer&gt; result)</span> </span>&#123;</span><br><span class="line">	Deque&lt;TreeNode&gt; stack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">	stack.offerFirst(root);</span><br><span class="line">	<span class="comment">//simulate the stack, so right first</span></span><br><span class="line">	<span class="keyword">while</span> (!stack.isEmtpy()) &#123;</span><br><span class="line">		TreeNode cur = stack.pollFirst();</span><br><span class="line">		result.add(cur.val);</span><br><span class="line">		<span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) stack.offFirst(cur.right);</span><br><span class="line">		<span class="keyword">if</span> (cur.left != <span class="keyword">null</span>) stack.offerFirst(cur.left);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="In-order-Traverse-Binary-Tree"><a href="#In-order-Traverse-Binary-Tree" class="headerlink" title="In-order Traverse Binary Tree"></a>In-order Traverse Binary Tree</h3><p><code>input:</code> The root of a tree.<br><code>output:</code> The list of elements of the tree in in-order.</p>
+<p>Same logic as pre-order. Therefore, time complexity is O(n), and space comlexity is O(height) for both recursion and iteration.</p>
+<h3 id="Post-order-Traverse-Binary-Tree"><a href="#Post-order-Traverse-Binary-Tree" class="headerlink" title="Post-order Traverse Binary Tree"></a>Post-order Traverse Binary Tree</h3><p><code>input:</code> The root of a tree.<br><code>output:</code> The list of elements of the tree in post-order.</p>
+<p>Same logic as pre-order. Therefore, time complexity is O(n), and space comlexity is O(height) for both recursion and iteration.</p>
+<p><strong>Recursion</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">traversePost</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> result;</span><br><span class="line">	<span class="keyword">return</span> helper(root, result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">helper</span><span class="params">(TreeNode root, List&lt;Integer&gt; result)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> result;</span><br><span class="line">	traversePost(root.left, result);</span><br><span class="line">	traversePost(root.right, result);</span><br><span class="line">	result.add(root.val);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Iteration</strong><br>Only pop the stack if right child is visited or it is the leaf node. </p>
+<p><img src="/images/bt21.png" alt=""></p>
+<p>There are two stages in the traversal,</p>
+<ol>
+<li>Tacking downward<ul>
+<li>if current node is the root, push to the stack.</li>
+<li>if current node has child, push to the stack.</li>
+<li>if current node is the leaf node, update the result, pop from the stack. </li>
+</ul>
+</li>
+<li>Backtracking<ul>
+<li>if previous visited node is the left child, look at its right.<ul>
+<li>if right child is not empty, push to the stack.</li>
+<li>if right child is empty, add current node into the result, and pop it from the stack.</li>
+</ul>
+</li>
+<li>if previous visited node is the right child, this subtree is finished, pop the stack. </li>
+</ul>
+</li>
+</ol>
+<p><strong> There is a logic overlap. Whether the right is visited or the node doesn’t have a right subtree, current node can be popped.</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">helper</span><span class="params">(TreeNode root, List&lt;Integer&gt; result)</span> </span>&#123;</span><br><span class="line">	Deque&lt;TreeNode&gt; stack = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">	stack.offer(root);</span><br><span class="line">	TreeNode prev = <span class="keyword">null</span>;</span><br><span class="line">	TreeNode cur = root;</span><br><span class="line">	<span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">		cur = stack.peekFirst();</span><br><span class="line">		<span class="comment">//cur is root, cur is leafnode</span></span><br><span class="line">		<span class="keyword">if</span> (prev == <span class="keyword">null</span> || cur == prev.left || cur == prev.right) &#123;	</span><br><span class="line">			<span class="keyword">if</span> (cur.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">				stack.offerFirst(cur.left);</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">				stack.offerFirst(cur.right);</span><br><span class="line">			<span class="comment">//the peek of the stack (last added) is leaf</span></span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;															</span><br><span class="line">				result.add(cur.val);</span><br><span class="line">				stack.pollFirst();</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="comment">//left child is visited</span></span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (prev == cur.left) &#123;</span><br><span class="line">			<span class="comment">//if it has right child								</span></span><br><span class="line">			<span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) &#123;									</span><br><span class="line">				stack.offerFirst(cur.right);</span><br><span class="line">			&#125; <span class="comment">/*else &#123;		</span></span><br><span class="line"><span class="comment">				result.add(cur.val);									</span></span><br><span class="line"><span class="comment">				stack.pollFirst();						</span></span><br><span class="line"><span class="comment">			&#125;*/</span></span><br><span class="line">		<span class="comment">//if right child is visited.</span></span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;			</span><br><span class="line">			result.add(cur.key);</span><br><span class="line">			stack.pollFirst();	</span><br><span class="line">		&#125;</span><br><span class="line">		prev = cur;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Level-Order-Traverse-Binary-Tree"><a href="#Level-Order-Traverse-Binary-Tree" class="headerlink" title="Level Order Traverse Binary Tree"></a>Level Order Traverse Binary Tree</h3><p><code>input:</code> The root of a tree.<br><code>output:</code> The list of elements of the tree in level-order.</p>
+<p>The concept of traversal is as same as pre-order. However, the extra data structure being used here is a queue, which is FIFO, beacuse it goes from top to bottom and left to right.<br>The time comlexity is O(n) as other traversal orders, but the space would be the level that has the most nodes in the tree. Then the worst case would be the leaf level in a perfect tree (every node has 2 children), so it’s O(2/n - 1) –&gt; O(n).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">traverseLevel</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> result;</span><br><span class="line">	<span class="keyword">return</span> helper(root, result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">helper</span><span class="params">(TreeNode root, List&lt;Integer&gt; result)</span> </span>&#123;</span><br><span class="line">	Queue&lt;TreeNode&gt; level = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">	level.offer(root);</span><br><span class="line">	<span class="keyword">while</span> (!level.isEmpty()) &#123;</span><br><span class="line">		TreeNode cur = level.poll();</span><br><span class="line">		result.add(cur.val);</span><br><span class="line">		<span class="keyword">if</span> (cur.left != <span class="keyword">null</span>) level.offer(cur.left);</span><br><span class="line">		<span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) level.offer(cur.right);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -635,7 +674,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -652,7 +691,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">categories</span>
                   
                 </div>
@@ -679,7 +720,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
