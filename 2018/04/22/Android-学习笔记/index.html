@@ -113,7 +113,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/activity.png">
 <meta property="og:image" content="https://developer.android.com/images/activity_lifecycle.png">
-<meta property="og:updated_time" content="2018-04-23T20:21:53.583Z">
+<meta property="og:updated_time" content="2018-04-25T02:21:10.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android  学习笔记">
 <meta name="twitter:description" content="生活不止有眼前的枸杞, 还有生发水和保温杯.">
@@ -248,7 +248,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">3</span></a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">5</span></a>
   </li>
         
         
@@ -256,7 +256,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">15</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">16</span></a>
   </li>
 
       
@@ -366,7 +366,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 04-23-2018 13:21:53" itemprop="dateModified" datetime="2018-04-23T13:21:53-07:00">04-23-2018</time>
+                <time title="Modified: 04-24-2018 19:21:10" itemprop="dateModified" datetime="2018-04-24T19:21:10-07:00">04-24-2018</time>
               
             
           </span>
@@ -452,6 +452,13 @@
 <h3 id="Activity-的生命周期"><a href="#Activity-的生命周期" class="headerlink" title="Activity 的生命周期:"></a>Activity 的生命周期:</h3><p><img src="/images/activity.png" alt=""></p>
 <p><img src="https://developer.android.com/images/activity_lifecycle.png" alt=""> </p>
 <h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent:"></a>Intent:</h3><p>组件之间的通讯, 包括启动 Activity, 启动 service, 传递 broadcast. 从 Activity 的方法实现上可以看出来, Intent 这个类型的对象可以携带数据.<br>待续…</p>
+<h2 id="Adapter-在-Java-中-Adapter-是一个interface-用来使各种数据以某种形式显示在界面上"><a href="#Adapter-在-Java-中-Adapter-是一个interface-用来使各种数据以某种形式显示在界面上" class="headerlink" title="Adapter: 在 Java 中, Adapter 是一个interface. 用来使各种数据以某种形式显示在界面上."></a>Adapter: 在 Java 中, Adapter 是一个interface. 用来使各种数据以某种形式显示在界面上.</h2><ul>
+<li>继承了 Adapter 的其他 interface 有 ListAdapter和 SpinnerAdapter.</li>
+<li>继承了这两个 interface 的类是 BaseAdapter(抽象类). 实际应用中 BaseAdapter 是最常用的. </li>
+<li>而继承了 BaseAdapter 的常用的类有, SimpleAdapter, ArrayAdapter<t>.</t></li>
+</ul>
+<p>结合 ListView, 使用 ArrayAdapter 的🌰,<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppShowListActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="comment">//要显示的数据</span></span><br><span class="line">        String[] strs = &#123;<span class="string">"Item1"</span>, <span class="string">"Item2"</span>, <span class="string">"Item3"</span>&#125;;</span><br><span class="line">        <span class="comment">//创建ArrayAdapter</span></span><br><span class="line">        ArrayAdapter&lt;String&gt; adapter = <span class="keyword">new</span> ArrayAdapter&lt;String&gt;</span><br><span class="line">                (<span class="keyword">this</span>,R.layout.items, R.id.items, strs);</span><br><span class="line">        <span class="comment">//获取ListView对象，通过调用setAdapter方法为ListView设置Adapter设置适配器</span></span><br><span class="line">        ListView list_test = (ListView) findViewById(R.id.items);</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        list_test.setAdapter(adapter);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="组件-android-中的每一个组件都是-view-的一个子类"><a href="#组件-android-中的每一个组件都是-view-的一个子类" class="headerlink" title="组件: android 中的每一个组件都是 view 的一个子类."></a>组件: android 中的每一个组件都是 view 的一个子类.</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;ListView android: &quot;@+id/varibaleNameInTheActivity&quot;</span><br><span class="line">		  android: layout_height=&quot;warp_content 文本高度&quot;</span><br><span class="line">		  android: layout_width=&quot;包含它的那个 view 的宽度&quot;&gt;</span><br><span class="line">&lt;/ListView&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -632,7 +639,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -651,7 +658,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">categories</span>
                   
                 </div>
@@ -680,7 +691,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
@@ -730,7 +743,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目结构主要部分"><span class="nav-number">1.</span> <span class="nav-text">项目结构主要部分:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#界面结构"><span class="nav-number">2.</span> <span class="nav-text">界面结构:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity-应用程序的一个组件-几乎所有的-Activity-都会创建一个可以和用户进行交互的界面-像之前提到的-MainActivity-是应用程序的入口-当用户启动这个程序的时候-这个组件会生成一个主界面-例如-登陆界面等等-一个程序可以拥有多个-Activity-而他们之间可以相互调用-调用的过程和普通程序的-call-stack-差不多-例如-当-MainActivity-调用了其他-Activity-的之后-MainActivity-会停止-但是仍然在-stack-中-当被调用的-Activity-返回的时候-栈顶元素被弹出并销毁-之前的栈内元素会被恢复-要确保”停止”-“生成界面”-“恢复”-“销毁”等功能-就需要在创建-Activity-的时候实现这些方法-因为和所有其他组件一样-Activity-也是-Java-中的一个类-其中2个方法是必须要实现的-生成界面-与用户交互-和停止-暂停但是不销毁"><span class="nav-number">3.</span> <span class="nav-text">Activity: 应用程序的一个组件. 几乎所有的 Activity 都会创建一个可以和用户进行交互的界面. 像之前提到的, MainActivity 是应用程序的入口, 当用户启动这个程序的时候, 这个组件会生成一个主界面, 例如, 登陆界面等等. 一个程序可以拥有多个 Activity, 而他们之间可以相互调用. 调用的过程和普通程序的 call stack 差不多. 例如, 当 MainActivity 调用了其他 Activity 的之后, MainActivity 会停止, 但是仍然在 stack 中. 当被调用的 Activity 返回的时候, 栈顶元素被弹出并销毁, 之前的栈内元素会被恢复. 要确保”停止”, “生成界面”, “恢复”, “销毁”等功能, 就需要在创建 Activity 的时候实现这些方法. 因为和所有其他组件一样, Activity 也是 Java 中的一个类. 其中2个方法是必须要实现的, 生成界面(与用户交互), 和停止(暂停但是不销毁).</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity-的生命周期"><span class="nav-number">3.1.</span> <span class="nav-text">Activity 的生命周期:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent"><span class="nav-number">3.2.</span> <span class="nav-text">Intent:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目结构主要部分"><span class="nav-number">1.</span> <span class="nav-text">项目结构主要部分:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#界面结构"><span class="nav-number">2.</span> <span class="nav-text">界面结构:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity-应用程序的一个组件-几乎所有的-Activity-都会创建一个可以和用户进行交互的界面-像之前提到的-MainActivity-是应用程序的入口-当用户启动这个程序的时候-这个组件会生成一个主界面-例如-登陆界面等等-一个程序可以拥有多个-Activity-而他们之间可以相互调用-调用的过程和普通程序的-call-stack-差不多-例如-当-MainActivity-调用了其他-Activity-的之后-MainActivity-会停止-但是仍然在-stack-中-当被调用的-Activity-返回的时候-栈顶元素被弹出并销毁-之前的栈内元素会被恢复-要确保”停止”-“生成界面”-“恢复”-“销毁”等功能-就需要在创建-Activity-的时候实现这些方法-因为和所有其他组件一样-Activity-也是-Java-中的一个类-其中2个方法是必须要实现的-生成界面-与用户交互-和停止-暂停但是不销毁"><span class="nav-number">3.</span> <span class="nav-text">Activity: 应用程序的一个组件. 几乎所有的 Activity 都会创建一个可以和用户进行交互的界面. 像之前提到的, MainActivity 是应用程序的入口, 当用户启动这个程序的时候, 这个组件会生成一个主界面, 例如, 登陆界面等等. 一个程序可以拥有多个 Activity, 而他们之间可以相互调用. 调用的过程和普通程序的 call stack 差不多. 例如, 当 MainActivity 调用了其他 Activity 的之后, MainActivity 会停止, 但是仍然在 stack 中. 当被调用的 Activity 返回的时候, 栈顶元素被弹出并销毁, 之前的栈内元素会被恢复. 要确保”停止”, “生成界面”, “恢复”, “销毁”等功能, 就需要在创建 Activity 的时候实现这些方法. 因为和所有其他组件一样, Activity 也是 Java 中的一个类. 其中2个方法是必须要实现的, 生成界面(与用户交互), 和停止(暂停但是不销毁).</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity-的生命周期"><span class="nav-number">3.1.</span> <span class="nav-text">Activity 的生命周期:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent"><span class="nav-number">3.2.</span> <span class="nav-text">Intent:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adapter-在-Java-中-Adapter-是一个interface-用来使各种数据以某种形式显示在界面上"><span class="nav-number">4.</span> <span class="nav-text">Adapter: 在 Java 中, Adapter 是一个interface. 用来使各种数据以某种形式显示在界面上.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件-android-中的每一个组件都是-view-的一个子类"><span class="nav-number">5.</span> <span class="nav-text">组件: android 中的每一个组件都是 view 的一个子类.</span></a></li></ol></div>
             
 
           </div>
