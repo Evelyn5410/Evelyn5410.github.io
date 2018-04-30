@@ -104,27 +104,25 @@
 
 
 
-  <meta name="description" content="─=≡Σ((( つ•̀ω•́)つ     Traverse 🌲">
-<meta name="keywords" content="Data Structure,Algorithms">
+  <meta name="description" content="Binary search is a search algorithm. The fundamental is that it reduces the searching range into half each time by comparing the middle element to the target. Normal binary search takes O(logn) compar">
+<meta name="keywords" content="Algorithm,Binary Search">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Data Structure V Tree II">
-<meta property="og:url" content="http://yoursite.com/2018/04/04/Data Structure V Tree ii/index.html">
+<meta property="og:title" content="Binary Search">
+<meta property="og:url" content="http://yoursite.com/2018/04/25/Binary-Search/index.html">
 <meta property="og:site_name" content="Evelynone">
-<meta property="og:description" content="─=≡Σ((( つ•̀ω•́)つ     Traverse 🌲">
+<meta property="og:description" content="Binary search is a search algorithm. The fundamental is that it reduces the searching range into half each time by comparing the middle element to the target. Normal binary search takes O(logn) compar">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/images/bt21.png">
-<meta property="og:updated_time" content="2018-04-22T20:59:50.804Z">
+<meta property="og:updated_time" content="2018-04-26T07:08:05.384Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Data Structure V Tree II">
-<meta name="twitter:description" content="─=≡Σ((( つ•̀ω•́)つ     Traverse 🌲">
-<meta name="twitter:image" content="http://yoursite.com/images/bt21.png">
+<meta name="twitter:title" content="Binary Search">
+<meta name="twitter:description" content="Binary search is a search algorithm. The fundamental is that it reduces the searching range into half each time by comparing the middle element to the target. Normal binary search takes O(logn) compar">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/04/Data Structure V Tree ii/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/25/Binary-Search/"/>
 
 
 
@@ -134,7 +132,7 @@
   };
 </script>
 
-  <title>Data Structure V Tree II | Evelynone</title>
+  <title>Binary Search | Evelynone</title>
   
 
 
@@ -307,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/04/Data Structure V Tree ii/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/Binary-Search/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Evelyn">
@@ -324,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Data Structure V Tree II
+          <h1 class="post-title" itemprop="name headline">Binary Search
               
             
           </h1>
@@ -349,7 +347,7 @@
                 
               
 
-              <time title="Created: 04-04-2018 22:08:09" itemprop="dateCreated datePublished" datetime="2018-04-04T22:08:09-07:00">04-04-2018</time>
+              <time title="Created: 04-25-2018 22:30:56" itemprop="dateCreated datePublished" datetime="2018-04-25T22:30:56-07:00">04-25-2018</time>
             
 
             
@@ -366,7 +364,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 04-22-2018 13:59:50" itemprop="dateModified" datetime="2018-04-22T13:59:50-07:00">04-22-2018</time>
+                <time title="Modified: 04-26-2018 00:08:05" itemprop="dateModified" datetime="2018-04-26T00:08:05-07:00">04-26-2018</time>
               
             
           </span>
@@ -383,7 +381,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Data-Structure/" itemprop="url" rel="index"><span itemprop="name">Data Structure</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
 
                 
                 
@@ -398,9 +396,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/04/Data Structure V Tree ii/#comments" itemprop="discussionUrl">
+                <a href="/2018/04/25/Binary-Search/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/04/Data Structure V Tree ii/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/04/25/Binary-Search/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -436,46 +434,45 @@
       
 
       
-        <p> ─=≡Σ((( つ•̀ω•́)つ     Traverse 🌲</p>
- <a id="more"></a>
-<h3 id="Pre-order-Traverse-Binary-Tree"><a href="#Pre-order-Traverse-Binary-Tree" class="headerlink" title="Pre-order Traverse Binary Tree"></a>Pre-order Traverse Binary Tree</h3><p><code>input:</code> The root of a tree.<br><code>output:</code> The list of elements of the tree in pre-order.</p>
-<p>The main concept of traversal is to visit each element once and only once. Therefore, the time comlexity should be O(n), where n is the number of node in the tree.<br>Space complexity If using recursion, the space is stack frame, which is at most O(height). Iteration would require a extra data structure to simulate the call stack, and thus it’s O(height) as well.</p>
-<p><strong>Recutsion</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">traversePre</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> result;</span><br><span class="line">	<span class="keyword">return</span> helper(root, result);;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">helper</span><span class="params">(TreeNode root, List&lt;Integer&gt; result)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> result;</span><br><span class="line">	result.add(root.val);</span><br><span class="line">	helper(root.left, result);</span><br><span class="line">	helper(root.right, result);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Iteration</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">helper</span><span class="params">(TreeNode root, List&lt;Integer&gt; result)</span> </span>&#123;</span><br><span class="line">	Deque&lt;TreeNode&gt; stack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">	stack.offerFirst(root);</span><br><span class="line">	<span class="comment">//simulate the stack, so right first</span></span><br><span class="line">	<span class="keyword">while</span> (!stack.isEmtpy()) &#123;</span><br><span class="line">		TreeNode cur = stack.pollFirst();</span><br><span class="line">		result.add(cur.val);</span><br><span class="line">		<span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) stack.offFirst(cur.right);</span><br><span class="line">		<span class="keyword">if</span> (cur.left != <span class="keyword">null</span>) stack.offerFirst(cur.left);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="In-order-Traverse-Binary-Tree"><a href="#In-order-Traverse-Binary-Tree" class="headerlink" title="In-order Traverse Binary Tree"></a>In-order Traverse Binary Tree</h3><p><code>input:</code> The root of a tree.<br><code>output:</code> The list of elements of the tree in in-order.</p>
-<p>Same logic as pre-order. Therefore, time complexity is O(n), and space comlexity is O(height) for both recursion and iteration.</p>
-<h3 id="Post-order-Traverse-Binary-Tree"><a href="#Post-order-Traverse-Binary-Tree" class="headerlink" title="Post-order Traverse Binary Tree"></a>Post-order Traverse Binary Tree</h3><p><code>input:</code> The root of a tree.<br><code>output:</code> The list of elements of the tree in post-order.</p>
-<p>Same logic as pre-order. Therefore, time complexity is O(n), and space comlexity is O(height) for both recursion and iteration.</p>
-<p><strong>Recursion</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">traversePost</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> result;</span><br><span class="line">	<span class="keyword">return</span> helper(root, result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">helper</span><span class="params">(TreeNode root, List&lt;Integer&gt; result)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> result;</span><br><span class="line">	traversePost(root.left, result);</span><br><span class="line">	traversePost(root.right, result);</span><br><span class="line">	result.add(root.val);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>Iteration</strong><br>Only pop the stack if right child is visited or it is the leaf node. </p>
-<p><img src="/images/bt21.png" alt=""></p>
-<p>There are two stages in the traversal,</p>
+        <p>Binary search is a search algorithm. The fundamental is that it reduces the searching range into half each time by comparing the middle element to the target. Normal binary search takes O(logn) comparisons, when n is the number of input. Space actually depends on the implementation. If not using recursion, there would be no extra space used in a regular binary search. Therefore, it can be O(1).</p>
+<a id="more"></a>
+<p>Key concept:</p>
 <ol>
-<li>Tacking downward<ul>
-<li>if current node is the root, push to the stack.</li>
-<li>if current node has child, push to the stack.</li>
-<li>if current node is the leaf node, update the result, pop from the stack. </li>
-</ul>
-</li>
-<li>Backtracking<ul>
-<li>if previous visited node is the left child, look at its right.<ul>
-<li>if right child is not empty, push to the stack.</li>
-<li>if right child is empty, add current node into the result, and pop it from the stack.</li>
-</ul>
-</li>
-<li>if previous visited node is the right child, this subtree is finished, pop the stack. </li>
-</ul>
-</li>
+<li>Input must be in some sort of order (ascending, descending, alphabetic, positve and nagative, increased then descrease, etc.)</li>
+<li>Searching/calculation/operating range must be reduced each time.</li>
+<li>Targe must not be ruled out.</li>
 </ol>
-<p><strong> There is a logic overlap. Whether the right is visited or the node doesn’t have a right subtree, current node can be popped.</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">helper</span><span class="params">(TreeNode root, List&lt;Integer&gt; result)</span> </span>&#123;</span><br><span class="line">	Deque&lt;TreeNode&gt; stack = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">	stack.offer(root);</span><br><span class="line">	TreeNode prev = <span class="keyword">null</span>;</span><br><span class="line">	TreeNode cur = root;</span><br><span class="line">	<span class="keyword">while</span> (!stack.isEmpty()) &#123;</span><br><span class="line">		cur = stack.peekFirst();</span><br><span class="line">		<span class="comment">//cur is root, cur is leafnode</span></span><br><span class="line">		<span class="keyword">if</span> (prev == <span class="keyword">null</span> || cur == prev.left || cur == prev.right) &#123;	</span><br><span class="line">			<span class="keyword">if</span> (cur.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">				stack.offerFirst(cur.left);</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">				stack.offerFirst(cur.right);</span><br><span class="line">			<span class="comment">//the peek of the stack (last added) is leaf</span></span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;															</span><br><span class="line">				result.add(cur.val);</span><br><span class="line">				stack.pollFirst();</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="comment">//left child is visited</span></span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (prev == cur.left) &#123;</span><br><span class="line">			<span class="comment">//if it has right child								</span></span><br><span class="line">			<span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) &#123;									</span><br><span class="line">				stack.offerFirst(cur.right);</span><br><span class="line">			&#125; <span class="comment">/*else &#123;		</span></span><br><span class="line"><span class="comment">				result.add(cur.val);									</span></span><br><span class="line"><span class="comment">				stack.pollFirst();						</span></span><br><span class="line"><span class="comment">			&#125;*/</span></span><br><span class="line">		<span class="comment">//if right child is visited.</span></span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;			</span><br><span class="line">			result.add(cur.key);</span><br><span class="line">			stack.pollFirst();	</span><br><span class="line">		&#125;</span><br><span class="line">		prev = cur;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Level-Order-Traverse-Binary-Tree"><a href="#Level-Order-Traverse-Binary-Tree" class="headerlink" title="Level Order Traverse Binary Tree"></a>Level Order Traverse Binary Tree</h3><p><code>input:</code> The root of a tree.<br><code>output:</code> The list of elements of the tree in level-order.</p>
-<p>The concept of traversal is as same as pre-order. However, the extra data structure being used here is a queue, which is FIFO, beacuse it goes from top to bottom and left to right.<br>The time comlexity is O(n) as other traversal orders, but the space would be the level that has the most nodes in the tree. Then the worst case would be the leaf level in a perfect tree (every node has 2 children), so it’s O(2/n - 1) –&gt; O(n).</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">traverseLevel</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> result;</span><br><span class="line">	<span class="keyword">return</span> helper(root, result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">helper</span><span class="params">(TreeNode root, List&lt;Integer&gt; result)</span> </span>&#123;</span><br><span class="line">	Queue&lt;TreeNode&gt; level = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">	level.offer(root);</span><br><span class="line">	<span class="keyword">while</span> (!level.isEmpty()) &#123;</span><br><span class="line">		TreeNode cur = level.poll();</span><br><span class="line">		result.add(cur.val);</span><br><span class="line">		<span class="keyword">if</span> (cur.left != <span class="keyword">null</span>) level.offer(cur.left);</span><br><span class="line">		<span class="keyword">if</span> (cur.right != <span class="keyword">null</span>) level.offer(cur.right);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Classic-Binary-Search"><a href="#Classic-Binary-Search" class="headerlink" title="Classic Binary Search"></a>Classic Binary Search</h3><p><code>input:</code> A sorted array and a target.<br><code>output:</code> Index of the target if exits, otherwise, return -1;</p>
+<p><strong>Iteration</strong><br>Time complexity is O(logn), where n is the size of input. Space is O(1) using iteration.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binarySearch</span> <span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (array == <span class="keyword">null</span> || array.length == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> left = <span class="number">0</span>, right = array.length - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">		<span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (array[mid] == target) &#123;</span><br><span class="line">			<span class="keyword">return</span> mid;</span><br><span class="line">		&#125; </span><br><span class="line">		<span class="comment">//other wise mid is not the result, rule it out.</span></span><br><span class="line">		<span class="keyword">if</span> (array[mid] &gt; target) &#123;</span><br><span class="line">			right = mid - <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			left = mid + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//if not return in the while loop, target doesn't exist.</span></span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Recursion</strong><br>Time complexity is the same as O(logn). Call stack counts as space expense, which is O(logn).</p>
+<pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binarySearch</span> <span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> target)</span> </span>{
+    <span class="keyword">if</span> (array == <span class="keyword">null</span> || array.length == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;
 
+    <span class="keyword">return</span> helper(array, <span class="number">0</span>, array.length - <span class="number">1</span>, target);
+}
+
+<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">helper</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="keyword">int</span> target)</span> </span>{
+    <span class="keyword">if</span> (left &gt; right) <span class="keyword">return</span> -<span class="number">1</span>;
+
+    <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;
+    <span class="keyword">if</span> (array[mid] == target) <span class="keyword">return</span> mid;
+    <span class="comment">//if not return, mid is not target, can rule out mid.</span>
+    <span class="keyword">if</span> (array[mid] &gt; target) {
+        <span class="keyword">return</span> helper(array, left, mid - <span class="number">1</span>, target);
+        } <span class="keyword">else</span> {
+            <span class="keyword">return</span> helper(array, mid + <span class="number">1</span>, right, target);
+        }
+}
+</code></pre>
+<h3 id="Search-a-2D-Matrix-I"><a href="#Search-a-2D-Matrix-I" class="headerlink" title="Search a 2D Matrix I"></a>Search a 2D Matrix I</h3><p><code>input:</code> A matrix that each row is in ascending order, and the first element of each row is greater than the last element of previous row. A int type target.<br><code>output:</code> The coordinate of the target if exists. Otherwise, return -1.</p>
+<p>One way to solve this problem by using binary search is convert 2D matrix into an array. Due to the property of the matrix, from left to right, top to buttom, all elements are in ascending order. Therefore, it will be able to use the classic binary search. The time complexity is O(n + m) where n is the number of row and m is the number of colmun. Space complexity is O(1). No extra data structure is used.</p>
+<pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchMatrixI</span> <span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>{
+    <span class="keyword">if</span> (matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span> || matrix.[<span class="number">0</span>] == <span class="keyword">null</span> || matrix[<span class="number">0</span>].length == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;
+
+
+}
+</code></pre>
+<h3 id="Search-a-2D-Matrix-II"><a href="#Search-a-2D-Matrix-II" class="headerlink" title="Search a 2D Matrix II"></a>Search a 2D Matrix II</h3><h3 id="Search-in-a-Unknown-Size-Array"><a href="#Search-in-a-Unknown-Size-Array" class="headerlink" title="Search in a Unknown Size Array"></a>Search in a Unknown Size Array</h3><h3 id="First-Bad-Log"><a href="#First-Bad-Log" class="headerlink" title="First Bad Log"></a>First Bad Log</h3><h3 id="Search-Insert-Position"><a href="#Search-Insert-Position" class="headerlink" title="Search Insert Position"></a>Search Insert Position</h3><h3 id="Search-for-a-Range"><a href="#Search-for-a-Range" class="headerlink" title="Search for a Range"></a>Search for a Range</h3><h3 id="First-Occurrence-of-Target"><a href="#First-Occurrence-of-Target" class="headerlink" title="First Occurrence of Target"></a>First Occurrence of Target</h3><h3 id="Last-Occurrence-of-Target"><a href="#Last-Occurrence-of-Target" class="headerlink" title="Last Occurrence of Target"></a>Last Occurrence of Target</h3><h3 id="Total-Occurence-of-Target"><a href="#Total-Occurence-of-Target" class="headerlink" title="Total Occurence of Target"></a>Total Occurence of Target</h3><h3 id="Closest-Number-to-Target"><a href="#Closest-Number-to-Target" class="headerlink" title="Closest Number to Target"></a>Closest Number to Target</h3><h3 id="Find-K-cloest-Number-to-Target"><a href="#Find-K-cloest-Number-to-Target" class="headerlink" title="Find K cloest Number to Target"></a>Find K cloest Number to Target</h3><h3 id="Search-in-Rotated-Sorted-Array-I"><a href="#Search-in-Rotated-Sorted-Array-I" class="headerlink" title="Search in Rotated Sorted Array I"></a>Search in Rotated Sorted Array I</h3><h3 id="Search-in-Rotated-Sorted-Array-II"><a href="#Search-in-Rotated-Sorted-Array-II" class="headerlink" title="Search in Rotated Sorted Array II"></a>Search in Rotated Sorted Array II</h3><h3 id="Find-Minimum-in-Rotated-orted-Array-I"><a href="#Find-Minimum-in-Rotated-orted-Array-I" class="headerlink" title="Find Minimum in Rotated orted Array I"></a>Find Minimum in Rotated orted Array I</h3><h3 id="Find-Minimum-in-Rotated-orted-Array-II"><a href="#Find-Minimum-in-Rotated-orted-Array-II" class="headerlink" title="Find Minimum in Rotated orted Array II"></a>Find Minimum in Rotated orted Array II</h3><h3 id="Find-Peak-Element"><a href="#Find-Peak-Element" class="headerlink" title="Find Peak Element"></a>Find Peak Element</h3><h3 id="Maximum-Number-in-Mountain-Sequence"><a href="#Maximum-Number-in-Mountain-Sequence" class="headerlink" title="Maximum Number in Mountain Sequence"></a>Maximum Number in Mountain Sequence</h3><h3 id="Intersection-of-Two-Arrays-I"><a href="#Intersection-of-Two-Arrays-I" class="headerlink" title="Intersection of Two Arrays I"></a>Intersection of Two Arrays I</h3><h3 id="Intersection-of-Two-Arrays-II"><a href="#Intersection-of-Two-Arrays-II" class="headerlink" title="Intersection of Two Arrays II"></a>Intersection of Two Arrays II</h3><h3 id="Smallest-Letter-Greater-Than-Target"><a href="#Smallest-Letter-Greater-Than-Target" class="headerlink" title="Smallest Letter Greater Than Target"></a>Smallest Letter Greater Than Target</h3><h3 id="Russian-Doll-Envelopes"><a href="#Russian-Doll-Envelopes" class="headerlink" title="Russian Doll Envelopes"></a>Russian Doll Envelopes</h3><h3 id="Max-Sum-of-Rectangle-No-Largetr-Than-K"><a href="#Max-Sum-of-Rectangle-No-Largetr-Than-K" class="headerlink" title="Max Sum of Rectangle No Largetr Than K"></a>Max Sum of Rectangle No Largetr Than K</h3><h3 id="Power-x-n-I"><a href="#Power-x-n-I" class="headerlink" title="Power(x, n) I"></a>Power(x, n) I</h3><h3 id="Power-x-n-II"><a href="#Power-x-n-II" class="headerlink" title="Power(x, n) II"></a>Power(x, n) II</h3><h3 id="Divide-Two-Integers"><a href="#Divide-Two-Integers" class="headerlink" title="Divide Two Integers"></a>Divide Two Integers</h3><h3 id="続く。"><a href="#続く。" class="headerlink" title="続く。"></a>続く。</h3>
       
     </div>
 
@@ -495,9 +492,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
           
-            <a href="/tags/Algorithms/" rel="tag"># Algorithms</a>
+            <a href="/tags/Binary-Search/" rel="tag"># Binary Search</a>
           
         </div>
       
@@ -525,8 +522,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/03/Data Structure V Tree/" rel="next" title="Data Structure V Tree I">
-                <i class="fa fa-chevron-left"></i> Data Structure V Tree I
+              <a href="/2018/04/25/Emoji/" rel="next" title="Emoji">
+                <i class="fa fa-chevron-left"></i> Emoji
               </a>
             
           </div>
@@ -535,8 +532,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/05/Data Structure V Tree iii/" rel="prev" title="Data Structure V Tree III">
-                Data Structure V Tree III <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/29/Observer-Pattern/" rel="prev" title="Observer Pattern">
+                Observer Pattern <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -769,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pre-order-Traverse-Binary-Tree"><span class="nav-number">1.</span> <span class="nav-text">Pre-order Traverse Binary Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#In-order-Traverse-Binary-Tree"><span class="nav-number">2.</span> <span class="nav-text">In-order Traverse Binary Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Post-order-Traverse-Binary-Tree"><span class="nav-number">3.</span> <span class="nav-text">Post-order Traverse Binary Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Level-Order-Traverse-Binary-Tree"><span class="nav-number">4.</span> <span class="nav-text">Level Order Traverse Binary Tree</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Classic-Binary-Search"><span class="nav-number">1.</span> <span class="nav-text">Classic Binary Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-a-2D-Matrix-I"><span class="nav-number">2.</span> <span class="nav-text">Search a 2D Matrix I</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-a-2D-Matrix-II"><span class="nav-number">3.</span> <span class="nav-text">Search a 2D Matrix II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-in-a-Unknown-Size-Array"><span class="nav-number">4.</span> <span class="nav-text">Search in a Unknown Size Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#First-Bad-Log"><span class="nav-number">5.</span> <span class="nav-text">First Bad Log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-Insert-Position"><span class="nav-number">6.</span> <span class="nav-text">Search Insert Position</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-for-a-Range"><span class="nav-number">7.</span> <span class="nav-text">Search for a Range</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#First-Occurrence-of-Target"><span class="nav-number">8.</span> <span class="nav-text">First Occurrence of Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Last-Occurrence-of-Target"><span class="nav-number">9.</span> <span class="nav-text">Last Occurrence of Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Total-Occurence-of-Target"><span class="nav-number">10.</span> <span class="nav-text">Total Occurence of Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Closest-Number-to-Target"><span class="nav-number">11.</span> <span class="nav-text">Closest Number to Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Find-K-cloest-Number-to-Target"><span class="nav-number">12.</span> <span class="nav-text">Find K cloest Number to Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-in-Rotated-Sorted-Array-I"><span class="nav-number">13.</span> <span class="nav-text">Search in Rotated Sorted Array I</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-in-Rotated-Sorted-Array-II"><span class="nav-number">14.</span> <span class="nav-text">Search in Rotated Sorted Array II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Find-Minimum-in-Rotated-orted-Array-I"><span class="nav-number">15.</span> <span class="nav-text">Find Minimum in Rotated orted Array I</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Find-Minimum-in-Rotated-orted-Array-II"><span class="nav-number">16.</span> <span class="nav-text">Find Minimum in Rotated orted Array II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Find-Peak-Element"><span class="nav-number">17.</span> <span class="nav-text">Find Peak Element</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximum-Number-in-Mountain-Sequence"><span class="nav-number">18.</span> <span class="nav-text">Maximum Number in Mountain Sequence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intersection-of-Two-Arrays-I"><span class="nav-number">19.</span> <span class="nav-text">Intersection of Two Arrays I</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intersection-of-Two-Arrays-II"><span class="nav-number">20.</span> <span class="nav-text">Intersection of Two Arrays II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Smallest-Letter-Greater-Than-Target"><span class="nav-number">21.</span> <span class="nav-text">Smallest Letter Greater Than Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Russian-Doll-Envelopes"><span class="nav-number">22.</span> <span class="nav-text">Russian Doll Envelopes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Max-Sum-of-Rectangle-No-Largetr-Than-K"><span class="nav-number">23.</span> <span class="nav-text">Max Sum of Rectangle No Largetr Than K</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Power-x-n-I"><span class="nav-number">24.</span> <span class="nav-text">Power(x, n) I</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Power-x-n-II"><span class="nav-number">25.</span> <span class="nav-text">Power(x, n) II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Divide-Two-Integers"><span class="nav-number">26.</span> <span class="nav-text">Divide Two Integers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#続く。"><span class="nav-number">27.</span> <span class="nav-text">続く。</span></a></li></ol></div>
             
 
           </div>
@@ -948,9 +945,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2018/04/04/Data Structure V Tree ii/';
-        this.page.identifier = '2018/04/04/Data Structure V Tree ii/';
-        this.page.title = 'Data Structure V Tree II';
+        this.page.url = 'http://yoursite.com/2018/04/25/Binary-Search/';
+        this.page.identifier = '2018/04/25/Binary-Search/';
+        this.page.title = 'Binary Search';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');

@@ -4,6 +4,58 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/04/22/Android-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-04-29T20:56:16.639Z</lastmod>
+    <data>
+        <display>
+        <title>Android  学习笔记</title>
+        <pubTime>2018-04-22T23:30:49.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/04/29/Observer-Pattern/</loc>
+    <lastmod>2018-04-29T20:46:49.370Z</lastmod>
+    <data>
+        <display>
+        <title>Observer Pattern</title>
+        <pubTime>2018-04-29T20:46:49.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/04/25/Binary-Search/</loc>
+    <lastmod>2018-04-26T07:08:05.384Z</lastmod>
+    <data>
+        <display>
+        <title>Binary Search</title>
+        <pubTime>2018-04-26T05:30:56.000Z</pubTime>
+        
+        <tag>Algorithm</tag>
+         
+        <tag>Binary Search</tag>
+         
+         
+           
+             
+              <breadCrumb title="Algorithm" url="http://yoursite.com/categories/Algorithm/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/04/25/Emoji/</loc>
     <lastmod>2018-04-25T21:52:27.654Z</lastmod>
     <data>
@@ -36,21 +88,6 @@
              
               <breadCrumb title="Algorithm" url="http://yoursite.com/categories/Algorithm/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/04/22/Android-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2018-04-25T02:21:10.279Z</lastmod>
-    <data>
-        <display>
-        <title>Android  学习笔记</title>
-        <pubTime>2018-04-22T23:30:49.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
@@ -212,9 +249,9 @@
         <title>DFS 从入门到放弃I</title>
         <pubTime>2018-04-07T05:36:00.452Z</pubTime>
         
-        <tag>Data Structure</tag>
-         
         <tag>Algorithm</tag>
+         
+        <tag>Data Structure</tag>
          
          
            
@@ -231,9 +268,9 @@
         <title>DFS 从入门到放弃 II</title>
         <pubTime>2018-04-09T05:54:51.422Z</pubTime>
         
-        <tag>Data Structure</tag>
-         
         <tag>Algorithm</tag>
+         
+        <tag>Data Structure</tag>
          
          
            
@@ -250,9 +287,9 @@
         <title>DFS 从入门到放弃 IV</title>
         <pubTime>2018-04-13T19:42:29.461Z</pubTime>
         
-        <tag>Data Structure</tag>
-         
         <tag>Algorithm</tag>
+         
+        <tag>Data Structure</tag>
          
          
            
@@ -269,9 +306,9 @@
         <title>DFS 从入门到放弃 III</title>
         <pubTime>2018-04-10T19:41:28.385Z</pubTime>
         
-        <tag>Data Structure</tag>
-         
         <tag>Algorithm</tag>
+         
+        <tag>Data Structure</tag>
          
          
            
@@ -310,9 +347,9 @@
         <title>Java 从 char 到 String</title>
         <pubTime>2018-04-13T20:47:34.481Z</pubTime>
         
-        <tag>Data Structure</tag>
-         
         <tag>Algorithm</tag>
+         
+        <tag>Data Structure</tag>
          
          
            
