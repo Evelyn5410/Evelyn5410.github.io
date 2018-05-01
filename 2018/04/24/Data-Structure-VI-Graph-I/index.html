@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://yoursite.com/images/graph2.png">
 <meta property="og:image" content="http://yoursite.com/images/graph3.png">
 <meta property="og:image" content="http://yoursite.com/images/graph1.png">
-<meta property="og:updated_time" content="2018-04-25T05:58:01.362Z">
+<meta property="og:updated_time" content="2018-05-01T19:26:49.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Structure VI Graph I">
 <meta name="twitter:description" content="A graph is formed by the non-empty set of vertex and set of edge. Use G &amp;lt;E, V&amp;gt; to represent a graph, G, and the sets of it’s vertex, V, and edge, E.">
@@ -351,12 +351,24 @@
                 
               
 
-              <time title="Created: 04-24-2018 12:05:18 / Modified: 22:58:01" itemprop="dateCreated datePublished" datetime="2018-04-24T12:05:18-07:00">04-24-2018</time>
+              <time title="Created: 04-24-2018 12:05:18" itemprop="dateCreated datePublished" datetime="2018-04-24T12:05:18-07:00">04-24-2018</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 05-01-2018 12:26:49" itemprop="dateModified" datetime="2018-05-01T12:26:49-07:00">05-01-2018</time>
               
             
           </span>
@@ -472,7 +484,8 @@
 <p>In a regular traversal, the time comlexity is about the same as monodirection. And the space remains the same. It is beacuse, even though traversing from two direction “at the same time”, the total number of node in the graph is given.<br>However, if each node expends X states at a level, and there are N levels. Then the time complexity is going to be X^N. Coming from two directions will reduce level to N/2 for each direction. The the time comlexity becomes 2 * X^(N/2), which optimizes about squareroot of the complexity.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">shortestPath</span><span class="params">(List&lt;GraphNode&gt; graph, GraphNode start, GraphNode target)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (graph == <span class="keyword">null</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (start == target) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	Queue&lt;GraphNode&gt; qStart = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">	Ser&lt;GraphNode&gt; visitedStart = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">	Queue&lt;GraphNode qTarget = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">	Ser&lt;GraphNode&gt; visitedTarget = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> step = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	qStart.offer(start);</span><br><span class="line">	visitedStart.add(start);</span><br><span class="line"></span><br><span class="line">	qTarget.offer(target);</span><br><span class="line">	visitedTarget.add(target);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (!qStart.isEmpty() &amp;&amp; !q.target.isEmpty()) &#123;</span><br><span class="line">		<span class="comment">//from start</span></span><br><span class="line">		<span class="keyword">int</span> sizeStart = qStart.size();</span><br><span class="line">		step += <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sizeStart; i++) &#123;</span><br><span class="line">			GraphNode cur = qStart.poll();</span><br><span class="line">			<span class="keyword">for</span> (GraphNode nei : cur.neighbors) &#123;</span><br><span class="line">				<span class="keyword">if</span> (qTarget.contains(nei)) <span class="keyword">return</span> step;</span><br><span class="line">				<span class="keyword">if</span> (!visitedStart.contains(nei)) &#123;</span><br><span class="line">					qStart.offer(nei);</span><br><span class="line">					visitedStart.add(nei);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//from target</span></span><br><span class="line">		<span class="keyword">int</span> sizeTarget = qTarget.size();</span><br><span class="line">		step += <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sizeTarget; i++) &#123;</span><br><span class="line">			GraphNode cur = qTarget.poll();</span><br><span class="line">			<span class="keyword">for</span> (GraphNode nei : cur.neighbors) &#123;</span><br><span class="line">				<span class="keyword">if</span> (qStart.contains(nei)) <span class="keyword">return</span> step;</span><br><span class="line">				<span class="keyword">if</span> (!visitedTarget.contains(nei)) &#123;</span><br><span class="line">					qTarget.offer(nei);</span><br><span class="line">					visitedTarget.add(nei);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Onlything changed in bidirection traverse is adding a queue for the direction, and check whether current node expands a node in the queue of the other direction. </p>
-<h3 id="Word-Ladder"><a href="#Word-Ladder" class="headerlink" title="Word Ladder"></a>Word Ladder</h3>
+<h3 id="Word-Ladder"><a href="#Word-Ladder" class="headerlink" title="Word Ladder"></a>Word Ladder</h3><p><code>input:</code> </p>
+
       
     </div>
 
