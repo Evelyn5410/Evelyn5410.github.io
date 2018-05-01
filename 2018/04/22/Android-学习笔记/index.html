@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://yoursite.com/images/activity.png">
 <meta property="og:image" content="https://developer.android.com/images/activity_lifecycle.png">
 <meta property="og:image" content="https://developer.android.com/images/activity_fragment_lifecycle.png">
-<meta property="og:updated_time" content="2018-04-29T20:56:16.639Z">
+<meta property="og:updated_time" content="2018-04-30T00:36:47.219Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android  学习笔记">
 <meta name="twitter:description" content="生活不止有眼前的枸杞, 还有生发水和保温杯.这是一篇中英掺杂的学习笔记.">
@@ -250,7 +250,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">5</span></a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">6</span></a>
   </li>
         
         
@@ -368,7 +368,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 04-29-2018 13:56:16" itemprop="dateModified" datetime="2018-04-29T13:56:16-07:00">04-29-2018</time>
+                <time title="Modified: 04-29-2018 17:36:47" itemprop="dateModified" datetime="2018-04-29T17:36:47-07:00">04-29-2018</time>
               
             
           </span>
@@ -459,7 +459,7 @@
 <p>Intent有三个用途：</p>
 <ol>
 <li>start an activity (会使用UI）</li>
-<li>start a service （后端运行，不使用UI）[1]</li>
+<li>start a service （后端运行，不使用UI）<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></li>
 <li>deliver a broadcast to other apps</li>
 </ol>
 <p>在1，2种用途中，我们可以使用：</p>
@@ -469,7 +469,7 @@
 </ol>
 <p>但是，我们可以看出，不管是哪种intent，都只能执行“打开另一个activity/service“的能力，是因为接受方只有在onCreat()这一步的时候，才能接受intent，从而start。</p>
 <p>而broadcast不同，它可以在activity的任何一步进入监听状态，它可以让activity做各种事情，而不局限于start。<br>另外，它可以一对多，同时让多个activity响应（响应的实现方式为extends BroadcastReceiver, 以及在life cycle function中写入监听开始（register））。</p>
-<p>总结：<br>普通intent只能一对一，并只能执行start操作让activity/service启动<br>broadcast可以一对多，并能让activity做各种事情。而且broadcast有分级别，系统级别的某些broadcast禁止普通app进行监听。[2]</p>
+<p>总结：<br>普通intent只能一对一，并只能执行start操作让activity/service启动<br>broadcast可以一对多，并能让activity做各种事情。而且broadcast有分级别，系统级别的某些broadcast禁止普通app进行监听。<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></p>
 <h2 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h2><p>3.0版本中引入, 为了应用在大屏幕设备上. Fragment 依赖于 Activity 存在, 但是拥有自己的生命周期, 拥有独立的输入事件的响应. 一个 Activity 可以包含多个 Fragment, 同一个 fragment 也可以被不同的 activity 调用. 尤其适用于 Single Activity 应用.</p>
 <p><strong>可以把 Fragment 看做是可以被重复使用的模块.</strong></p>
 <ul>
@@ -535,8 +535,7 @@
 <h3 id="自定义类"><a href="#自定义类" class="headerlink" title="自定义类"></a>自定义类</h3><p>更加常用的形式是自定义一个Adapter 的子类.</p>
 <h2 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h2><p>PS: (cast) 向下转换.</p>
 <hr>
-<p>[1]: service: 可以理解为没有 UI 的 Activity.<br>[2]: 感谢@天放同学精准到位的总结. ღ(´･ᴗ･`)笔芯.</p>
-
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">service: 可以理解为没有 UI 的 Activity.</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">感谢@天放同学精准到位的总结. ღ(´･ᴗ･`)笔芯.</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
       
     </div>
 
@@ -739,7 +738,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">categories</span>
                   
                 </div>
@@ -772,7 +773,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
