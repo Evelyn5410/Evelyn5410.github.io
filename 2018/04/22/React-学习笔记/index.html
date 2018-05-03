@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="Evelynone">
 <meta property="og:description" content="React, a JavaScript library for building user interfaces.1">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-23T06:00:16.217Z">
+<meta property="og:updated_time" content="2018-05-03T06:42:52.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React 学习笔记">
 <meta name="twitter:description" content="React, a JavaScript library for building user interfaces.1">
@@ -347,12 +347,24 @@
                 
               
 
-              <time title="Created: 04-22-2018 15:45:53 / Modified: 23:00:16" itemprop="dateCreated datePublished" datetime="2018-04-22T15:45:53-07:00">04-22-2018</time>
+              <time title="Created: 04-22-2018 15:45:53" itemprop="dateCreated datePublished" datetime="2018-04-22T15:45:53-07:00">04-22-2018</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 05-02-2018 23:42:52" itemprop="dateModified" datetime="2018-05-02T23:42:52-07:00">05-02-2018</time>
               
             
           </span>
@@ -423,7 +435,7 @@
 
       
         <blockquote>
-<p>React, a JavaScript library for building user interfaces.<a href="https://reactjs.org/" target="_blank" rel="noopener">1</a></p>
+<p>React, a JavaScript library for building user interfaces.<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
 </blockquote>
 <a id="more"></a>
 <h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ol>
@@ -431,8 +443,63 @@
 <li>Component-Based: 模拟 DOM, 减少与 DOM 的交互. 组件有独立的 scope.</li>
 <li>Flexible: 与已知框架可以很好的配合. 单向响应式数据, 减少重复代码. 通过 React 构建组件, 从而重复使用组件. </li>
 </ol>
-<h2 id="JSX-JavaScript-的语法扩展-允许在-JavaScript-里面使用-XML-语法"><a href="#JSX-JavaScript-的语法扩展-允许在-JavaScript-里面使用-XML-语法" class="headerlink" title="JSX: JavaScript 的语法扩展, 允许在 JavaScript 里面使用 XML 语法."></a>JSX: JavaScript 的语法扩展, 允许在 JavaScript 里面使用 XML 语法.</h2><h2 id="Virtual-DOM"><a href="#Virtual-DOM" class="headerlink" title="Virtual DOM"></a>Virtual DOM</h2><h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><hr>
-
+<h2 id="JSX-JavaScript-的语法扩展-允许在-JavaScript-里面使用-XML-语法"><a href="#JSX-JavaScript-的语法扩展-允许在-JavaScript-里面使用-XML-语法" class="headerlink" title="JSX: JavaScript 的语法扩展, 允许在 JavaScript 里面使用 XML 语法."></a>JSX: JavaScript 的语法扩展, 允许在 JavaScript 里面使用 XML 语法.</h2><h2 id="ECMAScript6-Features"><a href="#ECMAScript6-Features" class="headerlink" title="ECMAScript6 Features"></a>ECMAScript6 Features</h2><ul>
+<li><p>let vs. var: 不同于 var, let 是 block-scoped. </p>
+</li>
+<li><p>const: 相当于 java 中的 final. 只读不可改.</p>
+</li>
+<li><p>Template String: 新的语法糖, 用反引号来定义一个 String, 引号内的文字结构保持不变.</p>
+<ol>
+<li><code>Srting  string</code></li>
+<li><code>${String}  ${String}</code></li>
+</ol>
+</li>
+<li><p>Object literal: </p>
+<ol>
+<li><p>不同于ES5, 如果parameter list 的名字和 function 本身的 key 相同的话, 就可以只写 key. 例如,</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCar</span>(<span class="params">make, model, price</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> &#123;</span><br><span class="line">   make: make,</span><br><span class="line">   model: model,</span><br><span class="line">   price: price,</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCar2</span>(<span class="params">make, model, price</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> &#123;</span><br><span class="line">   make,</span><br><span class="line">   model,</span><br><span class="line">   price,</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>如果 key 和参数名字不同的话, 则扔需要保持 key-value-pair.</strong></p>
+</li>
+<li><p>另外一个语法糖是, 可以使用 string template 直接对 key 进行操作, 例如增加一个属性 <code>madeBy(value of make)</code>, 那么就可以直接写成 <code>[madeBy${make}] : value</code>. 那么生成的 key 就是自动传入<code>make</code>所对应的 value. 例如,<br>这时候, 这个属性的名字就会变成<code>madeByBMW : value</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> car = getCar4(<span class="string">'BMW'</span>, <span class="string">'X5'</span>, <span class="number">60000</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数不再需要明确的写出 f<code>unction(){  }</code>的格式, 而可以直接在属性后面写上<code>(){ }</code>, 例如, <code>depreciate: function() {  }</code>  &lt;===&gt; <code>depreciate() {  }</code>.</p>
+</li>
+</ol>
+</li>
+<li><p>Arrow Function: (参数) =&gt; { } 例如,<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">const</span> double = arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> n * <span class="number">2</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> double1 = arr.map(<span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line"> <span class="keyword">return</span> n * <span class="number">2</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>它会自动绑定 this, 在它被定义的那个this. <sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></p>
+<ul>
+<li><p>可以在参数里面传默认值, 例如,</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x, y=<span class="number">12</span></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于上面的例子,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(3) //15</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以传入rest parameter, 用…来表示, 例如,</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x, ...y</span>) </span>&#123;		<span class="comment">//剩余的 parameter 被存到一个 array 里面, 可以穿入任意长度的参数在 x 后面.</span></span><br><span class="line"> <span class="keyword">return</span> x * y.length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(<span class="number">3</span>, <span class="string">"hello"</span>, <span class="literal">true</span>)			<span class="comment">//剩余的 parameter 是长度为 2 的 array, 所以结果是6.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Spread Operator (…), 使用<code>...</code>来分离一个集合类型, 用来 concatate 多个数组非常的灵活. 例如, </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [...arr, <span class="number">111</span>, <span class="number">222</span>, ...arr1];	 <span class="comment">// [1, 2, 3, 4, 111, 222, 5, 6, 7, 8]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj1 = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> obj2 = &#123;...obj1, <span class="attr">c</span>: <span class="number">3</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj2); <span class="comment">// &#123;a: 1, b: 2, c: 3&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也可以当做参数传入, </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> f = <span class="function">(<span class="params">x, y, z</span>) =&gt;</span> x + y + z;</span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(f(...arr)); <span class="comment">// 6</span></span><br><span class="line"><span class="built_in">console</span>.log(f(...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])) <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Destructuring 用来做一个一一对应的读写操作. 例如,</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a, b, rest;</span><br><span class="line">[a, , b] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">[a, b, ...rest] = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 20</span></span><br><span class="line"><span class="built_in">console</span>.log(rest); <span class="comment">// [30, 40, 50]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// object destructuring</span></span><br><span class="line"><span class="keyword">let</span> &#123; a, b &#125; = &#123; <span class="attr">a</span>: <span class="number">10</span>, <span class="attr">b</span>: <span class="number">20</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 20</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123; x, y, ...z &#125; = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>, <span class="attr">a</span>: <span class="number">3</span>, <span class="attr">b</span>: <span class="number">4</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(z) <span class="comment">// &#123;a: 3, b: 4&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Fail-soft destructuring</span></span><br><span class="line"><span class="keyword">var</span> [v] = [];</span><br><span class="line"><span class="built_in">console</span>.log(v); <span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// Fail-soft destructuring with defaults</span></span><br><span class="line"><span class="keyword">var</span> [v = <span class="number">1</span>] = []; </span><br><span class="line"><span class="built_in">console</span>.log(v); <span class="comment">// 1;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>支持 class (支持 OOP 的语法糖)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassName</span> </span>&#123; </span><br><span class="line">  <span class="comment">//构造函数</span></span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;		</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//function</span></span><br><span class="line">  method() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">'say something.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 静态函数</span></span><br><span class="line">  <span class="keyword">static</span> method() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'do something'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以继承</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name, age) &#123;</span><br><span class="line">    <span class="keyword">super</span>(name);</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//override</span></span><br><span class="line">  speak() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">'do something'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Virtual-DOM"><a href="#Virtual-DOM" class="headerlink" title="Virtual DOM"></a>Virtual DOM</h2><h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><hr>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;"><a href="https://reactjs.org/" target="_blank" rel="noopener">https://reactjs.org/</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">map 返回一个新的数组.</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">注意 this 的生成方式并没有发生改变, this 只有在类被初始化的时候才会产生(调用这个类的方法).</span><a href="#fnref:3" rev="footnote"> ↩</a></li></ol></div></div>
       
     </div>
 
@@ -744,7 +811,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Features"><span class="nav-number">1.</span> <span class="nav-text">Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX-JavaScript-的语法扩展-允许在-JavaScript-里面使用-XML-语法"><span class="nav-number">2.</span> <span class="nav-text">JSX: JavaScript 的语法扩展, 允许在 JavaScript 里面使用 XML 语法.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Virtual-DOM"><span class="nav-number">3.</span> <span class="nav-text">Virtual DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Component"><span class="nav-number">4.</span> <span class="nav-text">Component</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Props"><span class="nav-number">5.</span> <span class="nav-text">Props</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Features"><span class="nav-number">1.</span> <span class="nav-text">Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX-JavaScript-的语法扩展-允许在-JavaScript-里面使用-XML-语法"><span class="nav-number">2.</span> <span class="nav-text">JSX: JavaScript 的语法扩展, 允许在 JavaScript 里面使用 XML 语法.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ECMAScript6-Features"><span class="nav-number">3.</span> <span class="nav-text">ECMAScript6 Features</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Virtual-DOM"><span class="nav-number">4.</span> <span class="nav-text">Virtual DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Component"><span class="nav-number">5.</span> <span class="nav-text">Component</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Props"><span class="nav-number">6.</span> <span class="nav-text">Props</span></a></li></ol></div>
             
 
           </div>
