@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="Evelynone">
 <meta property="og:description" content="A directed graph (or digraph) is a set of vertices and a collection of directed edges that each connects an ordered pair of vertices. We say that a directed edge points from the first vertex in the pa">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-07T03:47:02.317Z">
+<meta property="og:updated_time" content="2018-05-08T05:33:02.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Structure VI Graph II">
 <meta name="twitter:description" content="A directed graph (or digraph) is a set of vertices and a collection of directed edges that each connects an ordered pair of vertices. We say that a directed edge points from the first vertex in the pa">
@@ -395,7 +395,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 05-06-2018 20:47:02" itemprop="dateModified" datetime="2018-05-06T20:47:02-07:00">05-06-2018</time>
+                <time title="Modified: 05-07-2018 22:33:02" itemprop="dateModified" datetime="2018-05-07T22:33:02-07:00">05-07-2018</time>
               
             
           </span>
@@ -482,12 +482,26 @@
       
         <p>A directed graph (or digraph) is a set of vertices and a collection of directed edges that each connects an ordered pair of vertices. We say that a directed edge points from the first vertex in the pair and points to the second vertex in the pair<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>.</p>
 <a id="more"></a>
-<h2 id="Directed-Graph"><a href="#Directed-Graph" class="headerlink" title="Directed Graph"></a>Directed Graph</h2><p>###Topological sort<br>Given a digraph, put the vertices in order such that all its directed edges point from a vertex earlier in the order to a vertex later in the order (or report that doing so is not possible). Remarkably, a reverse postorder in a DAG provides a topological order<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>.</p>
+<h2 id="Directed-Graph"><a href="#Directed-Graph" class="headerlink" title="Directed Graph"></a>Directed Graph</h2><h3 id="Topological-sort"><a href="#Topological-sort" class="headerlink" title="Topological sort"></a>Topological sort</h3><p>Given a digraph, put the vertices in order such that all its directed edges point from a vertex earlier in the order to a vertex later in the order (or report that doing so is not possible). Remarkably, a reverse postorder in a DAG provides a topological order<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>.</p>
 <ul>
-<li>Proposition. A digraph has a topological order if and only if it is a DAG.</li>
-<li>Proposition. Reverse postorder in a DAG is a topological sort<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>.</li>
+<li>Proposition: A digraph has a topological order if and only if it is a DAG.</li>
+<li><p>Proposition: Reverse postorder in a DAG is a topological sort<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>.</p>
+</li>
+<li><p>Applications: order of items that have dependencies from each other. </p>
+</li>
+<li><p>Steps:</p>
+<ol>
+<li>Get in-degrees, and initialize topoligical list.</li>
+<li>Generate all elements that have 0 in-degree into queue.</li>
+<li>Expand elements and add into topological list. Reduce 1 in-degree from expanded elements. </li>
+<li>If in-degree of an element becomes 0, put into queue.</li>
+<li>If queue is empty, return.<br>Time complexity is O(E + V) where E is edges and V is vertices. Space complexity is O(E) beaucse using queue<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TopologicalSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;DirectedGraphNode&gt; <span class="title">sort</span><span class="params">(ArrayList&lt;DirectedGraphNode&gt; graph)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (graph == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        HashMap&lt;DirectedGraphNode, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (DirectedGraphNode node : graph) &#123;</span><br><span class="line">            <span class="keyword">for</span> (DirectedGraphNode nei : node.neighbors) &#123;</span><br><span class="line">                <span class="keyword">if</span> (map.containsKey(nei)) &#123;</span><br><span class="line">                    map.put(nei, map.get(nei) + <span class="number">1</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    map.put(nei, <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        ArrayList&lt;DirectedGraphNode&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Queue&lt;DirectedGraphNode&gt; queue = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (DirectedGraphNode node : graph) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!map.containsKey(node)) &#123;</span><br><span class="line">                queue.offer(node);</span><br><span class="line">                list.add(node);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            DirectedGraphNode cur = queue.poll();</span><br><span class="line">            <span class="keyword">for</span> (DirectedGraphNode node : cur.neighbors) &#123;</span><br><span class="line">                map.put(node, map.get(node) - <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">if</span> (map.get(node) - <span class="number">1</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                    queue.offer(node);</span><br><span class="line">                    list.add(node);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
 </ul>
-
+<hr>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">Sedgewick, Robert, and Kevin Daniel Wayne. Algorithms. Addison-Wesley, 2015.</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">Sedgewick, Robert, and Kevin Daniel Wayne. Algorithms. Addison-Wesley, 2015.</span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">Sedgewick, Robert, and Kevin Daniel Wayne. Algorithms. Addison-Wesley, 2015.</span><a href="#fnref:3" rev="footnote"> ↩</a></li></ol></div></div>
       
     </div>
 
@@ -789,7 +803,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Directed-Graph"><span class="nav-number">1.</span> <span class="nav-text">Directed Graph</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Directed-Graph"><span class="nav-number">1.</span> <span class="nav-text">Directed Graph</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Topological-sort"><span class="nav-number">1.1.</span> <span class="nav-text">Topological sort</span></a></li></ol></li></ol></div>
             
 
           </div>
