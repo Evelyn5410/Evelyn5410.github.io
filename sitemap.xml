@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/10/Dynamic-Programming/</loc>
+    
+    <lastmod>2018-05-10T23:49:40.285Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/04/13/Java%E4%BB%8E%20char%20%E5%88%B0%20String/</loc>
+    
+    <lastmod>2018-05-10T15:35:11.999Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/05/08/Data-Structure-VII-Heap-PriorityQueue/</loc>
     
     <lastmod>2018-05-09T05:59:09.269Z</lastmod>
@@ -159,13 +173,6 @@
     <loc>http://yoursite.com/2018/04/03/Linear%20Data%20Structure%20iii/</loc>
     
     <lastmod>2018-04-17T18:13:22.510Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/04/13/Java%E4%BB%8E%20char%20%E5%88%B0%20String/</loc>
-    
-    <lastmod>2018-04-17T18:12:24.369Z</lastmod>
     
   </url>
   
