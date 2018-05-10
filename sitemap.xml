@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/08/Data-Structure-VII-Heap-PriorityQueue/</loc>
+    
+    <lastmod>2018-05-09T05:59:09.269Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/05/05/Data-Structure-IV-Queue/</loc>
     
     <lastmod>2018-05-08T06:18:53.381Z</lastmod>

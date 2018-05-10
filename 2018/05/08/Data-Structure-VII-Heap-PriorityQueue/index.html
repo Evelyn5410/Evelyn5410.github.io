@@ -104,24 +104,25 @@
 
 
 
-  <meta name="keywords" content="Data Structure,review plan">
+  <meta name="description" content="Heap is a tree-like data structure. Every node must satisfy the heap property (max/min/etc). In java, heap is implemented as PriorityQueue&amp;lt;&amp;gt;(size, Comparator). Due to this property, the time com">
+<meta name="keywords" content="Algorithm,Data Structure,LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Data Structure">
-<meta property="og:url" content="http://yoursite.com/2018/04/01/Data-Structure/index.html">
+<meta property="og:title" content="Data Structure VII Heap&amp;PriorityQueue">
+<meta property="og:url" content="http://yoursite.com/2018/05/08/Data-Structure-VII-Heap-PriorityQueue/index.html">
 <meta property="og:site_name" content="Evelynone">
+<meta property="og:description" content="Heap is a tree-like data structure. Every node must satisfy the heap property (max/min/etc). In java, heap is implemented as PriorityQueue&amp;lt;&amp;gt;(size, Comparator). Due to this property, the time com">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/images/ryflZy9_f_rkig-k9Of.jpg">
-<meta property="og:updated_time" content="2018-04-21T19:36:13.318Z">
+<meta property="og:updated_time" content="2018-05-09T05:59:09.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Data Structure">
-<meta name="twitter:image" content="http://yoursite.com/images/ryflZy9_f_rkig-k9Of.jpg">
+<meta name="twitter:title" content="Data Structure VII Heap&amp;PriorityQueue">
+<meta name="twitter:description" content="Heap is a tree-like data structure. Every node must satisfy the heap property (max/min/etc). In java, heap is implemented as PriorityQueue&amp;lt;&amp;gt;(size, Comparator). Due to this property, the time com">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/01/Data-Structure/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/08/Data-Structure-VII-Heap-PriorityQueue/"/>
 
 
 
@@ -131,7 +132,7 @@
   };
 </script>
 
-  <title>Data Structure | Evelynone</title>
+  <title>Data Structure VII Heap&PriorityQueue | Evelynone</title>
   
 
 
@@ -335,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/01/Data-Structure/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/Data-Structure-VII-Heap-PriorityQueue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Evelyn">
@@ -352,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Data Structure
+          <h1 class="post-title" itemprop="name headline">Data Structure VII Heap&PriorityQueue
               
             
           </h1>
@@ -377,46 +378,16 @@
                 
               
 
-              <time title="Created: 04-01-2018 22:00:39" itemprop="dateCreated datePublished" datetime="2018-04-01T22:00:39-07:00">04-01-2018</time>
+              <time title="Created: 05-08-2018 16:26:08 / Modified: 22:59:09" itemprop="dateCreated datePublished" datetime="2018-05-08T16:26:08-07:00">05-08-2018</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 04-21-2018 12:36:13" itemprop="dateModified" datetime="2018-04-21T12:36:13-07:00">04-21-2018</time>
               
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Data-Structure/" itemprop="url" rel="index"><span itemprop="name">Data Structure</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -426,9 +397,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/01/Data-Structure/#comments" itemprop="discussionUrl">
+                <a href="/2018/05/08/Data-Structure-VII-Heap-PriorityQueue/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/01/Data-Structure/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/05/08/Data-Structure-VII-Heap-PriorityQueue/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -464,7 +435,35 @@
       
 
       
-        <p><img src="/images/ryflZy9_f_rkig-k9Of.jpg" alt=""></p>
+        <p>Heap is a tree-like data structure. Every node must satisfy the heap property (max/min/etc). In java, heap is implemented as PriorityQueue&lt;&gt;(size, Comparator<t>). Due to this property, the time complexity of insertion and deletion are both O(logn).</t></p>
+<a id="more"></a>
+<h3 id="Heapify"><a href="#Heapify" class="headerlink" title="Heapify"></a>Heapify</h3><p><code>input:</code> an int array.<br><code>output:</code> none.</p>
+<p>A min heap must satisfy following property, for a list of n elements {k1, k2… ki…kn}, (ki &lt;= k2i, ki &lt;= k2i+1)或者(ki &gt;= k2i, ki &gt;= k2i+1), (i = 1, 2, 3, 4… n/2).<br>In other words,</p>
+<ul>
+<li>left child (node * 2 + 1)</li>
+<li>right child (node * 2 + 2)<br>must not greater than node.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Heapify</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> A: Given an integer array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: nothing</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">heapify</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = A.length / <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            shiftDown(A, i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">shiftDown</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> curr)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> length = arr.length;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (curr &lt; length) &#123;</span><br><span class="line">            <span class="keyword">int</span> smallestIndex = curr;</span><br><span class="line">            <span class="keyword">int</span> leftChild = curr * <span class="number">2</span> + <span class="number">1</span>;               </span><br><span class="line">            <span class="keyword">int</span> rightChild = curr * <span class="number">2</span> + <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (leftChild &lt; length &amp;&amp; arr[leftChild] &lt;= arr[smallestIndex]) &#123;</span><br><span class="line">                smallestIndex = leftChild;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (rightChild &lt; length &amp;&amp; arr[rightChild] &lt;= arr[smallestIndex]) &#123;</span><br><span class="line">                smallestIndex = rightChild;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//whether curr is smaller than its children or curr is leaf;</span></span><br><span class="line">            <span class="keyword">if</span> (smallestIndex == curr) &#123;            </span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            swap(arr, smallestIndex, curr);</span><br><span class="line">            <span class="comment">//from current node down</span></span><br><span class="line">            curr = smallestIndex;                        </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> one, <span class="keyword">int</span> two)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = arr[one];</span><br><span class="line">        arr[one] = arr[two];</span><br><span class="line">        arr[two] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Merge-K-Sorted-Lists"><a href="#Merge-K-Sorted-Lists" class="headerlink" title="Merge K Sorted Lists"></a>Merge K Sorted Lists</h3><p><code>input:</code> lists of sorted linked list.<br><code>output:</code> one sorted linked list.</p>
+<p>The most intuitive way of solving this problems is that merge lists two by two. Since there are soreted linked list, recursively call a helper function and merge. Problem is that every node is visited more than one time.<br>Another approach is using heap. Only keep the reference of head of the linked list. It taks O(k) to build min heap. Offer and poll operation take O(lok). There a k lists and every list has n nodes. The time complexity is O(knlogk). Space complexity is O(k) for list nodes in the priority queue.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MergeKLists</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> lists: a list of ListNode</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: The head of one sorted list.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">mergeKLists</span><span class="params">(List&lt;ListNode&gt; lists)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (lists == <span class="keyword">null</span> || lists.size() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode dummy = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);</span><br><span class="line">        ListNode newHead = dummy;</span><br><span class="line">        PriorityQueue&lt;ListNode&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;&gt;(lists.size(), <span class="keyword">new</span> Comparator&lt;ListNode&gt;()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(ListNode o1, ListNode o2)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> o1.val &lt; o2.val ? -<span class="number">1</span> : (o1.val == o2.val ? <span class="number">0</span> : <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (ListNode node : lists) &#123;</span><br><span class="line">            <span class="keyword">if</span> (node != <span class="keyword">null</span>) pq.offer(node);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!pq.isEmpty()) &#123;</span><br><span class="line">            ListNode cur = pq.poll();</span><br><span class="line">            newHead.next = cur;</span><br><span class="line">            newHead = newHead.next;</span><br><span class="line">            <span class="keyword">if</span> (cur.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">                pq.offer(cur.next);</span><br><span class="line">            &#125;</span><br><span class="line">            cur.next = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Merge-K-sorted-arrays"><a href="#Merge-K-sorted-arrays" class="headerlink" title="Merge K sorted arrays"></a>Merge K sorted arrays</h3><p><code>input:</code> list of sorted arrays.<br><code>output:</code> one sorted array.</p>
+<p>Similar to merge linked list. Only difference is that element in the array doesn’t have reference to its neightbor. Creating a cell class with all information about an element’s neighbor. Using priority queue to store first element of each row because the rows in the 2D array may not have the same number of column. </p>
+<p>The time complexity is O(Nlogk) where N is the totol number of input and k is the number of arrays. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">ublic <span class="class"><span class="keyword">class</span> <span class="title">MergeKArrays</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Cell</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val, row, col;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Cell</span><span class="params">(<span class="keyword">int</span> val, <span class="keyword">int</span> row, <span class="keyword">int</span> col)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.val = val;</span><br><span class="line">            <span class="keyword">this</span>.row = row;</span><br><span class="line">            <span class="keyword">this</span>.col = col;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arrays</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] mergekSortedArrays(<span class="keyword">int</span>[][] arrays) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arrays == <span class="keyword">null</span> || arrays[<span class="number">0</span>] == <span class="keyword">null</span> || arrays.length == <span class="number">0</span> || arrays[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;&#125;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        PriorityQueue&lt;Cell&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;&gt;(arrays.length, <span class="keyword">new</span> Comparator&lt;Cell&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Cell o1, Cell o2)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> o1.val &lt; o2.val ? -<span class="number">1</span> : o1.val == o2.val ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">//O(array.length)</span></span><br><span class="line">        <span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrays.length; i++) &#123;</span><br><span class="line">            pq.offer(<span class="keyword">new</span> Cell(arrays[i][<span class="number">0</span>], i, <span class="number">0</span>));</span><br><span class="line">            length += arrays[i].length;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[length];</span><br><span class="line">        <span class="keyword">while</span> (!pq.isEmpty()) &#123;</span><br><span class="line">            Cell cur = pq.poll();</span><br><span class="line">            result[index++] = cur.val;</span><br><span class="line">            <span class="keyword">if</span> (cur.col + <span class="number">1</span> &lt; arrays[cur.row].length) &#123;</span><br><span class="line">                pq.offer(<span class="keyword">new</span> Cell(arrays[cur.row][cur.col + <span class="number">1</span>], cur.row, cur.col + <span class="number">1</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!-- 
+### Kth Smallest Number in Sorted Matrix
+
+### Top K Largest Numbers I
+
+### Top K Largest Numbers II -->
+<h3 id="High-Five"><a href="#High-Five" class="headerlink" title="High Five"></a>High Five</h3><p><code>input:</code> list of Records with id and score.<br><code>output:</code> return the average of top 5 score for each id.</p>
+<p>Extra data structure needs to be used here to record scores for each id, and the average of score for the id. Using two maps, for list of scores, and another one for final result.<br>It asks top 5 score. Intuitively, top number of something fits the property of max heap. Using priority queue to record scores, calculate averate of top 5 numbers. Time compexity is O(n) for store all data from the input. O(knlogn) for poping k times (5) for each id, and calculate the average. Therefore, the total time complexity is O(knlogn). Space used here besides the ouput is the map that used to store data, which is O(n).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * public class Record &#123;</span></span><br><span class="line"><span class="comment">  *  public int id, score;</span></span><br><span class="line"><span class="comment">  *      public Record(int id, int score)&#123;</span></span><br><span class="line"><span class="comment">  *      this.id = id;</span></span><br><span class="line"><span class="comment">  *       this.score = score;</span></span><br><span class="line"><span class="comment">  *   &#125;</span></span><br><span class="line"><span class="comment">  * &#125;</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HighFive</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> results</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;Integer, Double&gt; <span class="title">highFive</span><span class="params">(Record[] results)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (results == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Map&lt;Integer, Double&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Map&lt;Integer, PriorityQueue&lt;Integer&gt;&gt; score = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Record record : results) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!score.containsKey(record.id)) &#123;</span><br><span class="line">                PriorityQueue&lt;Integer&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;&gt;(<span class="keyword">new</span> Comparator&lt;Integer&gt;() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Integer o1, Integer o2)</span> </span>&#123;</span><br><span class="line">                        <span class="keyword">return</span> o1 &gt; o2 ? -<span class="number">1</span> : o1 == o2 ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line"></span><br><span class="line">                pq.offer(record.score);</span><br><span class="line">                score.put(record.id, pq);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                score.get(record.id).offer(record.score);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;Integer, PriorityQueue&lt;Integer&gt;&gt; pair : score.entrySet()) &#123;</span><br><span class="line">            PriorityQueue&lt;Integer&gt; pq = pair.getValue();</span><br><span class="line">            <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (!pq.isEmpty() &amp;&amp; count &lt; <span class="number">5</span>) &#123;</span><br><span class="line">                sum += pq.poll();</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(pair.getKey(), sum / count);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> map;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!-- 
+### Meeting Rooms I
+
+### Meeting Rooms II -->
 
       
     </div>
@@ -501,9 +500,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
             <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
           
-            <a href="/tags/review-plan/" rel="tag"># review plan</a>
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
           
         </div>
       
@@ -531,15 +532,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/05/05/Data-Structure-IV-Queue/" rel="next" title="Data Structure IV Queue">
+                <i class="fa fa-chevron-left"></i> Data Structure IV Queue
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/03/Linear Data Structure iii/" rel="prev" title="Linear Data Structure iii Stack">
-                Linear Data Structure iii Stack <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -636,8 +637,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -762,6 +772,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Heapify"><span class="nav-number">1.</span> <span class="nav-text">Heapify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Merge-K-Sorted-Lists"><span class="nav-number">2.</span> <span class="nav-text">Merge K Sorted Lists</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Merge-K-sorted-arrays"><span class="nav-number">3.</span> <span class="nav-text">Merge K sorted arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#High-Five"><span class="nav-number">4.</span> <span class="nav-text">High Five</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -935,9 +961,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2018/04/01/Data-Structure/';
-        this.page.identifier = '2018/04/01/Data-Structure/';
-        this.page.title = 'Data Structure';
+        this.page.url = 'http://yoursite.com/2018/05/08/Data-Structure-VII-Heap-PriorityQueue/';
+        this.page.identifier = '2018/05/08/Data-Structure-VII-Heap-PriorityQueue/';
+        this.page.title = 'Data Structure VII Heap&PriorityQueue';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
