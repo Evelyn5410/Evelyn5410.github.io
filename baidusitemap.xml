@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/05/08/Data-Structure-VII-Heap-PriorityQueue/</loc>
+    <lastmod>2018-05-15T05:50:45.121Z</lastmod>
+    <data>
+        <display>
+        <title>Data Structure VII Heap&PriorityQueue</title>
+        <pubTime>2018-05-08T23:26:08.000Z</pubTime>
+        
+        <tag>Algorithm</tag>
+         
+        <tag>Data Structure</tag>
+         
+        <tag>LeetCode</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/04/04/Data%20Structure%20V%20Tree%20ii/</loc>
     <lastmod>2018-05-10T23:58:44.346Z</lastmod>
     <data>
@@ -55,27 +76,6 @@
         <tag>Algorithm</tag>
          
         <tag>DP</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/05/08/Data-Structure-VII-Heap-PriorityQueue/</loc>
-    <lastmod>2018-05-09T05:59:09.269Z</lastmod>
-    <data>
-        <display>
-        <title>Data Structure VII Heap&PriorityQueue</title>
-        <pubTime>2018-05-08T23:26:08.000Z</pubTime>
-        
-        <tag>Algorithm</tag>
-         
-        <tag>Data Structure</tag>
-         
-        <tag>LeetCode</tag>
          
          
            

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/08/Data-Structure-VII-Heap-PriorityQueue/</loc>
+    
+    <lastmod>2018-05-15T05:50:45.121Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/04/04/Data%20Structure%20V%20Tree%20ii/</loc>
     
     <lastmod>2018-05-10T23:58:44.346Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://yoursite.com/2018/05/10/Dynamic-Programming/</loc>
     
     <lastmod>2018-05-10T23:49:40.285Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/08/Data-Structure-VII-Heap-PriorityQueue/</loc>
-    
-    <lastmod>2018-05-09T05:59:09.269Z</lastmod>
     
   </url>
   
