@@ -336,201 +336,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/18/Practice-280/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Evelyn">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/IMG_0796.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Evelynone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/09/18/Practice-280/" itemprop="url">
-                  Practice 280
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 09-18-2021 23:13:48" itemprop="dateCreated datePublished" datetime="2021-09-18T23:13:48-07:00">09-18-2021</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 05-18-2018 23:45:37" itemprop="dateModified" datetime="2018-05-18T23:45:37-07:00">05-18-2018</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2021/09/18/Practice-280/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2021/09/18/Practice-280/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="LeetCode-56-Merge-Intervals"><a href="#LeetCode-56-Merge-Intervals" class="headerlink" title="LeetCode 56. Merge Intervals"></a>LeetCode 56. Merge Intervals</h3><p><code>input:</code> list of intervals<br><code>output:</code> list of intervals after merging all overlapping intervals including equals.</p>
-<p>时间复杂度 O(nlogn), 空间 O(1).</p>
-<ol>
-<li>按 start 大小排序 O(nlogn)</li>
-<li>排序之后2种情况需要 merge, <ol>
-<li>后面元素的 start 小于或等于前面元素的 end. <ul>
-<li>所以需要一个 prev 记录一下前一个元素的 end 是什么(包括已经 merge 了的元素).</li>
-</ul>
-</li>
-<li>后面元素的 start 要大于前一个元素的 end.<ul>
-<li>更新 prev, 存入这个 candidate, 继续 merge.</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MergeIntervals</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Interval</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> start, end;</span><br><span class="line"></span><br><span class="line">        Interval(<span class="keyword">int</span> start, <span class="keyword">int</span> end) &#123;</span><br><span class="line">            <span class="keyword">this</span>.start = start;</span><br><span class="line">            <span class="keyword">this</span>.end = end;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> intervals: interval list.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: A new interval list.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Interval&gt; <span class="title">merge</span><span class="params">(List&lt;Interval&gt; intervals)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (intervals == <span class="keyword">null</span> || intervals.size() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Collections.sort(intervals, <span class="keyword">new</span> Comparator&lt;Interval&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Interval o1, Interval o2)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> o1.start &lt; o2.start ? -<span class="number">1</span> : o1.start == o2.start ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        Interval prev = <span class="keyword">null</span>;</span><br><span class="line">        List&lt;Interval&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Interval in : intervals) &#123;</span><br><span class="line">            <span class="keyword">if</span> (prev == <span class="keyword">null</span> || in.start &gt; prev.end) &#123;</span><br><span class="line">                prev = in;</span><br><span class="line">                res.add(prev);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            prev.end = Math.max(in.end, prev.end);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="LeetCode-643-Maximum-Average-Subarray-I"><a href="#LeetCode-643-Maximum-Average-Subarray-I" class="headerlink" title="LeetCode 643 Maximum Average Subarray I"></a>LeetCode 643 Maximum Average Subarray I</h3><p><code>input:</code> int array and window size k.<br><code>ouput:</code> return the maximum average sum of subarray of size k.</p>
-<p>时间复杂度 O(n), 空间复杂度 O(1).<br>固定窗口问题, 取窗口和的最大值, 然后返回平均值.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MaximumAverageSubarrayI</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">maxAveSub</span><span class="params">(<span class="keyword">int</span>[] input, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (input == <span class="keyword">null</span> || input.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            sum += input[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> prev = sum;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = k;</span><br><span class="line">        <span class="keyword">while</span> (j &lt; input.length) &#123;</span><br><span class="line">            prev = sum - input[i++] + input[j++];</span><br><span class="line">            sum = Math.max(sum, prev);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum / k;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">MaximumAverageSubarrayITest</span></span>&#123;</span><br><span class="line">        <span class="meta">@Test</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">check</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            assertEquals(<span class="number">12.75</span>, maxAveSub(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, <span class="number">12</span>, -<span class="number">5</span>, -<span class="number">6</span>, <span class="number">50</span>, <span class="number">3</span>&#125;, <span class="number">4</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="LeetCode-293-FlipGameI"><a href="#LeetCode-293-FlipGameI" class="headerlink" title="LeetCode 293 FlipGameI"></a>LeetCode 293 FlipGameI</h3><p><code>input:</code> a string with “+” or “-“.<br><code>output:</code> return list of string with all possible moves.</p>
-<p>时间复杂度 O(n), 空间复杂度 O(1).<br>只有相邻的两个元素才可以翻转, 找出所有可能的路径, 从头开始翻转, 翻转之后存到结果里面, 然后再翻转回来.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FlipGameI</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> s</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">generatePossibleNextMoves</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span>[] set = s.toCharArray();</span><br><span class="line">        List&lt;String&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (set[i] == <span class="string">'+'</span> &amp;&amp; set[i - <span class="number">1</span>] == <span class="string">'+'</span>) &#123;</span><br><span class="line">                set[i] = <span class="string">'-'</span>;</span><br><span class="line">                set[i - <span class="number">1</span>] = <span class="string">'-'</span>;</span><br><span class="line">                res.add(<span class="keyword">new</span> String(set));</span><br><span class="line">                set[i] = <span class="string">'+'</span>;</span><br><span class="line">                set[i - <span class="number">1</span>] = <span class="string">'+'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="LeetCode-415-Add-Strings"><a href="#LeetCode-415-Add-Strings" class="headerlink" title="LeetCode 415 Add Strings"></a>LeetCode 415 Add Strings</h3><p><code>input:</code> two strings with digits numbers only.<br><code>output:</code> return a string of the sum of input strings.</p>
-<p>时间复杂度 O(n), 空间复杂度 O(n^2).<br>使用 String concatenation, 避免了翻转 String, 但是增加了空间复杂度. 因为每一次都生成了一个新的string.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AddStrings</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> num1: a non-negative integers</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> num2: a non-negative integers</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: return sum of num1 and num2</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addStrings</span><span class="params">(String num1, String num2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (num1 == <span class="keyword">null</span> || num1.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> num2;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (num2 == <span class="keyword">null</span> || num2.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> num1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        String res = <span class="string">""</span>;        <span class="comment">//// string 可以直接加, 所以就免去了 reverse.</span></span><br><span class="line">        <span class="keyword">int</span> i = num1.length() - <span class="number">1</span>, j = num2.length() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &gt;= <span class="number">0</span> || j &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> a = <span class="number">0</span>, b = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (i &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                a = num1.charAt(i--) - <span class="string">'0'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (j &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                b = num2.charAt(j--) - <span class="string">'0'</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> sum = a + b + flag;</span><br><span class="line">            flag = sum / <span class="number">10</span>;</span><br><span class="line">            sum %= <span class="number">10</span>;</span><br><span class="line">            res = sum + res; <span class="comment">///////////3 + "23" 从后往前加</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> flag == <span class="number">1</span> ? flag + res : res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="346-Moving-Average-from-Data-Stream"><a href="#346-Moving-Average-from-Data-Stream" class="headerlink" title="346    Moving Average from Data Stream"></a>346    Moving Average from Data Stream</h3><p>Implement a method that calculates avarage certain numbers from a data stream.</p>
-<p>使用一个 queue 来存放需要计算的元素, 因为 queue 的容量是固定的, 如果超出规定数量, 则先进来的元素要被删除. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MovingAverageFromDataStream</span> </span>&#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * @param size: An integer</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> Queue&lt;Integer&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> size</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">double</span> sum;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MovingAverageFromDataStream</span><span class="params">(<span class="keyword">int</span> size)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.size = size;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * @param val: An integer</span></span><br><span class="line"><span class="comment">         * @return:</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">next</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">            sum += val;</span><br><span class="line">            q.offer(val);</span><br><span class="line">            <span class="keyword">if</span> (q.size() &gt; size) &#123;</span><br><span class="line">                sum -= q.poll();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> sum / q.size();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MovingAverageFromDataStreamTest</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> MovingAverageFromDataStream m = <span class="keyword">new</span> MovingAverageFromDataStream(<span class="number">3</span>);</span><br><span class="line">        <span class="meta">@Test</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">check</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            assertEquals(<span class="number">1.00000</span>, m.next(<span class="number">1</span>));</span><br><span class="line">            assertEquals(<span class="number">5.50000</span>, m.next(<span class="number">10</span>));</span><br><span class="line">            assertEquals(<span class="number">6.00000</span>, m.next(<span class="number">1</span>));</span><br><span class="line">            assertEquals(<span class="number">6.00000</span>, m.next(<span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="LeetCode-66-Plus-One"><a href="#LeetCode-66-Plus-One" class="headerlink" title="LeetCode 66 Plus One"></a>LeetCode 66 Plus One</h3><p><code>input:</code> int array represents one negative integer.<br><code>output:</code> plus one to the integer.</p>
-<p>时间复杂度 O(n), 空间复杂度 O(1).<br>从后往前加, 如果最后需要进位, 则新建一个长度加1的 array. 和 Add Strings 几乎一样.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PlusOne</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> digits: a number represented as an array of digits</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: the result</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] plusOne(<span class="keyword">int</span>[] digits) &#123;</span><br><span class="line">        <span class="keyword">if</span> (digits == <span class="keyword">null</span> || digits.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> i = digits.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> sum = digits[i] + flag;</span><br><span class="line">            flag = sum / <span class="number">10</span>;</span><br><span class="line">            digits[i--] = sum % <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[digits.length + <span class="number">1</span>];</span><br><span class="line">            res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; res.length; j++) &#123;</span><br><span class="line">                res[j] = digits[j - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-
-      
-      
-   </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/10/Dynamic-Programming/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2069,6 +1874,176 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/24/Data-Structure-VI-Graph-I/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+
+      
+      
+   </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/22/Android-学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Evelyn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/IMG_0796.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Evelynone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/22/Android-学习笔记/" itemprop="url">
+                  Android  学习笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 04-22-2018 16:30:49" itemprop="dateCreated datePublished" datetime="2018-04-22T16:30:49-07:00">04-22-2018</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 04-29-2018 17:36:47" itemprop="dateModified" datetime="2018-04-29T17:36:47-07:00">04-29-2018</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/22/Android-学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/22/Android-学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>生活不止有眼前的枸杞, 还有生发水和保温杯.<br>这是一篇中英掺杂的学习笔记.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/22/Android-学习笔记/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
