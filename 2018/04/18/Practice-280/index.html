@@ -104,19 +104,19 @@
 
 
 
-  <meta name="description" content="目标280题.">
+  <meta name="description" content="1目标280题.">
 <meta name="keywords" content="Algorithm,Data Structure,LeetCode,Google,Coding Practice">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Practice 280">
 <meta property="og:url" content="http://yoursite.com/2018/04/18/Practice-280/index.html">
 <meta property="og:site_name" content="Evelynone">
-<meta property="og:description" content="目标280题.">
+<meta property="og:description" content="1目标280题.">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/280T.jpg">
-<meta property="og:updated_time" content="2018-05-19T06:56:07.098Z">
+<meta property="og:updated_time" content="2018-05-19T06:59:47.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Practice 280">
-<meta name="twitter:description" content="目标280题.">
+<meta name="twitter:description" content="1目标280题.">
 <meta name="twitter:image" content="http://yoursite.com/images/280T.jpg">
 
 
@@ -256,7 +256,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">24</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">25</span></a>
   </li>
 
       
@@ -397,7 +397,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 05-18-2018 23:56:07" itemprop="dateModified" datetime="2018-05-18T23:56:07-07:00">05-18-2018</time>
+                <time title="Modified: 05-18-2018 23:59:47" itemprop="dateModified" datetime="2018-05-18T23:59:47-07:00">05-18-2018</time>
               
             
           </span>
@@ -449,7 +449,7 @@
       
 
       
-        <p><img src="/images/280T.jpg" alt=""><br>目标280题.</p>
+        <p><img src="/images/280T.jpg" alt=""><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup><br>目标280题.</p>
 <a id="more"></a>
 <h3 id="LeetCode-56-Merge-Intervals"><a href="#LeetCode-56-Merge-Intervals" class="headerlink" title="LeetCode 56. Merge Intervals"></a>LeetCode 56. Merge Intervals</h3><p><code>input:</code> list of intervals<br><code>output:</code> list of intervals after merging all overlapping intervals including equals.</p>
 <p>时间复杂度 O(nlogn), 空间 O(1).</p>
@@ -481,7 +481,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MovingAverageFromDataStream</span> </span>&#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * @param size: An integer</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">private</span> Queue&lt;Integer&gt; q = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> size</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">double</span> sum;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MovingAverageFromDataStream</span><span class="params">(<span class="keyword">int</span> size)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.size = size;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * @param val: An integer</span></span><br><span class="line"><span class="comment">         * @return:</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">next</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">            sum += val;</span><br><span class="line">            q.offer(val);</span><br><span class="line">            <span class="keyword">if</span> (q.size() &gt; size) &#123;</span><br><span class="line">                sum -= q.poll();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> sum / q.size();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MovingAverageFromDataStreamTest</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> MovingAverageFromDataStream m = <span class="keyword">new</span> MovingAverageFromDataStream(<span class="number">3</span>);</span><br><span class="line">        <span class="meta">@Test</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">check</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            assertEquals(<span class="number">1.00000</span>, m.next(<span class="number">1</span>));</span><br><span class="line">            assertEquals(<span class="number">5.50000</span>, m.next(<span class="number">10</span>));</span><br><span class="line">            assertEquals(<span class="number">6.00000</span>, m.next(<span class="number">1</span>));</span><br><span class="line">            assertEquals(<span class="number">6.00000</span>, m.next(<span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="LeetCode-66-Plus-One"><a href="#LeetCode-66-Plus-One" class="headerlink" title="LeetCode 66 Plus One"></a>LeetCode 66 Plus One</h3><p><code>input:</code> int array represents one negative integer.<br><code>output:</code> plus one to the integer.</p>
 <p>时间复杂度 O(n), 空间复杂度 O(1).<br>从后往前加, 如果最后需要进位, 则新建一个长度加1的 array. 和 Add Strings 几乎一样.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PlusOne</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> digits: a number represented as an array of digits</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: the result</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] plusOne(<span class="keyword">int</span>[] digits) &#123;</span><br><span class="line">        <span class="keyword">if</span> (digits == <span class="keyword">null</span> || digits.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> i = digits.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> sum = digits[i] + flag;</span><br><span class="line">            flag = sum / <span class="number">10</span>;</span><br><span class="line">            digits[i--] = sum % <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[digits.length + <span class="number">1</span>];</span><br><span class="line">            res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; res.length; j++) &#123;</span><br><span class="line">                res[j] = digits[j - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+<hr>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">图片引用自网络，如有侵权请联系删除.</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
       
     </div>
 
@@ -690,7 +691,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
