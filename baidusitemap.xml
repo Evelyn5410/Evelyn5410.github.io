@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/04/06/DFS%20%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%20I/</loc>
+    <lastmod>2018-06-01T08:01:39.438Z</lastmod>
+    <data>
+        <display>
+        <title>DFS 从入门到放弃I</title>
+        <pubTime>2018-04-07T05:36:00.452Z</pubTime>
+        
+        <tag>Data Structure</tag>
+         
+        <tag>Algorithm</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/04/03/Data%20Structure%20V%20Tree/</loc>
     <lastmod>2018-06-01T04:59:54.912Z</lastmod>
     <data>
@@ -34,9 +53,9 @@
         <title>Practice 280</title>
         <pubTime>2018-05-19T06:13:48.000Z</pubTime>
         
-        <tag>Algorithm</tag>
-         
         <tag>Data Structure</tag>
+         
+        <tag>Algorithm</tag>
          
         <tag>LeetCode</tag>
          
@@ -59,9 +78,9 @@
         <title>DFS 从入门到放弃 IV</title>
         <pubTime>2018-04-13T19:42:29.461Z</pubTime>
         
-        <tag>Algorithm</tag>
-         
         <tag>Data Structure</tag>
+         
+        <tag>Algorithm</tag>
          
          
            
@@ -78,9 +97,9 @@
         <title>Java 从 char 到 String</title>
         <pubTime>2018-04-13T20:47:34.481Z</pubTime>
         
-        <tag>Algorithm</tag>
-         
         <tag>Data Structure</tag>
+         
+        <tag>Algorithm</tag>
          
          
            
@@ -97,9 +116,9 @@
         <title>Data Structure VII Heap&PriorityQueue</title>
         <pubTime>2018-05-08T23:26:08.000Z</pubTime>
         
-        <tag>Algorithm</tag>
-         
         <tag>Data Structure</tag>
+         
+        <tag>Algorithm</tag>
          
         <tag>LeetCode</tag>
          
@@ -181,9 +200,9 @@
         <title>Data Structure VI Graph II</title>
         <pubTime>2018-05-06T01:51:54.000Z</pubTime>
         
-        <tag>Algorithm</tag>
-         
         <tag>Data Structure</tag>
+         
+        <tag>Algorithm</tag>
          
          
            
@@ -412,25 +431,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/04/06/DFS%20%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%20I/</loc>
-    <lastmod>2018-04-17T18:15:32.090Z</lastmod>
-    <data>
-        <display>
-        <title>DFS 从入门到放弃I</title>
-        <pubTime>2018-04-07T05:36:00.452Z</pubTime>
-        
-        <tag>Algorithm</tag>
-         
-        <tag>Data Structure</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2018/04/08/DFS%20%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83%20II/</loc>
     <lastmod>2018-04-17T18:14:27.571Z</lastmod>
     <data>
@@ -438,9 +438,9 @@
         <title>DFS 从入门到放弃 II</title>
         <pubTime>2018-04-09T05:54:51.422Z</pubTime>
         
-        <tag>Algorithm</tag>
-         
         <tag>Data Structure</tag>
+         
+        <tag>Algorithm</tag>
          
          
            
@@ -457,9 +457,9 @@
         <title>DFS 从入门到放弃 III</title>
         <pubTime>2018-04-10T19:41:28.385Z</pubTime>
         
-        <tag>Algorithm</tag>
-         
         <tag>Data Structure</tag>
+         
+        <tag>Algorithm</tag>
          
          
            
