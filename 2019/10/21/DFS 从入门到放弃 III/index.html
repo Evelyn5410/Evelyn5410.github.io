@@ -8,11 +8,11 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -30,8 +30,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -54,9 +54,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/IMG_0030.JPG?v=6.2.0">
@@ -104,25 +104,28 @@
 
 
 
-  <meta name="description" content="“晚上吃啥?” “随便.” “不行.” “为啥?” “死循环了, 没有退出条件.”">
-<meta name="keywords" content="Data Structure,Algorithm">
+  <meta name="description" content="DFS 的特点是, 从哪儿来的状态回到哪儿去(Back Tracking).DFS 的思路是, 执行多少层, 每层都有什么状态.">
+<meta name="keywords" content="Algorithm,Data Structure">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DFS 从入门到放弃 IV">
-<meta property="og:url" content="http://yoursite.com/2018/04/13/DFS从入门到放弃 IV/index.html">
+<meta property="og:title" content="DFS 从入门到放弃 III">
+<meta property="og:url" content="http://yoursite.com/2019/10/21/DFS 从入门到放弃 III/index.html">
 <meta property="og:site_name" content="Evelynone">
-<meta property="og:description" content="“晚上吃啥?” “随便.” “不行.” “为啥?” “死循环了, 没有退出条件.”">
+<meta property="og:description" content="DFS 的特点是, 从哪儿来的状态回到哪儿去(Back Tracking).DFS 的思路是, 执行多少层, 每层都有什么状态.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-31T05:52:05.550Z">
+<meta property="og:image" content="http://yoursite.com/images/permI.png">
+<meta property="og:image" content="http://yoursite.com/images/permII.png">
+<meta property="og:updated_time" content="2019-10-22T04:18:13.900Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DFS 从入门到放弃 IV">
-<meta name="twitter:description" content="“晚上吃啥?” “随便.” “不行.” “为啥?” “死循环了, 没有退出条件.”">
+<meta name="twitter:title" content="DFS 从入门到放弃 III">
+<meta name="twitter:description" content="DFS 的特点是, 从哪儿来的状态回到哪儿去(Back Tracking).DFS 的思路是, 执行多少层, 每层都有什么状态.">
+<meta name="twitter:image" content="http://yoursite.com/images/permI.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/13/DFS从入门到放弃 IV/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/10/21/DFS 从入门到放弃 III/">
 
 
 
@@ -132,7 +135,7 @@
   };
 </script>
 
-  <title>DFS 从入门到放弃 IV | Evelynone</title>
+  <title>DFS 从入门到放弃 III | Evelynone</title>
   
 
 
@@ -230,7 +233,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
   </li>
         
         
@@ -238,7 +241,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
   </li>
         
         
@@ -246,7 +249,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">17</span></a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">18</span></a>
   </li>
         
         
@@ -254,7 +257,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">24</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">24</span></a>
   </li>
 
       
@@ -264,7 +267,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
         </li>
       
     </ul>
@@ -284,9 +287,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -336,11 +337,11 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/13/DFS从入门到放弃 IV/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/DFS 从入门到放弃 III/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Evelyn">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/IMG_0796.jpg">
     </span>
 
@@ -353,7 +354,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">DFS 从入门到放弃 IV
+          <h1 class="post-title" itemprop="name headline">DFS 从入门到放弃 III
               
             
           </h1>
@@ -378,25 +379,9 @@
                 
               
 
-              <time title="Created: 04-13-2018 12:42:29" itemprop="dateCreated datePublished" datetime="2018-04-13T12:42:29-07:00">04-13-2018</time>
+              <time title="Created: 10-21-2019 21:18:13" itemprop="dateCreated datePublished" datetime="2019-10-21T21:18:13-07:00">10-21-2019</time>
             
 
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 05-30-2018 22:52:05" itemprop="dateModified" datetime="2018-05-30T22:52:05-07:00">05-30-2018</time>
-              
             
           </span>
 
@@ -409,9 +394,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/13/DFS从入门到放弃 IV/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/13/DFS从入门到放弃 IV/" itemprop="commentCount"></span>
+                <a href="/2019/10/21/DFS 从入门到放弃 III/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/21/DFS 从入门到放弃 III/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,11 +406,10 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
+            <span class="post-meta-item-icon">
             <i class="fa fa-eye"></i>
              Views:  
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
 
@@ -447,23 +430,33 @@
       
 
       
-        <ul>
-<li>“晚上吃啥?”</li>
-<li>“随便.”</li>
-<li>“不行.”</li>
-<li>“为啥?”</li>
-<li>“死循环了, 没有退出条件.”</li>
-</ul>
+        <p>DFS 的特点是, 从哪儿来的状态回到哪儿去(Back Tracking).<br>DFS 的思路是, 执行多少层, 每层都有什么状态.</p>
 <a id="more"></a>
-<h3 id="N-Queen"><a href="#N-Queen" class="headerlink" title="N Queen"></a>N Queen</h3><p><code>input:</code> a integer n.<br><code>output:</code> return all distinct solutions to the n-queens puzzle.</p>
-<blockquote>
-<p>The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other.</p>
-</blockquote>
-<p>Using dfs to try row by row to see which column is valid. If valid, go to next row, otherwise, continue. The index of the list represents the row, and the valud of the index is the number of column it can be put. Fom the top to current row, if column has a queen, or the absolute value between columns and rows are the same, then it is not a valid position. The time complexity is O(n!), the space complexity is O(n). </p>
-<p>A little bit different from LeetCode 51.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NQueen</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; findNQueen (<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        helper(n, <span class="keyword">new</span> ArrayList&lt;&gt;(), result);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(<span class="keyword">int</span> input, List&lt;Integer&gt; subSol, List&lt;List&lt;Integer&gt;&gt; result)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (subSol.size() == input) &#123;</span><br><span class="line">            result.add(<span class="keyword">new</span> ArrayList&lt;&gt;(subSol));</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; input; i++) &#123;           </span><br><span class="line">            <span class="keyword">if</span> (isValid(i, subSol)) &#123;                </span><br><span class="line">                subSol.add(i);                      </span><br><span class="line">                helper(input, subSol, result);      </span><br><span class="line">                subSol.remove(subSol.size() - <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(<span class="keyword">int</span> column, List&lt;Integer&gt; subSol)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; subSol.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (subSol.get(i) == column || subSol.size() - i == Math.abs(column - subSol.get(i))) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Flood-Fill"><a href="#Flood-Fill" class="headerlink" title="Flood Fill"></a>Flood Fill</h3><p><code>input:</code> 2D array, start position, and int represent newColor.<br><code>output:</code> 2D array after changing color.</p>
-<p>典型的 dfs, 已知起点, 向4个方向遍历, 不需要返回之前的状态. 所以时间复杂度是 O(m + n), 空间复杂度是 O(max(m, n)), call stack 的调用. (假设可以在input 上面修改, 否则需要记录访问过的点).</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FloodFill</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> image: a 2-D array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sr: an integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sc: an integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> newColor: an integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: the modified image</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[][] dirs = &#123;&#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;-<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, -<span class="number">1</span>&#125;&#125;;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] floodFill(<span class="keyword">int</span>[][] image, <span class="keyword">int</span> sr, <span class="keyword">int</span> sc, <span class="keyword">int</span> newColor) &#123;</span><br><span class="line">        <span class="keyword">if</span>(image == <span class="keyword">null</span> || image[<span class="number">0</span>] == <span class="keyword">null</span> || image.length == <span class="number">0</span> || image[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> image;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (image[sr][sc] == newColor) &#123;</span><br><span class="line">            <span class="keyword">return</span> image;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        helper(image, sr, sc, newColor, image[sr][sc]);</span><br><span class="line">        <span class="keyword">return</span> image;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(<span class="keyword">int</span>[][] image, <span class="keyword">int</span> sr, <span class="keyword">int</span> sc, <span class="keyword">int</span> newColor, <span class="keyword">int</span> initial)</span> </span>&#123;</span><br><span class="line">        image[sr][sc] = newColor;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] dir : dirs) &#123;</span><br><span class="line">            <span class="keyword">int</span> x = sr + dir[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> y = sc + dir[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span> (x &gt;= image.length || y &gt;= image[<span class="number">0</span>].length  || x &lt; <span class="number">0</span> || y &lt; <span class="number">0</span> || image[x][y] != initial) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            image[x][y] = newColor;</span><br><span class="line">            helper(image, x, y, newColor, initial);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>与 subset 的类型不太相同的是, subset 通常从”空”出发, 在每一个节点选择是否要选择某个元素, 以及是否继续向下(后)搜索.<br>排列的问题每一个元素都要参与到结果当中, 而顺序决定结果. 可以从”空”出发, 那么只有最后一层的结果是有效的; 也可以从”满”出发, 每一个不相同的排列顺序都是有效的. 原理都是相同的 ––– 每一个元素都要出现在每一个位置上. </p>
+<h3 id="Permutation"><a href="#Permutation" class="headerlink" title="Permutation"></a>Permutation</h3><p><code>input:</code> A linear data structure like an array, a string, etc. No duplicated element.<br><code>output:</code> A list of lists of all permutations.</p>
+<ul>
+<li>对于每一个元素来说, 它要尝试每一个位置. 或者说<strong>对于每一个位置来说, 它有 n 种选择</strong>.</li>
+<li>在第 i 层的时候, 有 n - i 个选择.</li>
+<li>需要注意的是, 这里 for 循环是用来控制层数而不是状态的.<br><img src="/images/permI.png" alt><br>For each position i, it has at most (n - i) - i choices, where i represents the level of the node. Therefore, the time complexity would be O(n!).<br>This case chooses to use a boolean array to indicate the elements that has appeared in the subsolution. This costs O(n). And the depth of the recursive call would be n, so the call stack would take O(n). Thus, the space would be O(2n) ==&gt; O(n).</li>
+</ul>
+<p>代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Permutation</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; permutation(<span class="keyword">int</span>[] input) &#123;</span><br><span class="line">		<span class="keyword">if</span> (input == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		List&lt;List&lt;Integer&gt;&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		dfs(input, <span class="keyword">new</span> HashSet&lt;&gt;(), <span class="keyword">new</span> ArrayList&lt;&gt;(), result);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] input,</span></span></span><br><span class="line"><span class="function"><span class="params">			Set&lt;Integer&gt; occ,</span></span></span><br><span class="line"><span class="function"><span class="params">			List&lt;Integer&gt; sub,</span></span></span><br><span class="line"><span class="function"><span class="params">			List&lt;List&lt;Integer&gt;&gt; result)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (sub.size() == input.length) &#123;</span><br><span class="line">			result.add(<span class="keyword">new</span> ArrayList&lt;&gt;(sub));</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; input.length; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (occ.contains(input[i])) &#123;</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			sub.add(input[i]);</span><br><span class="line">			occ[i] = <span class="keyword">true</span>;</span><br><span class="line">			dfs(input, occ, sub, result);</span><br><span class="line">			sub.remove(sub.size() - <span class="number">1</span>);</span><br><span class="line">			occ[i] = <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这道题可以不需要额外的数组来判断当前层的元素. 依然只关注 dfs, 不考虑优化, 笔芯❤~</p>
+<hr>
+<h3 id="Permutation-II"><a href="#Permutation-II" class="headerlink" title="Permutation II"></a>Permutation II</h3><p><code>input:</code> A linear data structure like an array, a string, etc. With DUPLICATED elements.<br><code>output:</code> A list of lists of all UNIQUE permutations.</p>
+<ul>
+<li>有重复元素, 如何去重?</li>
+<li>其实和 SubsetII 有重复元素是一样的道理(排序的判断条件可能会有些不同).</li>
+<li>在每一个节点都需要判断一下这个元素是不是当前层的第一个被使用的元素, 所以每一个层都需要一个 HashSet.</li>
+<li>如果当前层已经使用过这个元素了, 那么后续就不考虑了.</li>
+</ul>
+<p><img src="/images/permII.png" alt></p>
+<p>At each position i, it has n - i times choices, as same as the regular permutation.<br>A HashSet is used to deduplicate. At each level i, at most n - i space would be taken to save visited element. Space complexity would be n + (n - 1) + (n - 2) + (n - 3) + …. + 2 + 1 = O (n^2).</p>
+<p>代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">```java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Permutation</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; permutation(<span class="keyword">int</span>[] input) &#123;</span><br><span class="line">		<span class="keyword">if</span> (input == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		List&lt;List&lt;Integer&gt;&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="comment">//dfs(input, new HashSet&lt;&gt;(), new ArrayList&lt;&gt;(), result);</span></span><br><span class="line">		dfs(input, <span class="keyword">new</span> ArrayList&lt;&gt;(), result)</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] input,</span></span></span><br><span class="line"><span class="function"><span class="params">		<span class="comment">/*Set&lt;Integer&gt; occ,*/</span></span></span></span><br><span class="line"><span class="function"><span class="params">		List&lt;Integer&gt; sub,</span></span></span><br><span class="line"><span class="function"><span class="params">		List&lt;List&lt;Integer&gt;&gt; result)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (sub.size() == input.length) &#123;</span><br><span class="line">			result.add(<span class="keyword">new</span> ArrayList&lt;&gt;(sub));</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		Set&lt;Integer&gt; occ = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; input.length; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (occ.contains(input[i])) &#123;</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			sub.add(input[i]);</span><br><span class="line">			occ[i] = <span class="keyword">true</span>;</span><br><span class="line">			dfs(input, occ, sub, result);</span><br><span class="line">			sub.remove(sub.size() - <span class="number">1</span>);</span><br><span class="line">			occ[i] = <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -484,9 +477,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
-          
             <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+            <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
           
         </div>
       
@@ -514,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/10/DFS 从入门到放弃 III/" rel="next" title="DFS 从入门到放弃 III">
-                <i class="fa fa-chevron-left"></i> DFS 从入门到放弃 III
+              <a href="/2019/10/21/浅谈单例模式/" rel="next" title="浅谈单例模式 - Singleton Pattern">
+                <i class="fa fa-chevron-left"></i> 浅谈单例模式 - Singleton Pattern
               </a>
             
           </div>
@@ -523,10 +516,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/13/Java从 char 到 String/" rel="prev" title="Java 从 char 到 String">
-                Java 从 char 到 String <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -652,9 +641,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/IMG_0796.jpg"
-                alt="Evelyn" />
+              <img class="site-author-image" itemprop="image" src="/images/IMG_0796.jpg" alt="Evelyn">
             
               <p class="site-author-name" itemprop="name">Evelyn</p>
               <p class="site-description motion-element" itemprop="description">Never Stop `til You Got a Wiki Page</p>
@@ -739,6 +726,8 @@
                     
                       
                     
+                      
+                    
                     <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
@@ -784,7 +773,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#N-Queen"><span class="nav-number">1.</span> <span class="nav-text">N Queen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flood-Fill"><span class="nav-number">2.</span> <span class="nav-text">Flood Fill</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Permutation"><span class="nav-number">1.</span> <span class="nav-text">Permutation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Permutation-II"><span class="nav-number">2.</span> <span class="nav-text">Permutation II</span></a></li></ol></div>
             
 
           </div>
@@ -963,9 +952,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2018/04/13/DFS从入门到放弃 IV/';
-        this.page.identifier = '2018/04/13/DFS从入门到放弃 IV/';
-        this.page.title = 'DFS 从入门到放弃 IV';
+        this.page.url = 'http://yoursite.com/2019/10/21/DFS 从入门到放弃 III/';
+        this.page.identifier = '2019/10/21/DFS 从入门到放弃 III/';
+        this.page.title = 'DFS 从入门到放弃 III';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
