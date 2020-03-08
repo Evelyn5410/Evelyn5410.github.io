@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/IMG_0030.JPG?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/IMG_0030.JPG?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/IMG_0030.JPG?v=6.2.0">
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="生活不止有眼前的枸杞, 还有生发水和保温杯.这是一篇中英掺杂的学习笔记.">
+<meta name="keywords" content="blog evelyn github io evelynone alghrightms life">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android  学习笔记">
+<meta property="og:url" content="http://yoursite.com/2017/03/22/Android-学习笔记/index.html">
+<meta property="og:site_name" content="Evelynone">
+<meta property="og:description" content="生活不止有眼前的枸杞, 还有生发水和保温杯.这是一篇中英掺杂的学习笔记.">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/activity.png">
+<meta property="og:image" content="https://developer.android.com/images/activity_lifecycle.png">
+<meta property="og:image" content="https://developer.android.com/images/activity_fragment_lifecycle.png">
+<meta property="og:updated_time" content="2020-03-08T17:49:49.023Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android  学习笔记">
+<meta name="twitter:description" content="生活不止有眼前的枸杞, 还有生发水和保温杯.这是一篇中英掺杂的学习笔记.">
+<meta name="twitter:image" content="http://yoursite.com/images/activity.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/22/Android-学习笔记/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Android  学习笔记 | Evelynone</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=117927090-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '117927090-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Evelynone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">A straw shows which way the wind blows</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">17</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">21</span></a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/Android-学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Evelyn">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/IMG_0796.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Evelynone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android  学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 03-22-2017 16:30:49" itemprop="dateCreated datePublished" datetime="2017-03-22T16:30:49-07:00">03-22-2017</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 03-08-2020 10:49:49" itemprop="dateModified" datetime="2020-03-08T10:49:49-07:00">03-08-2020</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/22/Android-学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/22/Android-学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>生活不止有眼前的枸杞, 还有生发水和保温杯.<br>这是一篇中英掺杂的学习笔记.</p>
+<a id="more"></a>
+
+<h2 id="MVC-设计模式"><a href="#MVC-设计模式" class="headerlink" title="MVC 设计模式"></a>MVC 设计模式</h2><p>view &lt;–&gt; controller &lt;–&gt; Model(data)</p>
+<h2 id="项目结构主要部分"><a href="#项目结构主要部分" class="headerlink" title="项目结构主要部分"></a>项目结构主要部分</h2><ol>
+<li>MainActivity: 应用程序的入口, 当构建和运行程序是, 系统会启动这个 Activity 的实例并且加载布局(可以理解为构造函数吧…).</li>
+<li>Activity_main.xml: 对于每一个生成的 activity 模块, Android Studio 都会自动生成一个 xml 文件, 用来定义这个 Activity 的界面布局( list view, grid view, color, font, etc.).</li>
+<li>manifests –&gt; AndroidManifest.xml: 整个应用的布局以及每个组件的定义, 包括了 Activity, fragment 等等.</li>
+<li>build.gradle: 一个是用于项目的(app)配置, 另一个是用来应用模块的.</li>
+<li>drawable: 组件元素文件夹.</li>
+</ol>
+<h2 id="界面结构"><a href="#界面结构" class="headerlink" title="界面结构"></a>界面结构</h2><ol>
+<li>ViewGroup: 其实就是 java 的一个类, 用来控制一个界面内的视图布局.</li>
+<li>View: 从源码可以看出, View 实际上实现了一些界面组件的接口.</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">View</span></span></span><br><span class="line"><span class="class"><span class="keyword">extends</span> <span class="title">Object</span> <span class="keyword">implements</span> <span class="title">Drawable</span>.<span class="title">Callback</span>, <span class="title">KeyEvent</span>.<span class="title">Callback</span>, <span class="title">AccessibilityEventSource</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h2><p>应用程序的一个组件.<br>几乎所有的 Activity 都会创建一个可以和用户进行交互的界面. 像之前提到的, MainActivity 是应用程序的入口, 当用户启动这个程序的时候, 这个组件会生成一个主界面, 例如, 登陆界面等等. 一个程序可以拥有多个 Activity, 而他们之间可以相互调用. 调用的过程和普通程序的 call stack 差不多. 例如, 当 MainActivity 调用了其他 Activity 的之后, MainActivity 会停止, 但是仍然在 stack 中. 当被调用的 Activity 返回的时候, 栈顶元素被弹出并销毁, 之前的栈内元素会被恢复. 要确保”停止”, “生成界面”, “恢复”, “销毁”等功能, 就需要在创建 Activity 的时候实现这些方法. 因为和所有其他组件一样, Activity 也是 Java 中的一个类. 其中 2 个方法是必须要实现的, 生成界面(与用户交互), 和停止(暂停但是不销毁).</p>
+<ol>
+<li>onCreate()<ul>
+<li>相当于构造函数, 调用当前 Activity 的时候调用这个方法, 并且调用 setContentView() 来初始化用户界面.</li>
+</ul>
+</li>
+<li>onPause()<ul>
+<li>被调用的新的 Activity 覆盖了之前的 Activity(不可见), 那个 Activity 存在栈中, 处于停止状态, 但是没有被销毁.</li>
+</ul>
+</li>
+</ol>
+<p>其他的方法例如,</p>
+<ul>
+<li>startActivity() , 通过调用 Intent 类型的对象来向其他 Activity 传递消息.</li>
+<li>startActivityForResult(), 需要从 Activity 返回某些数据/结果. 结果仍然通过 intent 传递.</li>
+<li>finish() 结束当前 Activity</li>
+<li>finishActivity() 结束之前的某一个 Activity.</li>
+</ul>
+<h3 id="Activity-的生命周期"><a href="#Activity-的生命周期" class="headerlink" title="Activity 的生命周期"></a>Activity 的生命周期</h3><p><img src="/images/activity.png" alt></p>
+<p><img src="https://developer.android.com/images/activity_lifecycle.png" alt></p>
+<h3 id="Intent"><a href="#Intent" class="headerlink" title="Intent"></a>Intent</h3><p>组件之间的通讯, 包括启动 Activity, 启动 service, 传递 broadcast. 从 Activity 的方法实现上可以看出来, Intent 这个类型的对象可以携带数据.<br>Intent 是两个 activity 之间的信使，让一个 activity 传递消息/命令给另一个 activity，最常用的就是让一个 app 里的 activity 和另一个 app 里的 activity 进行交流。</p>
+<p>Intent 有三个用途：</p>
+<ol>
+<li>start an activity (会使用 UI）</li>
+<li>start a service （后端运行，不使用 UI）<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></li>
+<li>deliver a broadcast to other apps</li>
+</ol>
+<p>在 1，2 种用途中，我们可以使用：</p>
+<ol>
+<li>explicit intent， intent 在初始化时就规定好了发送方和接收方<br>e.g. Intent intent = new Intent(this, Hello.class); 发送方是 this，也就是当前 activity，接收方是一个叫 Hello 的 activity</li>
+<li>implicit intent，intent 在初始化时没有规定好发送方和接收方，但声明需求。Android 系统中的 activitymanager，会检查其他所有 app 声明文件中的 intent filter，找出可以满足需求的 activity，如果有多个满足条件，就弹出列表供用户选择。</li>
+</ol>
+<p>但是，我们可以看出，不管是哪种 intent，都只能执行“打开另一个 activity/service“的能力，是因为接受方只有在 onCreat()这一步的时候，才能接受 intent，从而 start。</p>
+<p>而 broadcast 不同，它可以在 activity 的任何一步进入监听状态，它可以让 activity 做各种事情，而不局限于 start。<br>另外，它可以一对多，同时让多个 activity 响应（响应的实现方式为 extends BroadcastReceiver, 以及在 life cycle function 中写入监听开始（register））。</p>
+<p>总结：<br>普通 intent 只能一对一，并只能执行 start 操作让 activity/service 启动<br>broadcast 可以一对多，并能让 activity 做各种事情。而且 broadcast 有分级别，系统级别的某些 broadcast 禁止普通 app 进行监听。<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></p>
+<h2 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h2><p>3.0 版本中引入, 为了应用在大屏幕设备上. Fragment 依赖于 Activity 存在, 但是拥有自己的生命周期, 拥有独立的输入事件的响应. 一个 Activity 可以包含多个 Fragment, 同一个 fragment 也可以被不同的 activity 调用. 尤其适用于 Single Activity 应用.</p>
+<p><strong>可以把 Fragment 看做是可以被重复使用的模块.</strong></p>
+<ul>
+<li>可以做为 activity 的一部分, 多个 fragment 出现在同一个 activity 里面, 或者一个 fragment 在不同的 activity 出现.<ul>
+<li>处于同一个 Activity 下面的多个 Fragment 可以通过 Activity 进行通讯, 而 Activity 之间需要 intent 或者 broadcast 来进行通讯.</li>
+</ul>
+</li>
+<li>Activity 运行中可以添加, 删除或者替换 fragment.</li>
+<li>Fragment 拥有自己的生命周期, 会受到所依附的 Activity 的生命周期的影响. 但是 Activity 不会受到 Fragment 的影响.</li>
+<li>Fragment 继承自 Object, 是一个独立的类, 而不是 Activity 的子类. Activity 是 Context 的子类.</li>
+</ul>
+<p>和 Activity 一样, 加载时都需要调用一个生成界面的方法,</p>
+<ol>
+<li>Oncreate()</li>
+<li>OnCreateView() 如果不想返回 UI 界面, 可以返回 null.</li>
+<li>OnDestroyView()</li>
+<li>OnDestroy()</li>
+</ol>
+<p>可以动态和静态加载一个 Fragment:</p>
+<ol>
+<li>添加 layout 文件</li>
+<li>使用 add(), remove(), replace() 等方法动态的添加, 删除, 或者替换等操作.</li>
+</ol>
+<p><img src="https://developer.android.com/images/activity_fragment_lifecycle.png" alt="Activity 和 Fragment 生命周期对应关系"></p>
+<p>和 Activity 一样, Fragment 也有一个 stack, 除非被销毁, 否则可以回退到上一个 fragment.</p>
+<h3 id="Fragment-通讯"><a href="#Fragment-通讯" class="headerlink" title="Fragment 通讯"></a>Fragment 通讯</h3><p><strong>两个 Fragment 不应该直接通讯</strong>因为会产生 fragment 之间的 dependency. (例如调用另一个 fragment 产生的 instance)</p>
+<p>可以使用<a href="http://" target="_blank" rel="noopener">观察者模式</a>的设计模式, 利用 polymorphism 的特性来解决这个问题.</p>
+<ul>
+<li>Fragment 里面定义一个 interface.</li>
+<li>主函数继承这个 Fragment.interface, 并且 override 接口.</li>
+<li>onAttach()方法中传进来的 context 就是所依赖的 Activity (的 source).</li>
+<li>把传入的 activity 的 instance 强制转换成接口类型(Fragment.interface) context.</li>
+<li>然后就可以通过这个 reference 调用 Activity 中的其他函数, 进而调用另外一个 Fragment.</li>
+</ul>
+<h2 id="Layout-文件"><a href="#Layout-文件" class="headerlink" title="Layout 文件"></a>Layout 文件</h2><p>每个组件如何显示的文件.</p>
+<ul>
+<li><relativelayout>: 根据子 view 之间的依赖关系而排列, 横向纵向都会进行一次比较.</relativelayout></li>
+<li><linearlayout>: 包含的所有子 view 都是从上到下顺序排列的.</linearlayout></li>
+</ul>
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>android 中的每一个组件都是 view 的一个子类. 组件有它自己的属性, 包括 id, layout_width, 和 layout_height 等等. 当我们生成了一个 layout 文件, 并且为这个组件设置了一个 id, 那么 R 文件中就自动为这个组建生成了一个 id, 而我们可以通过这个 id 来对组件进行操作.</p>
+<h4 id="ListView"><a href="#ListView" class="headerlink" title="ListView:"></a>ListView:</h4><ol>
+<li>生成一个 ListView 的组件 list_view.xml</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">android.support.constraint.ConstraintLayout</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ListView</span></span></span><br><span class="line">        android:id="@+id/view_id"               &lt;!-- 和 java 程序联系的桥梁 --&gt;</span><br><span class="line">        android:layout_width="match_parent"</span><br><span class="line">        android:layout_height="wrap_content"/&gt;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.constraint.ConstraintLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>改写 MainActivity 里面的 onCreate(), 在程序被启动的时候直接调用这个 ListView 生成的界面.</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        <span class="comment">//要加载到当前 Activity 界面的 layout 文件</span></span><br><span class="line">        setContentView(R.layout.list_view);</span><br><span class="line">        <span class="comment">//生成一个 ListView 的对象, 从载入到当前 Activity 的 layout 文件中, 通过 id 找到 ListView 的文件, 放到这个对象容器里</span></span><br><span class="line">        ListView view = (ListView) findViewById(R.id.view_id);</span><br><span class="line">        <span class="comment">//新建一个适配器, 并且关联数据源</span></span><br><span class="line">        ArrayAdapter adapter = <span class="keyword">new</span> ArrayAdapter&lt;&gt;(</span><br><span class="line">            <span class="keyword">this</span>,</span><br><span class="line">            R.layout.目标布局文件,</span><br><span class="line">            R.id.目标布局文件的 id,</span><br><span class="line">            <span class="keyword">new</span> String[]&#123;<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>, <span class="string">"4"</span>, <span class="string">"5"</span>&#125;);</span><br><span class="line">        <span class="comment">// 容器和与容器匹配的数据都准备好了之后, assign adapter to view</span></span><br><span class="line">        thisIsView.setAdapter(arrayAdapter);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Adapter-在-Java-中-Adapter-是一个-interface-用来把复杂的数据填充在界面上和用户交互"><a href="#Adapter-在-Java-中-Adapter-是一个-interface-用来把复杂的数据填充在界面上和用户交互" class="headerlink" title="Adapter: 在 Java 中, Adapter 是一个 interface. 用来把复杂的数据填充在界面上和用户交互."></a>Adapter: 在 Java 中, Adapter 是一个 interface. 用来把复杂的数据填充在界面上和用户交互.</h2><ul>
+<li>继承了 Adapter 的其他 interface 有 ListAdapter 和 SpinnerAdapter.</li>
+<li>继承了这两个 interface 的类是 BaseAdapter(抽象类). 实际应用中 BaseAdapter 是最常用的.</li>
+<li>而继承了 BaseAdapter 的常用的类有, SimpleAdapter, ArrayAdapter<t>.</t></li>
+</ul>
+<h3 id="ArrayAdapter"><a href="#ArrayAdapter" class="headerlink" title="ArrayAdapter"></a>ArrayAdapter</h3><p>用来绑定单一类型数据(例如集合, 数组, 列表).</p>
+<h3 id="SimpleAdapter-用来绑定复杂类型的数据-只能是特定泛型的集合"><a href="#SimpleAdapter-用来绑定复杂类型的数据-只能是特定泛型的集合" class="headerlink" title="SimpleAdapter: 用来绑定复杂类型的数据, 只能是特定泛型的集合."></a>SimpleAdapter: 用来绑定复杂类型的数据, 只能是特定泛型的集合.</h3><ol>
+<li>创建一个 layout 文件, list_of_items.xml</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/image_view"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:src</span>=<span class="string">"@mipmap/ic_launcher"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/text_view"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"20sp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textColor</span>=<span class="string">"@color/colorPrimary"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>改写 MainActivity 里面的 onCreate() 方法, 注释掉之前用 ArrayAdapter 生成的 listview, 例如,</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * SimpleAdapter(context,</span></span><br><span class="line"><span class="comment"> *              当前 ListView 加载的每一个 item 所对应的布局文件,</span></span><br><span class="line"><span class="comment"> *              data: (List&lt;? extends Map&lt;String, ?&gt;&gt; data),</span></span><br><span class="line"><span class="comment"> *              source: 布局文件 id,</span></span><br><span class="line"><span class="comment"> *              from: Map 的 key</span></span><br><span class="line"><span class="comment"> *              to: Map 的 value</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">simpleAdapter = <span class="keyword">new</span> SimpleAdapter(<span class="keyword">this</span>,</span><br><span class="line">            getData(dataList), R.layout.item_of_list,</span><br><span class="line">            <span class="keyword">new</span> String[]&#123;<span class="string">"image"</span>,<span class="string">"text"</span>&#125;,</span><br><span class="line">            <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;R.id.image_view, R.id.text_view&#125;);</span><br><span class="line">thisIsView.setAdapter(simpleAdapter);</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义类"><a href="#自定义类" class="headerlink" title="自定义类"></a>自定义类</h3><p>更加常用的形式是自定义一个 Adapter 的子类.</p>
+<h2 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h2><p>PS: (cast) 向下转换.</p>
+<p>—<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">service: 可以理解为没有 UI 的 Activity.</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">感谢@天放同学精准到位的总结. ღ(´･ᴗ･`)笔芯.</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/06/Web-Application背后的那些事儿/" rel="next" title="Web Application背后的那些事儿">
+                <i class="fa fa-chevron-left"></i> Web Application背后的那些事儿
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/03/Linear Data Structure iii/" rel="prev" title="Linear Data Structure iii Stack">
+                Linear Data Structure iii Stack <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+
+      
+      
+        <div>
+          
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-4161433143416721",
+    enable_page_level_ads: true
+  });
+</script>
+
+        </div>
+      
+   </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/IMG_0796.jpg" alt="Evelyn">
+            
+              <p class="site-author-name" itemprop="name">Evelyn</p>
+              <p class="site-description motion-element" itemprop="description">Do more; know more; be more.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Evelyn5410" target="_blank" title="Github"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC-设计模式"><span class="nav-number">1.</span> <span class="nav-text">MVC 设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目结构主要部分"><span class="nav-number">2.</span> <span class="nav-text">项目结构主要部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#界面结构"><span class="nav-number">3.</span> <span class="nav-text">界面结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity"><span class="nav-number">4.</span> <span class="nav-text">Activity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity-的生命周期"><span class="nav-number">4.1.</span> <span class="nav-text">Activity 的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent"><span class="nav-number">4.2.</span> <span class="nav-text">Intent</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fragment"><span class="nav-number">5.</span> <span class="nav-text">Fragment</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fragment-通讯"><span class="nav-number">5.1.</span> <span class="nav-text">Fragment 通讯</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Layout-文件"><span class="nav-number">6.</span> <span class="nav-text">Layout 文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件"><span class="nav-number">6.1.</span> <span class="nav-text">组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ListView"><span class="nav-number">6.1.1.</span> <span class="nav-text">ListView:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adapter-在-Java-中-Adapter-是一个-interface-用来把复杂的数据填充在界面上和用户交互"><span class="nav-number">7.</span> <span class="nav-text">Adapter: 在 Java 中, Adapter 是一个 interface. 用来把复杂的数据填充在界面上和用户交互.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayAdapter"><span class="nav-number">7.1.</span> <span class="nav-text">ArrayAdapter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SimpleAdapter-用来绑定复杂类型的数据-只能是特定泛型的集合"><span class="nav-number">7.2.</span> <span class="nav-text">SimpleAdapter: 用来绑定复杂类型的数据, 只能是特定泛型的集合.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义类"><span class="nav-number">7.3.</span> <span class="nav-text">自定义类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异步加载"><span class="nav-number">8.</span> <span class="nav-text">异步加载</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Evelyn</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://evelynone.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2017/03/22/Android-学习笔记/';
+        this.page.identifier = '2017/03/22/Android-学习笔记/';
+        this.page.title = 'Android  学习笔记';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://evelynone.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname,
+            owner: 'Evelyn5410',
+            repo: 'https://github.com/Evelyn5410/git_comment.git',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'c552e7bafbcb85ec6542468a14dc39fe9966bbdc',
+            
+                client_id: 'a8d81cb40f4b02a4def9'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

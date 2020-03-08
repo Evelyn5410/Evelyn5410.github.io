@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/IMG_0030.JPG?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/IMG_0030.JPG?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/IMG_0030.JPG?v=6.2.0">
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Binary search is a search algorithm. The fundamental is that it reduces the searching range into half each time by comparing the middle element to the target. Normal binary search takes O(logn) compar">
+<meta name="keywords" content="Algorithm,Binary Search">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Binary Search">
+<meta property="og:url" content="http://yoursite.com/2017/04/25/Binary-Search/index.html">
+<meta property="og:site_name" content="Evelynone">
+<meta property="og:description" content="Binary search is a search algorithm. The fundamental is that it reduces the searching range into half each time by comparing the middle element to the target. Normal binary search takes O(logn) compar">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/bs1.png">
+<meta property="og:updated_time" content="2020-03-08T17:49:37.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Binary Search">
+<meta name="twitter:description" content="Binary search is a search algorithm. The fundamental is that it reduces the searching range into half each time by comparing the middle element to the target. Normal binary search takes O(logn) compar">
+<meta name="twitter:image" content="http://yoursite.com/images/bs1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/25/Binary-Search/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Binary Search | Evelynone</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=117927090-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '117927090-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Evelynone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">A straw shows which way the wind blows</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">17</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">21</span></a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Binary-Search/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Evelyn">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/IMG_0796.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Evelynone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Binary Search
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 04-25-2017 22:30:56" itemprop="dateCreated datePublished" datetime="2017-04-25T22:30:56-07:00">04-25-2017</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 03-08-2020 10:49:37" itemprop="dateModified" datetime="2020-03-08T10:49:37-07:00">03-08-2020</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/25/Binary-Search/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/25/Binary-Search/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Binary search is a search algorithm. The fundamental is that it reduces the searching range into half each time by comparing the middle element to the target. Normal binary search takes O(logn) comparisons, when n is the number of input. Space actually depends on the implementation. If not using recursion, there would be no extra space used in a regular binary search. Therefore, it normally is O(1).</p>
+<a id="more"></a>
+
+<p>Key concept:</p>
+<ol>
+<li>Input must be in some sort of order (ascending, descending, alphabetic, positve and nagative, increased then descrease, etc.)</li>
+<li>Searching/calculation/operating range must be reduced each time.</li>
+<li>Targe must not be ruled out.</li>
+</ol>
+<h3 id="Classic-Binary-Search"><a href="#Classic-Binary-Search" class="headerlink" title="Classic Binary Search"></a>Classic Binary Search</h3><p><code>input:</code> A sorted array and a target.<br><code>output:</code> Index of the target if exits, otherwise, return -1;</p>
+<p><strong>Iteration</strong><br>Time complexity is O(logn), where n is the size of input. Space is O(1) using iteration.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinarySearch</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binarySearch</span> <span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (array == <span class="keyword">null</span> || array.length == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = array.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (array[mid] == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//other wise mid is not the result, rule it out.</span></span><br><span class="line">            <span class="keyword">if</span> (array[mid] &gt; target) &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//if not return in the while loop, target doesn't exist.</span></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Recursion</strong><br>Time complexity is the same as O(logn). Call stack counts as space expense, which is O(logn).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinarySearch</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binarySearch</span> <span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (array == <span class="keyword">null</span> || array.length == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> helper(array, <span class="number">0</span>, array.length - <span class="number">1</span>, target);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">helper</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (left &gt; right) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (array[mid] == target) <span class="keyword">return</span> mid;</span><br><span class="line">        <span class="comment">//if not return, mid is not target, can rule out mid.</span></span><br><span class="line">        <span class="keyword">if</span> (array[mid] &gt; target) &#123;</span><br><span class="line">            <span class="keyword">return</span> helper(array, left, mid - <span class="number">1</span>, target);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> helper(array, mid + <span class="number">1</span>, right, target);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Search-a-2D-Matrix-I"><a href="#Search-a-2D-Matrix-I" class="headerlink" title="Search a 2D Matrix I"></a>Search a 2D Matrix I</h3><p><code>input:</code> A matrix that each row is in ascending order, and the first element of each row is greater than the last element of previous row. A int type target.<br><code>output:</code> The coordinate of the target if exists. Otherwise, return -1.</p>
+<p>One way to solve this problem by using binary search is convert 2D matrix into an array. Due to the property of the matrix, from left to right, top to buttom, all elements are in ascending order. Therefore, it will be able to use the classic binary search. The time complexity is O(n + m) where n is the number of row and m is the number of colmun. Space complexity is O(1). No extra data structure is used.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Search2DMatrix</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> matrix</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchMatrixI</span> <span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span> || matrix[<span class="number">0</span>] == <span class="keyword">null</span> || matrix[<span class="number">0</span>].length == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> row = matrix.length;</span><br><span class="line">        <span class="keyword">int</span> column = matrix[<span class="number">0</span>].length;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = row * column - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> x = mid / column, y = mid % column;</span><br><span class="line">            <span class="keyword">if</span> (matrix[x][y] == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> matrix[x][y];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (matrix[x][y] &lt; target) &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Search-in-a-Unknown-Size-Array"><a href="#Search-in-a-Unknown-Size-Array" class="headerlink" title="Search in a Unknown Size Array"></a>Search in a Unknown Size Array</h3><p><code>input:</code> An unknwon size array in ascending order, you can only access the kth number by ArrayReader.get(k). A target number.<br><code>output:</code> return the <strong>first occurrence</strong> of the target.</p>
+<p>Only thing differnce from classic bianry search is right boundary. While checking the right boundary, set the left boundary where is the last position that the element is smaller than the target. Jumping 2 times of the current element to locate the right boundary, then the time complexity is O(logk + O(logn)) where k is the element from the left boundary to the right boundary, n is the number of elements preceding the left boundary.<br>The only reason jumping 2 times instead of a larger one is beacuse the final time complexity is difference only in coefficient. The size is unknwon. If there are only a few of elements in the array, jumping 10 times or 20 times would be out of bounds. It is not worth to take the risk.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchUnknownSize</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> reader: An instance of ArrayReader.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target: An integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: An integer which is the first index of target.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchBigSortedArray</span><span class="params">(ArrayReader reader, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (reader == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//locate right boundary</span></span><br><span class="line">        <span class="keyword">int</span> right = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (reader.get(right - <span class="number">1</span>) &lt; target) &#123;</span><br><span class="line">            right *= <span class="number">2</span>;</span><br><span class="line">            left = right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//binary search for first occurrence</span></span><br><span class="line">        <span class="keyword">while</span> (left + <span class="number">1</span> &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (reader.get(mid) &gt;= target) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (reader.get(mid) &lt; target) &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (reader.get(left) == target) <span class="keyword">return</span> left;</span><br><span class="line">        <span class="keyword">if</span> (reader.get(right) == target) <span class="keyword">return</span> right;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="First-Bad-Log"><a href="#First-Bad-Log" class="headerlink" title="First Bad Log"></a>First Bad Log</h3><p>The concept is using binary search to find the left and right boundary, and locate the first occurrence of the bad log.</p>
+<h3 id="Search-Insert-Position"><a href="#Search-Insert-Position" class="headerlink" title="Search Insert Position"></a>Search Insert Position</h3><p><code>input:</code> an integer array and a target number.<br><code>output:</code> return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p>
+<p>It is easier to find a closest number to the target, then compare the element to the target,</p>
+<ol>
+<li>insert target at the position it if the element is greater or equal to the target.</li>
+<li>insert target after the position if the element is smaller than the target.</li>
+</ol>
+<p>The time comlexity is O(logn). Space complexity is O(1).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">searchInsert</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> input: an integer sorted array</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target: an integer to be inserted</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: An integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="keyword">int</span>[] input, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="keyword">if</span> (input == <span class="keyword">null</span> || input.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = input.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//keep one element for comparing to the target.</span></span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (input[mid] &gt;= target) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (input[left] &gt;= target) &#123;</span><br><span class="line">            <span class="keyword">return</span> left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> left + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="First-Occurrence-of-Target"><a href="#First-Occurrence-of-Target" class="headerlink" title="First Occurrence of Target"></a>First Occurrence of Target</h3><p><code>input:</code> an sorted int array in ascending order<br><code>output:</code> index of the first occrrence of the target. If not exist, return -1;<br>I’d like call it look to the left. Using binary search, if greater or equal, set the right boundary at the position. If less than the target, the element is excluded from searching range.<br>Time comlexity is O(logn), space is O(1).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FirstOccurrence</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> input</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> first occurrence of the target</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">firstOccurrence</span><span class="params">(<span class="keyword">int</span>[] input, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (input == <span class="keyword">null</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = input.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left + <span class="number">1</span> &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (input[mid] &gt;= target) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (input[left] == target) <span class="keyword">return</span> left;</span><br><span class="line">        <span class="keyword">return</span> right;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Last-Occurrence-of-Target"><a href="#Last-Occurrence-of-Target" class="headerlink" title="Last Occurrence of Target"></a>Last Occurrence of Target</h3><p><code>input:</code> an sorted int array in ascending order<br><code>output:</code> index of the last occurrence of the target. If not exisit, return -1.</p>
+<p>I’d like call it look to the right. Similar to first occurrance. Only difference is if the element at the middle is less than or equal to the target, set the left boundary, because right result must be in the range from the position to the end. If the middle element is greater than the target, it is eliminated from the result.</p>
+<p>Time comlexity is O(logn), space is O(1).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LastOccurrence</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> input</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> first occurrence of the target</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lastOccurrence</span><span class="params">(<span class="keyword">int</span>[] input, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (input == <span class="keyword">null</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = input.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left + <span class="number">1</span> &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (input[mid] &lt;= target) &#123;</span><br><span class="line">                left = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (input[right] == target) <span class="keyword">return</span> right;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Total-Occurrence-of-Target"><a href="#Total-Occurrence-of-Target" class="headerlink" title="Total Occurrence of Target"></a>Total Occurrence of Target</h3><p><code>input:</code> an int array in ascending order and a target number.<br><code>output:</code> return the total occurrence of the target.</p>
+<p>One way to do it is, targeting either the first occurrence or the last occurrence of the target. The look throught it and count. The time complexity would be O(logn) for finding the position and O(k) for looping the number of target, so it is O(logn + k). Space comlexity is O(1).</p>
+<p>Another way of calculating the number of target in the array is to get both first occurrence and the last occurrence of the larget. Using the last position minus the first position and plus 1 to get the total number of target in the array. The time complexity is O(2logn). Space Comlextiy is O(1).</p>
+<p>Which ways is bettern actually depending on the number of target, k. If all elements in the array are the same numbers. For example, {1, 1, 1, …, 1, 1}. The first method becomes O(n). The second method remains the same. However, if k is a really small number, then the first method is better.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TotalOccurrence</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> input:  an integer array sorted in ascending order</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target: An integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: An integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">totalOccurrence</span><span class="params">(<span class="keyword">int</span>[] input, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (input == <span class="keyword">null</span> ||</span><br><span class="line">                input.length == <span class="number">0</span> ||</span><br><span class="line">                input[<span class="number">0</span>] &gt; target ||</span><br><span class="line">                input[input.length - <span class="number">1</span>] &lt; target) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = input.length - <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//left boundary</span></span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (input[mid] &gt;= target) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//退出条件是一个元素, 如果不等于 target, 则 target 不存在.</span></span><br><span class="line">        <span class="keyword">if</span> (input[left] != target) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//left boundary and right boundary</span></span><br><span class="line">        <span class="keyword">int</span> start = left, end = input.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//right boundary</span></span><br><span class="line">        right = end;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (input[mid] &lt;= target) &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">                end = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> end - start + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Search-for-a-Range"><a href="#Search-for-a-Range" class="headerlink" title="Search for a Range"></a>Search for a Range</h3><p>As same as total occurance, only changes the return type to a <code>new int[]{start, end}</code>.<br>Time and space comlexity are the same, too.</p>
+<h3 id="Closest-Number-to-Target"><a href="#Closest-Number-to-Target" class="headerlink" title="Closest Number to Target"></a>Closest Number to Target</h3><p><code>input:</code> An integer array and an integer target number.<br><code>output:</code> return the number that closest to the target.</p>
+<p>Time complexity is O(logn). Space complexity is O(1). Using binary search and reducing the candidate to two elements. Whichever closer to target is the result.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClosestNumber</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> input an integer array sorted in ascending order</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target an integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> an integer</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">closestNumber</span><span class="params">(<span class="keyword">int</span>[] input, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (input == <span class="keyword">null</span> || input.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = input.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left + <span class="number">1</span> &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (input[mid] &lt;= target) &#123;</span><br><span class="line">                left = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> Math.abs(input[left] - target) &lt; Math.abs(input[right] - target) ? left : right;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<!-- ### Find K cloest Numbers to Target -->
+
+<h3 id="Search-in-Rotated-Sorted-Array-I"><a href="#Search-in-Rotated-Sorted-Array-I" class="headerlink" title="Search in Rotated Sorted Array I"></a>Search in Rotated Sorted Array I</h3><p><code>input:</code> a sorted array is rotated at some unknown pivot and a target number. (No duplicates)<br><code>output:</code> return the index of target if exists. Otherwise, return -1.</p>
+<p>Since the array is still sorted in a way, it still can use binary search. The middle element has 3 situations:</p>
+<ol>
+<li>it is the target</li>
+<li>it is in an rotated interval (greater than the right most element)<ul>
+<li>it is greater than the target, target could be in both side of the array.</li>
+<li>it is less than target, set the left boundary.</li>
+</ul>
+</li>
+<li>it is in an unrotated interval (smaller than the right most element) - it is greater than the target, set the right boundary. - it is less than the target, target could be in both side of the array.<br>This problem actually would be more straitforwar if looking at a picture.</li>
+</ol>
+<p>The time complexity is as same as classic binary search, O(logn), although it has more conditions. Space complexity is O(1).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RoatedSortedArrayI</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> input</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] input, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (input == <span class="keyword">null</span> || input.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = input.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (input[mid] == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//第一个上升区间</span></span><br><span class="line">            <span class="keyword">if</span> (input[mid] &gt; input[right]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (input[mid] &gt; target &amp;&amp; target &gt; input[right]) &#123;</span><br><span class="line">                    right = mid - <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    left = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//第二个上升区间</span></span><br><span class="line">            <span class="keyword">if</span> (input[mid] &lt; input[left]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (input[mid] &lt; target &amp;&amp; target &lt; input[left]) &#123;</span><br><span class="line">                    left = mid + <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    right = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Search-in-Rotated-Sorted-Array-II"><a href="#Search-in-Rotated-Sorted-Array-II" class="headerlink" title="Search in Rotated Sorted Array II"></a>Search in Rotated Sorted Array II</h3><p><code>input:</code> rotated array with duplicates.<br><code>output:</code> index of target.</p>
+<p>Fist of all, run a for loop searching target takes O(n). If the array is rotated with duplicates, it takes redundant checks to determine whether the middle point is in which interval. For example, {1, 1, 1, 1, 1, 0, 1, 1, 1}. The time complexity would be O(n) the worst case. Therefore, just simply run a loop.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchRotateArrayII</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> input: an integer ratated sorted array and duplicates are allowed</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target: An integer</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: index</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] input, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (input == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; input.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (input[i] == target) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Find-Peak-Element"><a href="#Find-Peak-Element" class="headerlink" title="Find Peak Element"></a>Find Peak Element</h3><p><code>input:</code> An integers array that the numbers in adjacent positions are different. A[0] &lt; A[1] &amp;&amp; A[A.length - 2] &gt; A[A.length - 1].</p>
+<blockquote>
+<p>Peak in an array: A[P] &gt; A[P-1] &amp;&amp; A[P] &gt; A[P+1] &gt; <code>output:</code> return any of peek positions. <strong>There might be more than one peeks</strong>.</p>
+</blockquote>
+<p>According to the definition of the peek and the array’s feature. Returning any peek can use a binary saerch. Since the array is kind of sorted, the middle point would have three situations.</p>
+<ol>
+<li>middle point is the peek</li>
+<li>middle point is in the left side of a peek, then it’s in ascending order (like going uphill)</li>
+<li>middle point is in the right side of a peek, then it’s in descending order (like going downhill)</li>
+</ol>
+<p>Time comlexity is O(logn). Space complexity is O(1).</p>
+<p>If using ‘left + 1 &lt; right’ as the condition of the while loop, it eliminates many checkings for index out of bounds excemption. The element always needs to compare with its neighbor, so it’s easier to keep at least three elements during the comparing. Making sure that the peek would not be ruled out guarantees the greater element to be the peek when finishing the loop.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FindPeek</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> input: An integers array.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: return any of peek positions.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findPeak</span><span class="params">(<span class="keyword">int</span>[] input)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (input == <span class="keyword">null</span> || input.length &lt; <span class="number">3</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = input.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left + <span class="number">1</span> &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="comment">/*if (input[mid] &gt; input[mid - 1] &amp;&amp; input[mid] &gt; input[mid + 1]) &#123;</span></span><br><span class="line"><span class="comment">                return mid;</span></span><br><span class="line"><span class="comment">            &#125;*/</span></span><br><span class="line">            <span class="comment">//at ascending interval</span></span><br><span class="line">            <span class="keyword">if</span> (input[mid] &gt; input[mid - <span class="number">1</span>]) &#123;</span><br><span class="line">                left = mid;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//at descending interval</span></span><br><span class="line">            <span class="keyword">if</span> (input[mid] &lt; input[mid - <span class="number">1</span>]) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (input[left] &gt; input[right]) &#123;</span><br><span class="line">            <span class="keyword">return</span> left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> right;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Maximum-Number-in-Mountain-Sequence"><a href="#Maximum-Number-in-Mountain-Sequence" class="headerlink" title="Maximum Number in Mountain Sequence"></a>Maximum Number in Mountain Sequence</h3><p><code>input:</code> An integer array which increase firsly and then decreses.<br><code>output:</code> return the mountain top.</p>
+<p>Actually the same question as find peek. T = O(logn), S = O(1). Comparing an element to its neighbor is always easier to keep at least 3 elements. It saves many index boundary check. <strong>Notice that left or right boundary could be the candidate of the result, it should not be eliminated</strong>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MountainTop</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * @param input: a mountain sequence which increase firstly and then decrease</span></span><br><span class="line"><span class="comment">     * @return: then mountain top</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mountainSequence</span><span class="params">(<span class="keyword">int</span>[] input)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (input == <span class="keyword">null</span> || input.length == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = input.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (left + <span class="number">1</span> &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (input[mid] &lt; input[mid + <span class="number">1</span>]) &#123;</span><br><span class="line">                left = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Math.max(input[left], input[right]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Find-Minimum-in-Rotated-orted-Array-I"><a href="#Find-Minimum-in-Rotated-orted-Array-I" class="headerlink" title="Find Minimum in Rotated orted Array I"></a>Find Minimum in Rotated orted Array I</h3><p>This question is actually as same as finding the peek.</p>
+<h3 id="Find-Minimum-in-Rotated-orted-Array-II"><a href="#Find-Minimum-in-Rotated-orted-Array-II" class="headerlink" title="Find Minimum in Rotated orted Array II"></a>Find Minimum in Rotated orted Array II</h3><p>As same as duplicates in a rotated sorted array, it is not worth to use binary search with all redundant checks.</p>
+<!-- ### Intersection of Two Arrays I
+
+### Intersection of Two Arrays II
+
+### Russian Doll Envelopes -->
+
+<h3 id="Single-Number-IV"><a href="#Single-Number-IV" class="headerlink" title="Single Number IV"></a>Single Number IV</h3><p><code>input:</code> an int array with all the numbers appear twice except one number which appears once and all the numbers which appear twice are next to each other.<br><code>output:</code> find the number that appears once. 找出单身狗 🤣</p>
+<p>Intuitive way is using a set. Beacuse of the property of set, if there exisit the element, remove the element. The one left in the set would be the result. Time comlexity is O(n), and space complexity is about O(n) during the comparing. However, this would waste the clue that “same numbers appear next to each other”. Since the intutitive way takes only O(n), optimized method ought to be better than that.</p>
+<p>Since there is only 1 missing number, then the number element of the input must be odd.<br>There are 2 cases of the middle number.</p>
+<ol>
+<li>the middle number is the missing number.</li>
+<li>the middle number has an ajacent duplicate number.<ul>
+<li>The adjacent number with the same value is in the left side.</li>
+<li>the adjacent number with the same value is in the right side.</li>
+</ul>
+</li>
+</ol>
+<p><img src="/images/bs1.png" alt><br>The key point is, the side that has the odd number of element after eliminating the middle pair has the missing number. Time comlexity is O(logn). Space comlexity is O(1).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MissingNumberIV</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> the lonely number</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSingleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span> || nums.length % <span class="number">2</span> == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">1</span>) <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//if not return, the array has at lest 3 elements.</span></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//和右边相等的话, 右边减去1 是不是偶数</span></span><br><span class="line">            <span class="keyword">if</span> (nums[mid] == nums[mid + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((right - mid - <span class="number">1</span>) % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                    right = mid - <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    left = mid + <span class="number">2</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] == nums[mid - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((mid - left - <span class="number">1</span>) % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                    left = mid + <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    right = mid - <span class="number">2</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> nums[mid];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[left];<span class="comment">///</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<!-- ### Max Sum of Rectangle No Larger Than K -->
+
+<h3 id="Power-x-n"><a href="#Power-x-n" class="headerlink" title="Power(x, n)"></a>Power(x, n)</h3><p><code>input:</code> two integers.<br><code>output:</code> return the power of the first number.</p>
+<p>There are several cases need to concern in the arithmetical opeation:</p>
+<ol>
+<li>overflow</li>
+<li>base is 0<ul>
+<li>if exponent &lt;= 0, error</li>
+<li>if exponent &gt; 0, return 0</li>
+</ul>
+</li>
+<li>exponent is 0, return 1</li>
+<li>exponent is negative, 1 / result</li>
+<li>exponent is positive,<ul>
+<li>exponent is even number</li>
+<li>exponent is odd number</li>
+</ul>
+</li>
+</ol>
+<p>Using recursion to reduce the power. a to the power of b can be divided into a to the half of power of b times a to the half of power of b. And so on and so forth. The complexity is O(logb). Space compexity is O(logb) due to the call stack.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PowerAB</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> a</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> b</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">power</span> <span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (a == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (b &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Illegal input"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (b &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span> / helper(a, -b);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> helper(a, b);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">double</span> <span class="title">helper</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (b == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span> half = helper(a, b / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span> (b % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> half * half;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> half * half * a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Divide-Two-Integers"><a href="#Divide-Two-Integers" class="headerlink" title="Divide Two Integers"></a>Divide Two Integers</h3><p><code>input:</code> two itnegers<br><code>output:</code> divide two integers without using multiplications, division and modulo.</p>
+<p>Using divisor to reduce the number of dividend to get the result. Counting how many dividend has been detracted<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>. Similar as doing power of two integers, using binary concept to accelerate the process<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>. Time complexity is O(logn) where n is the divisor and the space complexity is O(1).</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DivideTwoIntegers</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dividend</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> divisor</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">divide</span><span class="params">(<span class="keyword">int</span> dividend, <span class="keyword">int</span> divisor)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (dividend == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Dividend cannot be 0."</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (divisor == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> dividend &lt; <span class="number">0</span> ? Integer.MIN_VALUE : <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (dividend == Integer.MIN_VALUE &amp;&amp; divisor == -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">boolean</span> isNegative = (dividend &lt; <span class="number">0</span> &amp;&amp; divisor &gt; <span class="number">0</span> ||</span><br><span class="line">                              dividend &gt; <span class="number">0</span> &amp;&amp; divisor &lt; <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> absDividend = Math.abs((<span class="keyword">long</span>) dividend);</span><br><span class="line">        <span class="keyword">long</span> absDivisor = Math.abs((<span class="keyword">long</span>) divisor);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> result = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (absDividend &gt;= absDivisor) &#123;</span><br><span class="line">            <span class="keyword">int</span> shift = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (absDividend &gt;= (divisor &lt;&lt; shift)) &#123;</span><br><span class="line">                shift++;</span><br><span class="line">            &#125;</span><br><span class="line">            dividend -= divisor &lt;&lt; (shift - <span class="number">1</span>);</span><br><span class="line">            result += <span class="number">1</span> &lt;&lt; (shift - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> isNegative ? (<span class="keyword">int</span>) -result : (<span class="keyword">int</span>) result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Find-Smallest-Letter-Greater-Than-Target-LeetCode-744"><a href="#Find-Smallest-Letter-Greater-Than-Target-LeetCode-744" class="headerlink" title="Find Smallest Letter Greater Than Target (LeetCode 744)"></a>Find Smallest Letter Greater Than Target (LeetCode 744)</h3><p><code>input:</code> a char array of sorted letters containing <strong>only lowercase</strong> letters, and given a target letter target.<br><code>output:</code> return the smallest element in the list that is larger than the given target.</p>
+<p>Letters are ordered is ideal for binary search. Time complexity is O(logn). Space is O(1). Keep one element that is greater than the target. If the characters is less than or equal to target, target must closer to the first element in the array. Otherwise, the character is the result.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmallestGreaterLetter</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> letters</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> target</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">char</span> <span class="title">nextGreatestLetter</span><span class="params">(<span class="keyword">char</span>[] letters, <span class="keyword">char</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (letters == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="string">' '</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = letters.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (letters[mid] &lt;= target) &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (letters[left] &lt;= target) <span class="keyword">return</span> letters[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">return</span> letters[left];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&lt;!– ### Count of Smaller Number<br><code>input:</code> an integer array and a query list.<br><code>output:</code> return the number of element in the array that are smaller than the given number in the query.</p>
+<h3 id="続く。"><a href="#続く。" class="headerlink" title="続く。"></a>続く。</h3><hr>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">https://blog.csdn.net/fightforyourdream/article/details/16899675</span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">http://www.cnblogs.com/yuzhangcmu/p/4049170.html</span><a href="#fnref:2" rev="footnote"> ↩</a></li></ol></div></div>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+            <a href="/tags/Binary-Search/" rel="tag"># Binary Search</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/24/Data-Structure-VI-Graph-I/" rel="next" title="Data Structure VI Graph I">
+                <i class="fa fa-chevron-left"></i> Data Structure VI Graph I
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/05/Data-Structure-VI-Graph-II/" rel="prev" title="Data Structure VI Graph II">
+                Data Structure VI Graph II <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+
+      
+      
+        <div>
+          
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-4161433143416721",
+    enable_page_level_ads: true
+  });
+</script>
+
+        </div>
+      
+   </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/IMG_0796.jpg" alt="Evelyn">
+            
+              <p class="site-author-name" itemprop="name">Evelyn</p>
+              <p class="site-description motion-element" itemprop="description">Do more; know more; be more.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Evelyn5410" target="_blank" title="Github"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Classic-Binary-Search"><span class="nav-number">1.</span> <span class="nav-text">Classic Binary Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-a-2D-Matrix-I"><span class="nav-number">2.</span> <span class="nav-text">Search a 2D Matrix I</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-in-a-Unknown-Size-Array"><span class="nav-number">3.</span> <span class="nav-text">Search in a Unknown Size Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#First-Bad-Log"><span class="nav-number">4.</span> <span class="nav-text">First Bad Log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-Insert-Position"><span class="nav-number">5.</span> <span class="nav-text">Search Insert Position</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#First-Occurrence-of-Target"><span class="nav-number">6.</span> <span class="nav-text">First Occurrence of Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Last-Occurrence-of-Target"><span class="nav-number">7.</span> <span class="nav-text">Last Occurrence of Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Total-Occurrence-of-Target"><span class="nav-number">8.</span> <span class="nav-text">Total Occurrence of Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-for-a-Range"><span class="nav-number">9.</span> <span class="nav-text">Search for a Range</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Closest-Number-to-Target"><span class="nav-number">10.</span> <span class="nav-text">Closest Number to Target</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-in-Rotated-Sorted-Array-I"><span class="nav-number">11.</span> <span class="nav-text">Search in Rotated Sorted Array I</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-in-Rotated-Sorted-Array-II"><span class="nav-number">12.</span> <span class="nav-text">Search in Rotated Sorted Array II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Find-Peak-Element"><span class="nav-number">13.</span> <span class="nav-text">Find Peak Element</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximum-Number-in-Mountain-Sequence"><span class="nav-number">14.</span> <span class="nav-text">Maximum Number in Mountain Sequence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Find-Minimum-in-Rotated-orted-Array-I"><span class="nav-number">15.</span> <span class="nav-text">Find Minimum in Rotated orted Array I</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Find-Minimum-in-Rotated-orted-Array-II"><span class="nav-number">16.</span> <span class="nav-text">Find Minimum in Rotated orted Array II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Single-Number-IV"><span class="nav-number">17.</span> <span class="nav-text">Single Number IV</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Power-x-n"><span class="nav-number">18.</span> <span class="nav-text">Power(x, n)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Divide-Two-Integers"><span class="nav-number">19.</span> <span class="nav-text">Divide Two Integers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Find-Smallest-Letter-Greater-Than-Target-LeetCode-744"><span class="nav-number">20.</span> <span class="nav-text">Find Smallest Letter Greater Than Target (LeetCode 744)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#続く。"><span class="nav-number">21.</span> <span class="nav-text">続く。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Evelyn</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://evelynone.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2017/04/25/Binary-Search/';
+        this.page.identifier = '2017/04/25/Binary-Search/';
+        this.page.title = 'Binary Search';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://evelynone.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname,
+            owner: 'Evelyn5410',
+            repo: 'https://github.com/Evelyn5410/git_comment.git',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'c552e7bafbcb85ec6542468a14dc39fe9966bbdc',
+            
+                client_id: 'a8d81cb40f4b02a4def9'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
