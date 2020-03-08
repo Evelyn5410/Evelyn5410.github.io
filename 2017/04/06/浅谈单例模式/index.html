@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="Singleton status is wether exists, and it only has one instance if it exists.Article Language: ChineseExample Language: JavaReading Time: 5min">
+  <meta name="description" content="Singleton status is wether exists, and it only has one instance if it exists. Article Language: ChineseExample Language: JavaReading Time: 5min">
 <meta name="keywords" content="Design Pattern">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Little about Singleton Pattern">
 <meta property="og:url" content="http://yoursite.com/2017/04/06/浅谈单例模式/index.html">
 <meta property="og:site_name" content="Evelynone">
-<meta property="og:description" content="Singleton status is wether exists, and it only has one instance if it exists.Article Language: ChineseExample Language: JavaReading Time: 5min">
+<meta property="og:description" content="Singleton status is wether exists, and it only has one instance if it exists. Article Language: ChineseExample Language: JavaReading Time: 5min">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-03-08T17:47:39.007Z">
+<meta property="og:updated_time" content="2020-03-08T19:10:32.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Little about Singleton Pattern">
-<meta name="twitter:description" content="Singleton status is wether exists, and it only has one instance if it exists.Article Language: ChineseExample Language: JavaReading Time: 5min">
+<meta name="twitter:description" content="Singleton status is wether exists, and it only has one instance if it exists. Article Language: ChineseExample Language: JavaReading Time: 5min">
 
 
 
@@ -204,7 +204,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">A straw shows which way the wind blows</p>
+        <p class="site-subtitle"></p>
       
   </div>
 
@@ -254,7 +254,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">21</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">23</span></a>
   </li>
 
       
@@ -393,7 +393,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 03-08-2020 10:47:39" itemprop="dateModified" datetime="2020-03-08T10:47:39-07:00">03-08-2020</time>
+                <time title="Modified: 03-08-2020 12:10:32" itemprop="dateModified" datetime="2020-03-08T12:10:32-07:00">03-08-2020</time>
               
             
           </span>
@@ -443,7 +443,8 @@
       
 
       
-        <p>Singleton status is wether exists, and it only has one instance if it exists.<br>Article Language: Chinese<br>Example Language: Java<br>Reading Time: 5min</p>
+        <p>Singleton status is wether exists, and it only has one instance if it exists.</p>
+<p>Article Language: Chinese<br>Example Language: Java<br>Reading Time: 5min</p>
 <a id="more"></a>
 
 <p>其实逻辑很简单, 由类自己决定什么时候要生成一个 instance, 以及确认是否已经生成了一个实例.<br>提供一个全局的访问点(调用构造函数的方法).</p>
@@ -499,7 +500,8 @@ data race:
         synchronized method: 锁的是参与这个方法的 object.
         synchronize static method: 锁的是这个 class, ***但是不表示锁了所有的instance***. 不能用 this, 只能用 ClassName.class -->
 
-<p>—[1]: Bloch, Joshua. Effective Java (3rd Edition): Joshua Bloch: 9780134685991 … <a href="http://www.bing.com/cr?IG=5B8E21E3EB364911A45C4D01A0F4314B&amp;CID=066CBDC1AC5B61F50EE1B616ADF46080&amp;rd=1&amp;h=v1tkqRWZ4_Dmqdw9V5prH4iBztvXb3p4O5mt9M6yErY&amp;v=1&amp;r=https://www.amazon.com/Effective-Java-3rd-Joshua-Bloch/dp/0134685997&amp;p=DevEx.LB.1,5081.1" target="_blank" rel="noopener">www.bing.com/cr?IG=5B8E21E3EB364911A45C4D01A0F4314B&amp;CID=066CBDC1AC5B61F50EE1B616ADF46080&amp;rd=1&amp;h=v1tkqRWZ4_Dmqdw9V5prH4iBztvXb3p4O5mt9M6yErY&amp;v=1&amp;r=https://www.amazon.com/Effective-Java-3rd-Joshua-Bloch/dp/0134685997&amp;p=DevEx.LB.1,5081.1</a>.</p>
+<hr>
+<p>[1]: Bloch, Joshua. Effective Java (3rd Edition): Joshua Bloch: 9780134685991 … <a href="http://www.bing.com/cr?IG=5B8E21E3EB364911A45C4D01A0F4314B&amp;CID=066CBDC1AC5B61F50EE1B616ADF46080&amp;rd=1&amp;h=v1tkqRWZ4_Dmqdw9V5prH4iBztvXb3p4O5mt9M6yErY&amp;v=1&amp;r=https://www.amazon.com/Effective-Java-3rd-Joshua-Bloch/dp/0134685997&amp;p=DevEx.LB.1,5081.1" target="_blank" rel="noopener">www.bing.com/cr?IG=5B8E21E3EB364911A45C4D01A0F4314B&amp;CID=066CBDC1AC5B61F50EE1B616ADF46080&amp;rd=1&amp;h=v1tkqRWZ4_Dmqdw9V5prH4iBztvXb3p4O5mt9M6yErY&amp;v=1&amp;r=https://www.amazon.com/Effective-Java-3rd-Joshua-Bloch/dp/0134685997&amp;p=DevEx.LB.1,5081.1</a>.</p>
 
       
     </div>
@@ -558,8 +560,8 @@ data race:
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/06/Java从 char 到 String/" rel="prev" title="Java from char to string">
-                Java from char to string <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/06/Java从 char 到 String/" rel="prev" title="Java from char to String">
+                Java from char to String <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -690,7 +692,7 @@ data race:
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

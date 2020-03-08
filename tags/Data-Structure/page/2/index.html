@@ -108,7 +108,7 @@
 <meta name="keywords" content="blog evelyn github io evelynone alghrightms life">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Evelynone">
-<meta property="og:url" content="http://yoursite.com/tags/data-structure/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/Data-Structure/page/2/index.html">
 <meta property="og:site_name" content="Evelynone">
 <meta property="og:description" content="Do more; know more; be more.">
 <meta property="og:locale" content="default">
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/data-structure/">
+  <link rel="canonical" href="http://yoursite.com/tags/Data-Structure/page/2/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>Tag: data structure | Evelynone</title>
+  <title>Tag: Data Structure | Evelynone</title>
   
 
 
@@ -343,7 +343,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>data structure<small>Tag</small>
+        <h1>Data Structure<small>Tag</small>
         </h1>
       </div>
 
@@ -355,17 +355,17 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/05/05/Data-Structure-IV-Queue/" itemprop="url">
+            <a class="post-title-link" href="/2017/04/03/Data Structure V Tree/" itemprop="url">
               
-                <span itemprop="name">Data Structure IV Queue</span>
+                <span itemprop="name">Data Structure V Tree I</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-05-05T21:01:37-07:00" content="05-05-2017">
-          05-05
+        <time class="post-time" itemprop="dateCreated" datetime="2017-04-03T22:08:09-07:00" content="04-03-2017">
+          04-03
         </time>
       </div>
 
@@ -381,17 +381,17 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/04/24/Data-Structure-VI-Graph-I/" itemprop="url">
+            <a class="post-title-link" href="/2017/04/03/Linear Data Structure iii/" itemprop="url">
               
-                <span itemprop="name">Data Structure VI Graph I</span>
+                <span itemprop="name">Linear Data Structure iii Stack</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-04-24T12:05:18-07:00" content="04-24-2017">
-          04-24
+        <time class="post-time" itemprop="dateCreated" datetime="2017-04-03T00:00:00-07:00" content="04-03-2017">
+          04-03
         </time>
       </div>
 
@@ -408,6 +408,10 @@
   
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/tags/Data-Structure/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/tags/Data-Structure/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -972,183 +976,6 @@
                     } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
                       return sliceRight.hits.length - sliceLeft.hits.length;
                     } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-
-  <script>
-    
-      pbOptions = {};
-      
-          pbOptions.iconStyle = "box";
-      
-          pbOptions.boxForm = "horizontal";
-      
-          pbOptions.position = "bottomCenter";
-      
-          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
-      
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-    
-    
-      flOptions = {};
-      
-          flOptions.iconStyle = "box";
-      
-          flOptions.boxForm = "horizontal";
-      
-          flOptions.position = "middleRight";
-      
-          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
-      
-      new needShareButton('#needsharebutton-float', flOptions);
-    
-  </script>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
-              } else {
                       return sliceLeft.start - sliceRight.start;
                     }
                   });
